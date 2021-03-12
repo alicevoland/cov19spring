@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 1</title>
+</head>
+<body>
+
+<h1>Visu Test 1</h1>
+
+<p> There is <span th:text="${regions.size()}"> number </span> regions </p>
+
+<th:block th:each="region: ${regions}">
+
+    <h2 th:text="${region.getRegionName()}">Région</h2>
+
+    <p> I got <span th:text="${region.getIntensiveCareAdmissions().size()}">number</span> of admission entries</p>
+
+</th:block>
+
+</body>
+</html>
