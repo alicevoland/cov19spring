@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.happy-minute</groupId>
-	<artifactId>test-clr</artifactId>
+	<artifactId>covid-gouv-fr</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test-clr</name>
 	<description>Test CLR Project</description>
