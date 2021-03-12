@@ -1,7 +1,7 @@
-package com.happyminute.covidgouvfr.web;
+package com.mvoland.cov19api.web;
 
-import com.happyminute.covidgouvfr.business.domain.RegionIntensiveCare;
-import com.happyminute.covidgouvfr.business.service.RegionIntensiveCareService;
+import com.mvoland.cov19api.business.domain.RegionIntensiveCare;
+import com.mvoland.cov19api.business.service.RegionIntensiveCareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

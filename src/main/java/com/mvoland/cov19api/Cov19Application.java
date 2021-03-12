@@ -1,4 +1,4 @@
-package com.happyminute.covidgouvfr;
+package com.mvoland.cov19api;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,16 +9,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class TestClrApplication {
+public class Cov19Application {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestClrApplication.class);
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(Cov19Application.class);
 
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(TestClrApplication.class)
-//                .web(WebApplicationType.NONE)
-                .run(args);
+        new SpringApplicationBuilder(Cov19Application.class).run(args);
     }
 
     @Bean
@@ -26,9 +23,8 @@ public class TestClrApplication {
         return args -> {
             LOGGER.info("** START CLR **");
             LOGGER.info("** END   CLR **");
-       };
+        };
     }
-
 
 
 }

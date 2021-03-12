@@ -1,6 +1,6 @@
-package com.happyminute.covidgouvfr.data.repository;
+package com.mvoland.cov19api.data.repository;
 
-import com.happyminute.covidgouvfr.data.entity.RegionIntensiveCareAdmission;
+import com.mvoland.cov19api.data.entity.RegionIntensiveCareAdmission;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -25,11 +25,10 @@ public class RegionIntensiveCareAdmissionRepository {
 
     private List<RegionIntensiveCareAdmission> regionIntensiveCareAdmissionList = null;
 
-    public List<RegionIntensiveCareAdmission> findAll() {
-
+    synchronized private void checkOrPopulateRegionIntensiveCareAdmissionList() {
         if (this.regionIntensiveCareAdmissionList != null) {
-            LOGGER.info("No need to fetch ! {}", csvUrl);
-            return this.regionIntensiveCareAdmissionList;
+            LOGGER.debug("Using cached version of regionIntensiveCareAdmissionList");
+            return;
         }
 
         LOGGER.info("Will fetch {}", csvUrl);
@@ -64,6 +63,11 @@ public class RegionIntensiveCareAdmissionRepository {
 
         LOGGER.info("Got {} records!", regionIntensiveCareAdmissionList.size());
 
+
+    }
+
+    public List<RegionIntensiveCareAdmission> findAll() {
+        checkOrPopulateRegionIntensiveCareAdmissionList();
         return regionIntensiveCareAdmissionList;
     }
 

@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.happy-minute</groupId>
-	<artifactId>covid-gouv-fr</artifactId>
+	<groupId>com.mvoland</groupId>
+	<artifactId>cov19api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test-clr</name>
-	<description>Test CLR Project</description>
+	<name>Covid 19 API</name>
+	<description>Covid 19 API</description>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.target>11</maven.compiler.target>

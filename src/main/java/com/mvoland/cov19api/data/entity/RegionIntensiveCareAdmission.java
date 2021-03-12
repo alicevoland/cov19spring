@@ -1,4 +1,4 @@
-package com.happyminute.covidgouvfr.data.entity;
+package com.mvoland.cov19api.data.entity;
 
 import javax.persistence.Entity;
 

@@ -1,8 +1,8 @@
-package com.happyminute.covidgouvfr.business.service;
+package com.mvoland.cov19api.business.service;
 
-import com.happyminute.covidgouvfr.business.domain.RegionIntensiveCare;
-import com.happyminute.covidgouvfr.data.entity.RegionIntensiveCareAdmission;
-import com.happyminute.covidgouvfr.data.repository.RegionIntensiveCareAdmissionRepository;
+import com.mvoland.cov19api.business.domain.RegionIntensiveCare;
+import com.mvoland.cov19api.data.entity.RegionIntensiveCareAdmission;
+import com.mvoland.cov19api.data.repository.RegionIntensiveCareAdmissionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

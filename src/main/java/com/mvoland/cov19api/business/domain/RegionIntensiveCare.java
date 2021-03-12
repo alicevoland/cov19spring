@@ -1,4 +1,4 @@
-package com.happyminute.covidgouvfr.business.domain;
+package com.mvoland.cov19api.business.domain;
 
 import java.time.LocalDate;
 import java.util.SortedMap;
