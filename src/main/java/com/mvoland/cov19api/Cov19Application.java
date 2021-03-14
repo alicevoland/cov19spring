@@ -33,7 +33,6 @@ public class Cov19Application {
         return args -> {
             LOGGER.info("** START CLR **");
             TestDataGouvService testDataGouvService = ctx.getBean(TestDataGouvService.class);
-            System.out.println("Test " + testDataGouvService);
             testDataGouvService.test();
             LOGGER.info("** END   CLR **");
         };
