@@ -45,7 +45,7 @@ URL stable : https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3
 | dep | sexe | jour | hosp | rea | rad | dc
 | --- | --- | --- | --- | --- | --- | ---
 | numéro département | numéro sexe | date notification | nombre actuellement hospitalisé | nombre actuellement en soins intensifs | cumul retour à domicile | cumul décés hôpital
-| string | integer | string | integer | integer | integer | integer
+| string | string | string | integer | integer | integer | integer
 | 01 | 0 | 2020-03-18 | 2 | 0 | 1 | 0
 
 ### donnees-hospitalieres-nouveaux-covid19
@@ -81,7 +81,7 @@ URL stable : https://www.data.gouv.fr/fr/datasets/r/08c18e08-6780-452d-9b8c-ae24
 | reg | cl_age90 | jour | hosp | rea | rad | dc
 | --- | --- | --- | --- | --- | --- | ---
 | numéro région | classe âge | date notification | nombre actuellement hospitalisé | nombre actuellement en soins intensifs | cumul retour à domicile | cumul décés hôpital
-| integer | integer | string | integer| integer| integer| integer
+| string | string | string | integer| integer| integer| integer
 | 1 | 0 | 2020-03-18 | 0 | 0 | 0 | 0
 
 ### donnees-hospitalieres-etablissements-covid19

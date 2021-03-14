@@ -1,11 +1,13 @@
 package com.mvoland.cov19api;
 
+import com.mvoland.cov19api.business.service.TestDataGouvService;
 import com.mvoland.cov19api.data.entity.CovidHospitIncidRegEntity;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -22,7 +24,6 @@ public class Cov19Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Cov19Application.class);
 
-
     public static void main(String[] args) {
         new SpringApplicationBuilder(Cov19Application.class).run(args);
     }
@@ -31,7 +32,9 @@ public class Cov19Application {
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
             LOGGER.info("** START CLR **");
-
+            TestDataGouvService testDataGouvService = ctx.getBean(TestDataGouvService.class);
+            System.out.println("Test " + testDataGouvService);
+            testDataGouvService.test();
             LOGGER.info("** END   CLR **");
         };
     }

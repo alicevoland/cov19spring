@@ -44,4 +44,14 @@ public class CovidHospitIncidRegEntity {
     public void setIncid_rea(Integer incid_rea) {
         this.incid_rea = incid_rea;
     }
+
+    @Override
+    public String toString() {
+        return "CovidHospitIncidRegEntity{" +
+                "jour='" + jour + '\'' +
+                ", nomReg='" + nomReg + '\'' +
+                ", numReg=" + numReg +
+                ", incid_rea=" + incid_rea +
+                '}';
+    }
 }
