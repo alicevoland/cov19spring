@@ -3,14 +3,14 @@ package com.mvoland.cov19api.data.entity;
 import javax.persistence.Entity;
 
 @Entity
-public class RegionIntensiveCareAdmission {
+public class CovidHospitIncidRegEntity {
 
     private String jour;
     private String nomReg;
     private Integer numReg;
     private Integer incid_rea;
 
-    public RegionIntensiveCareAdmission() {
+    public CovidHospitIncidRegEntity() {
     }
 
     public String getJour() {

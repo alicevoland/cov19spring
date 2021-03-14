@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.business.service;
 
 import com.mvoland.cov19api.business.domain.RegionIntensiveCare;
-import com.mvoland.cov19api.data.entity.RegionIntensiveCareAdmission;
-import com.mvoland.cov19api.data.repository.RegionIntensiveCareAdmissionRepository;
+import com.mvoland.cov19api.data.entity.CovidHospitIncidRegEntity;
+import com.mvoland.cov19api.data.repository.CovidHospitIncidRegRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +18,16 @@ public class RegionIntensiveCareService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RegionIntensiveCareService.class);
 
-    private final RegionIntensiveCareAdmissionRepository regionIntensiveCareAdmissionRepository;
+    private final CovidHospitIncidRegRepository covidHospitIncidRegRepository;
 
     @Autowired
-    public RegionIntensiveCareService(RegionIntensiveCareAdmissionRepository regionIntensiveCareAdmissionRepository) {
-        this.regionIntensiveCareAdmissionRepository = regionIntensiveCareAdmissionRepository;
+    public RegionIntensiveCareService(CovidHospitIncidRegRepository covidHospitIncidRegRepository) {
+        this.covidHospitIncidRegRepository = covidHospitIncidRegRepository;
     }
 
-    private List<RegionIntensiveCare> convert(List<RegionIntensiveCareAdmission> regionIntensiveCareAdmissions) {
-        Map<Integer, List<RegionIntensiveCareAdmission>> intensiveCareMap = new HashMap<>();
-        for (RegionIntensiveCareAdmission admission : regionIntensiveCareAdmissions) {
+    private List<RegionIntensiveCare> convert(List<CovidHospitIncidRegEntity> covidHospitIncidRegEntities) {
+        Map<Integer, List<CovidHospitIncidRegEntity>> intensiveCareMap = new HashMap<>();
+        for (CovidHospitIncidRegEntity admission : covidHospitIncidRegEntities) {
             if (!intensiveCareMap.containsKey(admission.getNumReg())) {
                 intensiveCareMap.put(admission.getNumReg(), new LinkedList<>());
             }
@@ -55,12 +55,12 @@ public class RegionIntensiveCareService {
     }
 
     public List<RegionIntensiveCare> getAllRegionIntensiveCares() {
-        return convert(this.regionIntensiveCareAdmissionRepository.findAll());
+        return convert(this.covidHospitIncidRegRepository.findAll());
     }
 
     public List<RegionIntensiveCare> getRegionIntensiveCaresFor(String date, String region) {
         return convert(
-                this.regionIntensiveCareAdmissionRepository.findAll().stream()
+                this.covidHospitIncidRegRepository.findAll().stream()
                         .filter(admission -> date == null || admission.getJour().equalsIgnoreCase(date))
                         .filter(admission -> region == null || admission.getNomReg().equalsIgnoreCase(region))
                         .collect(Collectors.toList())
