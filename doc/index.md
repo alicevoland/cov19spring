@@ -5,10 +5,14 @@ de <https://www.data.gouv.fr/fr/pages/donnees-coronavirus>.
 
 ## Données Hospitalières
 
-Source : <https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a
--lepidemie-de-covid-19>
+Source : <https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19>
 
-Il s'agit de fichiers CSV (séparateur ";")
+Il s'agit de fichiers CSV.
+
+Sexe : 
+ * 0 : hommes + femmes (+ non communiqué)
+ * 1 : hommes
+ * 2 : femmes
 
 ### covid-hospit-incid-reg
 
@@ -38,7 +42,7 @@ URL stable : https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3
 
 #### Format
 
-| dep | sexe | jour | hosp | rea | rad | dc |
+| dep | sexe | jour | hosp | rea | rad | dc
 | --- | --- | --- | --- | --- | --- | ---
 | numéro département | numéro sexe | date notification | nombre actuellement hospitalisé | nombre actuellement en soins intensifs | cumul retour à domicile | cumul décés hôpital
 | string | integer | string | integer | integer | integer | integer
@@ -56,7 +60,11 @@ URL stable : https://www.data.gouv.fr/fr/datasets/r/6fadff46-9efd-4c53-942a-54ac
 
 #### Format
 
-TODO
+| dep | jour | incid_hosp | incid_rea | incid_dc | incid_rad
+| --- | --- | --- | --- | --- | ---
+| numéro département | date notification | nombre nouvelles hospitalisations | nombre nouvelles admissions soins intensifs | nombre nouveaux décés | nombre nouveaux retour à domicile
+| string | string | integer | integer | integer | integer
+| 01 | 2020-03-19 | 1 | 0 | 0 | 0
 
 ### donnees-hospitalieres-classe-age-covid19
 
@@ -70,7 +78,11 @@ URL stable : https://www.data.gouv.fr/fr/datasets/r/08c18e08-6780-452d-9b8c-ae24
 
 #### Format
 
-TODO
+| reg | cl_age90 | jour | hosp | rea | rad | dc
+| --- | --- | --- | --- | --- | --- | ---
+| numéro région | classe âge | date notification | nombre actuellement hospitalisé | nombre actuellement en soins intensifs | cumul retour à domicile | cumul décés hôpital
+| integer | integer | string | integer| integer| integer| integer
+| 1 | 0 | 2020-03-18 | 0 | 0 | 0 | 0
 
 ### donnees-hospitalieres-etablissements-covid19
 
