@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.data.repository;
+package com.mvoland.cov19api.datagouvfr.data.repository;
 
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-public class DataGouvCsvBackend<DataType> {
+class DataGouvCsvBackend<DataType> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DataGouvCsvBackend.class);
 

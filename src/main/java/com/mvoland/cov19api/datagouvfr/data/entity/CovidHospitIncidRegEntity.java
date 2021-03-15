@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.data.entity;
+package com.mvoland.cov19api.datagouvfr.data.entity;
 
 import javax.persistence.Entity;
 

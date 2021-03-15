@@ -12,7 +12,6 @@
 	<groupId>com.mvoland</groupId>
 	<artifactId>cov19api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Covid 19 API</name>
 	<description>Covid 19 API</description>
 	<properties>
 		<java.version>11</java.version>

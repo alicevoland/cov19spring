@@ -1,7 +1,6 @@
-package com.mvoland.cov19api.data.repository;
+package com.mvoland.cov19api.datagouvfr.data.repository;
 
-import com.mvoland.cov19api.data.entity.DonneesHospitalieresClasseAgeCovid19Entity;
-import com.mvoland.cov19api.data.entity.DonneesHospitalieresCovid19Entity;
+import com.mvoland.cov19api.datagouvfr.data.entity.DonneesHospitalieresClasseAgeCovid19Entity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

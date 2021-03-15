@@ -1,13 +1,13 @@
 package com.mvoland.cov19api.business.service;
 
-import com.mvoland.cov19api.data.entity.CovidHospitIncidRegEntity;
-import com.mvoland.cov19api.data.entity.DonneesHospitalieresClasseAgeCovid19Entity;
-import com.mvoland.cov19api.data.entity.DonneesHospitalieresCovid19Entity;
-import com.mvoland.cov19api.data.entity.DonneesHospitalieresNouveauxCovid19Entity;
-import com.mvoland.cov19api.data.repository.CovidHospitIncidRegRepository;
-import com.mvoland.cov19api.data.repository.DonneesHospitalieresClasseAgeCovid19Repository;
-import com.mvoland.cov19api.data.repository.DonneesHospitalieresCovid19Repository;
-import com.mvoland.cov19api.data.repository.DonneesHospitalieresNouveauxCovid19Repository;
+import com.mvoland.cov19api.datagouvfr.data.entity.CovidHospitIncidRegEntity;
+import com.mvoland.cov19api.datagouvfr.data.entity.DonneesHospitalieresClasseAgeCovid19Entity;
+import com.mvoland.cov19api.datagouvfr.data.entity.DonneesHospitalieresCovid19Entity;
+import com.mvoland.cov19api.datagouvfr.data.entity.DonneesHospitalieresNouveauxCovid19Entity;
+import com.mvoland.cov19api.datagouvfr.data.repository.CovidHospitIncidRegRepository;
+import com.mvoland.cov19api.datagouvfr.data.repository.DonneesHospitalieresClasseAgeCovid19Repository;
+import com.mvoland.cov19api.datagouvfr.data.repository.DonneesHospitalieresCovid19Repository;
+import com.mvoland.cov19api.datagouvfr.data.repository.DonneesHospitalieresNouveauxCovid19Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

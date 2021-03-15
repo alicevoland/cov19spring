@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.business.service;
 
 import com.mvoland.cov19api.business.domain.RegionIntensiveCare;
-import com.mvoland.cov19api.data.entity.CovidHospitIncidRegEntity;
-import com.mvoland.cov19api.data.repository.CovidHospitIncidRegRepository;
+import com.mvoland.cov19api.datagouvfr.data.entity.CovidHospitIncidRegEntity;
+import com.mvoland.cov19api.datagouvfr.data.repository.CovidHospitIncidRegRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
