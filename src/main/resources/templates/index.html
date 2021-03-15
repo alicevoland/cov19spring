@@ -1,22 +1,72 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Covid 19 API</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style th:replace="fragments :: style"></style>
 </head>
+
 <body>
 
-<h1>Données Covid data.gouv.fr</h1>
+<div th:replace="fragments :: header"></div>
 
-<p>
-<ul>
-    <li>
-        <a href="regions"> par région </a>
-    </li>
-</ul>
-</p>
+<div class="container">
+    <h1>Covid 19 API</h1>
+    <h2>Présentation</h2>
+    <p>
+        Travail en cours, l'objectif est de proposer une API pour les données Covid proposées dans des fichiers CSV sur
+        <a href="https://www.data.gouv.fr/fr/pages/donnees-coronavirus">www.data.gouv.fr/fr/pages/donnees-coronavirus</a>
+    </p>
+
+    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regions</code>
+<samp>[
+    { "regionName": "Guadeloupe", "regionNumber": 1 },
+    { "regionName": "Martinique", "regionNumber": 2 },
+    ...
+]</samp></pre>
+
+    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regionalIntensiveCareAdmissions</code>
+<samp>[
+    {
+        "regionName": "Nouvelle-Aquitaine",
+        "regionNumber": 75
+    },
+    {
+        "regionName": "Occitanie",
+        "regionNumber": 76
+    },
+    ...
+]</samp></pre>
+
+    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regionalHospitalisations</code><samp>[
+    {
+        "ageGroup": "ALL",
+        "currentDeathCount": 3,
+        "currentHospitalizedCount": 64,
+        "currentIntensiveCareCount": 18,
+        "currentRadiationCount": 20,
+        "noticeDate": "2020-03-31",
+        "regionNumber": 2
+    },
+    {
+        "ageGroup": "FROM_0_TO_9",
+        "currentDeathCount": 0,
+        "currentHospitalizedCount": 2,
+        "currentIntensiveCareCount": 1,
+        "currentRadiationCount": 0,
+        "noticeDate": "2020-03-31",
+        "regionNumber": 2
+    },
+    ...
+]</samp></pre>
+
+</div>
+
+<div th:replace="fragments :: footer"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
