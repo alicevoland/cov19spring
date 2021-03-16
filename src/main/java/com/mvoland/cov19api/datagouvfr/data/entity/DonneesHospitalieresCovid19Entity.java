@@ -2,7 +2,7 @@ package com.mvoland.cov19api.datagouvfr.data.entity;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class DonneesHospitalieresCovid19Entity {
 
     private String dep;

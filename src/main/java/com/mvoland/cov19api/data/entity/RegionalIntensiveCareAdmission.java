@@ -2,13 +2,14 @@ package com.mvoland.cov19api.data.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
 public class RegionalIntensiveCareAdmission {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Integer regionNumber;

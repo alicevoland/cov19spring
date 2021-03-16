@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.data.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public enum Sex {
     ALL,
     FEMALE,

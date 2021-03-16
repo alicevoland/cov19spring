@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.data.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public enum AgeGroup {
     ALL(0),
     FROM_0_TO_9(9),
@@ -24,6 +24,10 @@ public enum AgeGroup {
 
     public Integer getAgeValue() {
         return this.ageValue;
+    }
+
+    public void setAgeValue(Integer ageValue) {
+        this.ageValue = ageValue;
     }
 
     @Override
