@@ -1,9 +1,7 @@
-package com.mvoland.cov19api.datagouvfr.data.entity;
+package com.mvoland.cov19api.datagouvfr.hospdata;
 
-import javax.persistence.Entity;
+public class DonneesHospitalieresNouveauxCovid19 {
 
-//@Entity
-public class DonneesHospitalieresNouveauxCovid19Entity {
 
     private String dep;
     private String jour;
@@ -12,7 +10,16 @@ public class DonneesHospitalieresNouveauxCovid19Entity {
     private Integer incid_rad;
     private Integer incid_dc;
 
-    public DonneesHospitalieresNouveauxCovid19Entity() {
+    public DonneesHospitalieresNouveauxCovid19() {
+    }
+
+    public DonneesHospitalieresNouveauxCovid19(String dep, String jour, Integer incid_hosp, Integer incid_rea, Integer incid_rad, Integer incid_dc) {
+        this.dep = dep;
+        this.jour = jour;
+        this.incid_hosp = incid_hosp;
+        this.incid_rea = incid_rea;
+        this.incid_rad = incid_rad;
+        this.incid_dc = incid_dc;
     }
 
     public String getDep() {
@@ -65,7 +72,7 @@ public class DonneesHospitalieresNouveauxCovid19Entity {
 
     @Override
     public String toString() {
-        return "DonneesHospitalieresNouveauxCovid19Entity{" +
+        return "DonneesHospitalieresNouveauxCovid19{" +
                 "dep='" + dep + '\'' +
                 ", jour='" + jour + '\'' +
                 ", incid_hosp=" + incid_hosp +

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface RegionRepository extends CrudRepository<Region, Long> {
 
-    Optional<Region> findByRegionNumber(Integer regionNumber);
+    Region findByRegionNumber(Integer regionNumber);
 }

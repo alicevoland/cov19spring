@@ -5,18 +5,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name="REGION")
 public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="REGION_ID")
     private Long id;
 
-    @Column(name="REGION_NUMBER")
     private Integer regionNumber;
 
-    @Column(name="REGION_NAME")
     private String regionName;
 
     public Region() {

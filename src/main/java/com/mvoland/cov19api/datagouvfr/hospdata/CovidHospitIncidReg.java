@@ -1,16 +1,20 @@
-package com.mvoland.cov19api.datagouvfr.data.entity;
+package com.mvoland.cov19api.datagouvfr.hospdata;
 
-import javax.persistence.Entity;
-
-//@Entity
-public class CovidHospitIncidRegEntity {
+public class CovidHospitIncidReg {
 
     private String jour;
     private String nomReg;
     private Integer numReg;
     private Integer incid_rea;
 
-    public CovidHospitIncidRegEntity() {
+    public CovidHospitIncidReg() {
+    }
+
+    public CovidHospitIncidReg(String jour, String nomReg, Integer numReg, Integer incid_rea) {
+        this.jour = jour;
+        this.nomReg = nomReg;
+        this.numReg = numReg;
+        this.incid_rea = incid_rea;
     }
 
     public String getJour() {
@@ -47,7 +51,7 @@ public class CovidHospitIncidRegEntity {
 
     @Override
     public String toString() {
-        return "CovidHospitIncidRegEntity{" +
+        return "CovidHospitIncidReg{" +
                 "jour='" + jour + '\'' +
                 ", nomReg='" + nomReg + '\'' +
                 ", numReg=" + numReg +

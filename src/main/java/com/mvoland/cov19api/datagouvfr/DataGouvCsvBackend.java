@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.datagouvfr.data.repository;
+package com.mvoland.cov19api.datagouvfr;
 
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-class DataGouvCsvBackend<DataType> {
+public class DataGouvCsvBackend<DataType> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DataGouvCsvBackend.class);
 
@@ -81,6 +81,7 @@ class DataGouvCsvBackend<DataType> {
         if (isCacheExpired()) {
             LOGGER.info("Need to fetch: {}", permanentUrl);
             this.cache = fetch();
+            LOGGER.info("Fetching done");
             this.lastFetched = LocalTime.now();
         }
         return this.cache;

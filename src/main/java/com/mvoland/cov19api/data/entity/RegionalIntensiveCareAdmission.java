@@ -1,37 +1,31 @@
 package com.mvoland.cov19api.data.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 public class RegionalIntensiveCareAdmission {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer regionNumber;
+    @ManyToOne
+    private Region region;
+
     private LocalDate noticeDate;
     private Integer intensiveCareAdmissionCount;
 
     public RegionalIntensiveCareAdmission() {
     }
 
-    public RegionalIntensiveCareAdmission(Integer regionNumber, LocalDate noticeDate, Integer intensiveCareAdmissionCount) {
-        this.setRegionNumber(regionNumber);
+    public RegionalIntensiveCareAdmission(Region region, LocalDate noticeDate, Integer intensiveCareAdmissionCount) {
+        this.region = region;
         this.setNoticeDate(noticeDate);
         this.setIntensiveCareAdmissionCount(intensiveCareAdmissionCount);
     }
 
-    public Integer getRegionNumber() {
-        return regionNumber;
-    }
-
-    public void setRegionNumber(Integer regionNumber) {
-        this.regionNumber = regionNumber;
-    }
 
     public LocalDate getNoticeDate() {
         return noticeDate;
@@ -49,12 +43,33 @@ public class RegionalIntensiveCareAdmission {
         this.intensiveCareAdmissionCount = intensiveCareAdmissionCount;
     }
 
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
+    }
+
     @Override
     public String toString() {
         return "RegionalIntensiveCareAdmission{" +
-                "regionNumber=" + getRegionNumber() +
-                ", noticeDate=" + getNoticeDate() +
-                ", intensiveCareAdmissionCountintesiveCareAdmissionCount=" + getIntensiveCareAdmissionCount() +
+                "region=" + region +
+                ", noticeDate=" + noticeDate +
+                ", intensiveCareAdmissionCount=" + intensiveCareAdmissionCount +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RegionalIntensiveCareAdmission that = (RegionalIntensiveCareAdmission) o;
+        return Objects.equals(region, that.region) && Objects.equals(noticeDate, that.noticeDate) && Objects.equals(intensiveCareAdmissionCount, that.intensiveCareAdmissionCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(noticeDate, intensiveCareAdmissionCount);
     }
 }
