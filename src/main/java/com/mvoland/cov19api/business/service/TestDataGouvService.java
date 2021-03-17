@@ -1,6 +1,6 @@
 package com.mvoland.cov19api.business.service;
 
-import com.mvoland.cov19api.datagouvfr.hospdata.*;
+import com.mvoland.cov19api.datagouvfr.HospDataDatabaseUpdater;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,43 +4,43 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class RegionalHospitalisation {
+public class DepartementalHospitalisation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private Region region;
+    private Departement departement;
     private LocalDate noticeDate;
-
     @Enumerated(EnumType.STRING)
-    private AgeGroup ageGroup;
+    private Sex sex;
     private Integer currentHospitalizedCount;
     private Integer currentIntensiveCareCount;
     private Integer currentRadiationCount;
     private Integer currentDeathCount;
 
-    public RegionalHospitalisation() {
+    public DepartementalHospitalisation() {
     }
 
-    public RegionalHospitalisation(Region region, LocalDate noticeDate, AgeGroup ageGroup,
-                                   Integer currentHospitalizedCount, Integer currentIntensiveCareCount,
-                                   Integer currentRadiationCount, Integer currentDeathCount) {
-        this.region = region;
-        this.noticeDate = noticeDate;
-        this.ageGroup = ageGroup;
-        this.currentHospitalizedCount = currentHospitalizedCount;
-        this.currentIntensiveCareCount = currentIntensiveCareCount;
-        this.currentRadiationCount = currentRadiationCount;
-        this.currentDeathCount = currentDeathCount;
+    public DepartementalHospitalisation(Departement departement, LocalDate noticeDate, Sex sex,
+                                        Integer currentHospitalizedCount, Integer currentIntensiveCareCount,
+                                        Integer currentRadiationCount, Integer currentDeathCount) {
+        this.setDepartement(departement);
+        this.setNoticeDate(noticeDate);
+        this.setSex(sex);
+        this.setCurrentHospitalizedCount(currentHospitalizedCount);
+        this.setCurrentIntensiveCareCount(currentIntensiveCareCount);
+        this.setCurrentRadiationCount(currentRadiationCount);
+        this.setCurrentDeathCount(currentDeathCount);
     }
 
-    public Region getRegion() {
-        return region;
+
+    public Departement getDepartement() {
+        return departement;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
     }
 
     public LocalDate getNoticeDate() {
@@ -51,12 +51,12 @@ public class RegionalHospitalisation {
         this.noticeDate = noticeDate;
     }
 
-    public AgeGroup getAgeGroup() {
-        return ageGroup;
+    public Sex getSex() {
+        return sex;
     }
 
-    public void setAgeGroup(AgeGroup ageGroup) {
-        this.ageGroup = ageGroup;
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     public Integer getCurrentHospitalizedCount() {

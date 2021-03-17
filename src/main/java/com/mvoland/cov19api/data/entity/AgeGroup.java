@@ -4,37 +4,47 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public enum AgeGroup {
-    ALL(0),
-    FROM_0_TO_9(9),
-    FROM_10_TO_19(19),
-    FROM_20_TO_29(29),
-    FROM_30_TO_39(39),
-    FROM_40_TO_49(49),
-    FROM_50_TO_59(59),
-    FROM_60_TO_69(69),
-    FROM_70_TO_79(79),
-    FROM_80_TO_89(89),
-    MORE_THAN_90(90);
+    ALL,
+    FROM_0_TO_9,
+    FROM_10_TO_19,
+    FROM_20_TO_29,
+    FROM_30_TO_39,
+    FROM_40_TO_49,
+    FROM_50_TO_59,
+    FROM_60_TO_69,
+    FROM_70_TO_79,
+    FROM_80_TO_89,
+    MORE_THAN_90;
 
-    private Integer ageValue;
 
-    private AgeGroup(Integer ageValue) {
-        this.ageValue = ageValue;
-    }
+    public Integer toValue() {
+        switch (this) {
+            case ALL:
+                return 0;
+            case FROM_0_TO_9:
+                return 9;
+            case FROM_10_TO_19:
+                return 19;
+            case FROM_20_TO_29:
+                return 29;
+            case FROM_30_TO_39:
+                return 39;
+            case FROM_40_TO_49:
+                return 49;
+            case FROM_50_TO_59:
+                return 59;
+            case FROM_60_TO_69:
+                return 69;
+            case FROM_70_TO_79:
+                return 79;
+            case FROM_80_TO_89:
+                return 89;
+            case MORE_THAN_90:
+                return 90;
+            default:
+                return 0;
+        }
 
-    public Integer getAgeValue() {
-        return this.ageValue;
-    }
-
-    public void setAgeValue(Integer ageValue) {
-        this.ageValue = ageValue;
-    }
-
-    @Override
-    public String toString() {
-        return "AgeGroup{" +
-                "ageValue=" + ageValue +
-                '}';
     }
 
     public static AgeGroup fromValue(Integer ageValue) {
