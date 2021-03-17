@@ -5,12 +5,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(indexes = @Index(columnList = "regionNumber", unique = true))
 public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private Integer regionNumber;
 
     private String regionName;

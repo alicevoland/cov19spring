@@ -66,13 +66,18 @@ public class HospDataDatabaseUpdater {
                         regionRepository.save(region);
                     }
 
-                    RegionalIntensiveCareAdmission regionalIntensiveCareAdmission = new RegionalIntensiveCareAdmission(
-                            region, noticeDate, icAdmissions
-                    );
-                    regionalIntensiveCareAdmissionRepository.save(regionalIntensiveCareAdmission);
-                    regionalIntensiveCareAdmissionAddition.incrementAndGet();
+                    RegionalIntensiveCareAdmission regionalIntensiveCareAdmission = null;//regionalIntensiveCareAdmissionRepository.findByRegionAndNoticeDate(region, noticeDate);
+                    if (regionalIntensiveCareAdmission == null) {
+                        regionalIntensiveCareAdmission = new RegionalIntensiveCareAdmission(region, noticeDate, icAdmissions);
+                        regionalIntensiveCareAdmissionRepository.save(regionalIntensiveCareAdmission);
+                        regionalIntensiveCareAdmissionAddition.incrementAndGet();
+                    } else if (!regionalIntensiveCareAdmission.getIntensiveCareAdmissionCount().equals(icAdmissions)) {
+                        LOGGER.warn("regionalIntensiveCareAdmission {} update admission count from {} to {}", regionalIntensiveCareAdmission, regionalIntensiveCareAdmission.getIntensiveCareAdmissionCount(), icAdmissions);
+                        regionalIntensiveCareAdmission.setIntensiveCareAdmissionCount(icAdmissions);
+                        regionalIntensiveCareAdmissionRepository.save(regionalIntensiveCareAdmission);
+                    }
 
-                    if (regionalIntensiveCareAdmissionAddition.incrementAndGet() % 100 == 0) {
+                    if (regionalIntensiveCareAdmissionAddition.get() % 100 == 0) {
 
                         LOGGER.info("Added {} regionAddition", regionAddition.get());
                         LOGGER.info("Added {} / {} regionalIntensiveCareAdmission", regionalIntensiveCareAdmissionAddition.get(), allCovidHospitIncidRegList.size());
