@@ -1,6 +1,6 @@
 package com.mvoland.cov19api;
 
-import com.mvoland.cov19api.business.service.TestDataGouvService;
+import com.mvoland.cov19api.datagouvfr.hospdata.HospDataDatabaseUpdater;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -22,8 +22,8 @@ public class Cov19Application {
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
             LOGGER.info("** START CLR **");
-            TestDataGouvService testDataGouvService = ctx.getBean(TestDataGouvService.class);
-            testDataGouvService.test();
+            HospDataDatabaseUpdater hospDataDatabaseUpdater = ctx.getBean(HospDataDatabaseUpdater.class);
+            hospDataDatabaseUpdater.update(false);
             LOGGER.info("** END   CLR **");
         };
     }

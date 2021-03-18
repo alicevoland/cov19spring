@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@Table(indexes = @Index(name = "index", columnList = "region_id, noticeDate", unique = true))
 public class RegionalIntensiveCareAdmission {
 
     @Id

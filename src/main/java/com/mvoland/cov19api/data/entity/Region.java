@@ -1,19 +1,24 @@
 package com.mvoland.cov19api.data.entity;
 
 
+import lombok.AllArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(indexes = @Index(columnList = "regionNumber", unique = true))
+@Table(indexes = @Index(name = "index", columnList = "regionNumber", unique = true))
+@AllArgsConstructor
 public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @Column(unique=true)
     private Integer regionNumber;
 
+    @Column
     private String regionName;
 
     public Region() {

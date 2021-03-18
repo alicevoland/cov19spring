@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.datagouvfr;
+package com.mvoland.cov19api.datagouvfr.common;
 
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;

@@ -1,7 +1,8 @@
 package com.mvoland.cov19api.web;
 
+import com.mvoland.cov19api.business.service.RegionService;
+import com.mvoland.cov19api.business.service.RegionalService;
 import com.mvoland.cov19api.data.entity.Region;
-import com.mvoland.cov19api.data.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,32 +14,21 @@ import java.util.List;
 @RequestMapping("api/v1/hospdata")
 public class HospDataController {
 
-    private final DepartementRepository depRepo;
-    private final DepartementalHospitalisationRepository depHospRepo;
-    private final DepartementalNewHospitalisationRepository depNewHospRepo;
-    private final RegionRepository regionRepo;
-    private final RegionalHospitalisationRepository regHospRepo;
-    private final RegionalIntensiveCareAdmissionRepository regNewIcRepo;
+    private final RegionService regionService;
+    private final RegionalService regionalService;
 
     @Autowired
-    public HospDataController(DepartementRepository depRepo,
-                              DepartementalHospitalisationRepository depHospRepo,
-                              DepartementalNewHospitalisationRepository depNewHospRepo,
-                              RegionRepository regionRepo,
-                              RegionalHospitalisationRepository regHospRepo,
-                              RegionalIntensiveCareAdmissionRepository regNewIcRepo) {
+    public HospDataController(RegionService regionService,
+                              RegionalService regionalService) {
+        this.regionalService = regionalService;
+        this.regionService = regionService;
 
-        this.depRepo = depRepo;
-        this.depHospRepo = depHospRepo;
-        this.depNewHospRepo = depNewHospRepo;
-        this.regionRepo = regionRepo;
-        this.regHospRepo = regHospRepo;
-        this.regNewIcRepo = regNewIcRepo;
     }
 
     @GetMapping("regions")
     public List<Region> getAllRegions() {
-        return regionRepo.findAll();
+        return regionService.getAllRegions();
     }
+
 
 }

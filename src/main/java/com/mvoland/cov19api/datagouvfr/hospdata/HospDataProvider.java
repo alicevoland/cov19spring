@@ -1,6 +1,6 @@
 package com.mvoland.cov19api.datagouvfr.hospdata;
 
-import com.mvoland.cov19api.datagouvfr.DataGouvCsvBackend;
+import com.mvoland.cov19api.datagouvfr.common.DataGouvCsvBackend;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -67,7 +67,7 @@ public class HospDataProvider {
     }
 
     public List<CovidHospitIncidReg> getAllCovidHospitIncidRegs() {
-        return covidHospitIncidRegCsvBackend.getOrFetch();
+        return covidHospitIncidRegCsvBackend.getOrFetch();//.stream().limit(100).collect(Collectors.toList());
     }
 
     public List<DonneesHospitalieresClasseAgeCovid19> getAllDonneesHospitalieresClasseAgeCovid19s() {
