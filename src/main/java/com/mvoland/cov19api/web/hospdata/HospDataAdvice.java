@@ -15,4 +15,5 @@ class HospDataAdvice {
     String regionNotFoundHandler(RegionNotFoundException ex) {
         return ex.getMessage();
     }
+
 }

@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface UpdateRepository extends CrudRepository<UpdateRequest, Long> {
     List<UpdateRequest> findByDataSource(String dataSource);
+    List<UpdateRequest> findAll();
 
 }
