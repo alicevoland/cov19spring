@@ -1,19 +1,18 @@
-package com.mvoland.cov19api.datagouvfr.updateservice;
+package com.mvoland.cov19api.hospdata.datagouvfr.updateservice;
 
-import com.mvoland.cov19api.business.service.RegionalHospDataService;
-import com.mvoland.cov19api.data.entity.Region;
-import com.mvoland.cov19api.data.entity.RegionalHospitalisation;
-import com.mvoland.cov19api.data.entity.RegionalIntensiveCareAdmission;
-import com.mvoland.cov19api.datagouvfr.hospdata.CovidHospitIncidReg;
-import com.mvoland.cov19api.datagouvfr.hospdata.DonneesHospitalieresClasseAgeCovid19;
-import com.mvoland.cov19api.datagouvfr.hospdata.HospDataProvider;
+import com.mvoland.cov19api.hospdata.business.service.RegionalHospDataService;
+import com.mvoland.cov19api.hospdata.data.entity.Region;
+import com.mvoland.cov19api.hospdata.data.entity.RegionalHospitalisation;
+import com.mvoland.cov19api.hospdata.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.hospdata.datagouvfr.hospdata.CovidHospitIncidReg;
+import com.mvoland.cov19api.hospdata.datagouvfr.hospdata.DonneesHospitalieresClasseAgeCovid19;
+import com.mvoland.cov19api.hospdata.datagouvfr.hospdata.HospDataProvider;
 import com.mvoland.cov19api.utils.PercentCounter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Component

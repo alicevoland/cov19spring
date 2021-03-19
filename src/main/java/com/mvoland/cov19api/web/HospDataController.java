@@ -1,10 +1,8 @@
 package com.mvoland.cov19api.web;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.mvoland.cov19api.business.service.RegionalHospDataService;
-import com.mvoland.cov19api.data.entity.Region;
-import com.mvoland.cov19api.datagouvfr.updateservice.HospDataDatabaseUpdateService;
-import net.minidev.json.JSONObject;
+import com.mvoland.cov19api.hospdata.business.service.RegionalHospDataService;
+import com.mvoland.cov19api.hospdata.data.entity.Region;
+import com.mvoland.cov19api.hospdata.datagouvfr.updateservice.HospDataDatabaseUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

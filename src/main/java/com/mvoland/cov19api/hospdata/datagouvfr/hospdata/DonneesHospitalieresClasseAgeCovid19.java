@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.datagouvfr.hospdata;
+package com.mvoland.cov19api.hospdata.datagouvfr.hospdata;
 
-import com.mvoland.cov19api.data.types.AgeGroup;
+import com.mvoland.cov19api.hospdata.data.types.AgeGroup;
 
 import java.time.LocalDate;
 import java.util.Objects;

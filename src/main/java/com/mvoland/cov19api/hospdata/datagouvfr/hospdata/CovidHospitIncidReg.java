@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.datagouvfr.hospdata;
+package com.mvoland.cov19api.hospdata.datagouvfr.hospdata;
 
 import java.time.LocalDate;
 import java.util.Objects;

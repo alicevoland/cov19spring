@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.data.types;
+package com.mvoland.cov19api.hospdata.data.types;
 
 public enum AgeGroup {
     ALL,

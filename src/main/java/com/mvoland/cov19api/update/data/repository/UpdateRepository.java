@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.data.update.repository;
+package com.mvoland.cov19api.update.data.repository;
 
-import com.mvoland.cov19api.data.update.entity.UpdateRequest;
+import com.mvoland.cov19api.update.data.entity.UpdateRequest;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.data.repository;
+package com.mvoland.cov19api.hospdata.data.repository;
 
-import com.mvoland.cov19api.data.entity.Region;
+import com.mvoland.cov19api.hospdata.data.entity.Region;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

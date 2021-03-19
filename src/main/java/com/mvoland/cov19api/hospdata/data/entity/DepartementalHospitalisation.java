@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.data.entity;
+package com.mvoland.cov19api.hospdata.data.entity;
 
-import com.mvoland.cov19api.data.types.Sex;
+import com.mvoland.cov19api.hospdata.data.types.Sex;
 
 import javax.persistence.*;
 import java.time.LocalDate;

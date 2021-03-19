@@ -1,12 +1,11 @@
-package com.mvoland.cov19api.business.service;
+package com.mvoland.cov19api.hospdata.business.service;
 
-import com.mvoland.cov19api.data.entity.Region;
-import com.mvoland.cov19api.data.entity.RegionalHospitalisation;
-import com.mvoland.cov19api.data.entity.RegionalIntensiveCareAdmission;
-import com.mvoland.cov19api.data.repository.RegionRepository;
-import com.mvoland.cov19api.data.repository.RegionalHospitalisationRepository;
-import com.mvoland.cov19api.data.repository.RegionalIntensiveCareAdmissionRepository;
-import com.mvoland.cov19api.datagouvfr.hospdata.DonneesHospitalieresClasseAgeCovid19;
+import com.mvoland.cov19api.hospdata.data.entity.Region;
+import com.mvoland.cov19api.hospdata.data.entity.RegionalHospitalisation;
+import com.mvoland.cov19api.hospdata.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.hospdata.data.repository.RegionRepository;
+import com.mvoland.cov19api.hospdata.data.repository.RegionalHospitalisationRepository;
+import com.mvoland.cov19api.hospdata.data.repository.RegionalIntensiveCareAdmissionRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.mvoland.cov19api.datagouvfr.hospdata;
+package com.mvoland.cov19api.hospdata.datagouvfr.hospdata;
 
-import com.mvoland.cov19api.datagouvfr.common.DataGouvCsvBackend;
-import com.mvoland.cov19api.datagouvfr.common.DataGouvParsingUtils;
+import com.mvoland.cov19api.hospdata.datagouvfr.hospdata.common.DataGouvCsvBackend;
+import com.mvoland.cov19api.hospdata.datagouvfr.hospdata.common.DataGouvParsingUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
