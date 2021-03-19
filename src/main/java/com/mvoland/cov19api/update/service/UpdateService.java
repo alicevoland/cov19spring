@@ -1,7 +1,7 @@
 package com.mvoland.cov19api.update.service;
 
-import com.mvoland.cov19api.update.data.entity.UpdateRequest;
-import com.mvoland.cov19api.update.data.repository.UpdateRepository;
+import com.mvoland.cov19api.data.update.entity.UpdateRequest;
+import com.mvoland.cov19api.data.update.repository.UpdateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

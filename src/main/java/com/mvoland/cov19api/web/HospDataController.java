@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.web;
 
-import com.mvoland.cov19api.hospdata.business.service.RegionalHospDataService;
-import com.mvoland.cov19api.hospdata.data.entity.Region;
-import com.mvoland.cov19api.hospdata.datagouvfr.updateservice.HospDataDatabaseUpdateService;
+import com.mvoland.cov19api.hospdata.service.RegionalHospDataService;
+import com.mvoland.cov19api.data.hospdata.entity.Region;
+import com.mvoland.cov19api.datagouvfr.updateservice.HospDataDatabaseUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
