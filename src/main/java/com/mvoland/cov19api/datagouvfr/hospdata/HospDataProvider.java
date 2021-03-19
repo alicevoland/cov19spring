@@ -1,6 +1,7 @@
 package com.mvoland.cov19api.datagouvfr.hospdata;
 
 import com.mvoland.cov19api.datagouvfr.common.DataGouvCsvBackend;
+import com.mvoland.cov19api.datagouvfr.common.DataGouvParsingUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,10 +17,10 @@ public class HospDataProvider {
         this.covidHospitIncidRegCsvBackend = new DataGouvCsvBackend<>(
                 rowValues -> {
                     CovidHospitIncidReg data = new CovidHospitIncidReg();
-                    data.setJour(rowValues[0]);
+                    data.setJour(DataGouvParsingUtils.parseDateOrThrow(rowValues[0]));
                     data.setNomReg(rowValues[1]);
-                    data.setNumReg(Integer.parseInt(rowValues[2]));
-                    data.setIncid_rea(Integer.parseInt((rowValues[3])));
+                    data.setNumReg(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[2], null));
+                    data.setIncid_rea(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[3], null));
                     return data;
                 },
                 "https://www.data.gouv.fr/fr/datasets/r/a1466f7f-4ece-4158-a373-f5d4db167eb0");
@@ -27,13 +28,13 @@ public class HospDataProvider {
         this.donneesHospitalieresClasseAgeCovid19CsvBackend = new DataGouvCsvBackend<>(
                 rowValues -> {
                     DonneesHospitalieresClasseAgeCovid19 data = new DonneesHospitalieresClasseAgeCovid19();
-                    data.setReg(rowValues[0]);
-                    data.setCl_age90(rowValues[1]);
-                    data.setJour(rowValues[2]);
-                    data.setHosp(Integer.parseInt((rowValues[3])));
-                    data.setRea(Integer.parseInt((rowValues[4])));
-                    data.setRad(Integer.parseInt((rowValues[5])));
-                    data.setDc(Integer.parseInt((rowValues[6])));
+                    data.setReg(DataGouvParsingUtils.parseIntegerOrThrow(rowValues[0]));
+                    data.setCl_age90(DataGouvParsingUtils.parseAgeGroupOrThrow(rowValues[1]));
+                    data.setJour(DataGouvParsingUtils.parseDateOrThrow(rowValues[2]));
+                    data.setHosp(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[3], null));
+                    data.setRea(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[4], null));
+                    data.setRad(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[5], null));
+                    data.setDc(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[6], null));
                     return data;
                 },
                 "https://www.data.gouv.fr/fr/datasets/r/08c18e08-6780-452d-9b8c-ae244ad529b3");

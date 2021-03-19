@@ -2,7 +2,6 @@ package com.mvoland.cov19api.data.entity;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
 public enum AgeGroup {
     ALL,
     FROM_0_TO_9,
@@ -14,7 +13,8 @@ public enum AgeGroup {
     FROM_60_TO_69,
     FROM_70_TO_79,
     FROM_80_TO_89,
-    MORE_THAN_90;
+    MORE_THAN_90,
+    UNKNOWN;
 
 
     public Integer toValue() {
@@ -42,7 +42,7 @@ public enum AgeGroup {
             case MORE_THAN_90:
                 return 90;
             default:
-                return 0;
+                return -1;
         }
 
     }
@@ -72,7 +72,7 @@ public enum AgeGroup {
             case 90:
                 return AgeGroup.MORE_THAN_90;
             default:
-                return AgeGroup.ALL;
+                return AgeGroup.UNKNOWN;
         }
     }
 }

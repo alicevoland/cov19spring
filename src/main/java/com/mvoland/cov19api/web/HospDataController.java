@@ -1,7 +1,6 @@
 package com.mvoland.cov19api.web;
 
-import com.mvoland.cov19api.business.service.RegionService;
-import com.mvoland.cov19api.business.service.RegionalService;
+import com.mvoland.cov19api.business.service.RegionalHospDataService;
 import com.mvoland.cov19api.data.entity.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,20 +13,17 @@ import java.util.List;
 @RequestMapping("api/v1/hospdata")
 public class HospDataController {
 
-    private final RegionService regionService;
-    private final RegionalService regionalService;
+    private final RegionalHospDataService regionalHospDataService;
 
     @Autowired
-    public HospDataController(RegionService regionService,
-                              RegionalService regionalService) {
-        this.regionalService = regionalService;
-        this.regionService = regionService;
+    public HospDataController(RegionalHospDataService regionalHospDataService) {
+        this.regionalHospDataService = regionalHospDataService;
 
     }
 
     @GetMapping("regions")
     public List<Region> getAllRegions() {
-        return regionService.getAllRegions();
+        return regionalHospDataService.getAllRegions();
     }
 
 

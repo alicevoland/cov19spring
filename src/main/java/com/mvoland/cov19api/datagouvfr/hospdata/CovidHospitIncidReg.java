@@ -1,8 +1,11 @@
 package com.mvoland.cov19api.datagouvfr.hospdata;
 
+import java.time.LocalDate;
+import java.util.Objects;
+
 public class CovidHospitIncidReg {
 
-    private String jour;
+    private LocalDate jour;
     private String nomReg;
     private Integer numReg;
     private Integer incid_rea;
@@ -10,18 +13,18 @@ public class CovidHospitIncidReg {
     public CovidHospitIncidReg() {
     }
 
-    public CovidHospitIncidReg(String jour, String nomReg, Integer numReg, Integer incid_rea) {
+    public CovidHospitIncidReg(LocalDate jour, String nomReg, Integer numReg, Integer incid_rea) {
         this.jour = jour;
         this.nomReg = nomReg;
         this.numReg = numReg;
         this.incid_rea = incid_rea;
     }
 
-    public String getJour() {
+    public LocalDate getJour() {
         return jour;
     }
 
-    public void setJour(String jour) {
+    public void setJour(LocalDate jour) {
         this.jour = jour;
     }
 
@@ -50,9 +53,22 @@ public class CovidHospitIncidReg {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CovidHospitIncidReg that = (CovidHospitIncidReg) o;
+        return Objects.equals(jour, that.jour) && Objects.equals(nomReg, that.nomReg) && Objects.equals(numReg, that.numReg) && Objects.equals(incid_rea, that.incid_rea);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(jour, nomReg, numReg, incid_rea);
+    }
+
+    @Override
     public String toString() {
         return "CovidHospitIncidReg{" +
-                "jour='" + jour + '\'' +
+                "jour=" + jour +
                 ", nomReg='" + nomReg + '\'' +
                 ", numReg=" + numReg +
                 ", incid_rea=" + incid_rea +

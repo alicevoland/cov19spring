@@ -2,6 +2,7 @@ package com.mvoland.cov19api.data.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 public class RegionalHospitalisation {
@@ -13,6 +14,7 @@ public class RegionalHospitalisation {
     private Region region;
     private LocalDate noticeDate;
 
+    @Column
     @Enumerated(EnumType.STRING)
     private AgeGroup ageGroup;
     private Integer currentHospitalizedCount;
@@ -89,5 +91,31 @@ public class RegionalHospitalisation {
 
     public void setCurrentDeathCount(Integer currentDeathCount) {
         this.currentDeathCount = currentDeathCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RegionalHospitalisation that = (RegionalHospitalisation) o;
+        return Objects.equals(region, that.region) && Objects.equals(noticeDate, that.noticeDate) && ageGroup == that.ageGroup && Objects.equals(currentHospitalizedCount, that.currentHospitalizedCount) && Objects.equals(currentIntensiveCareCount, that.currentIntensiveCareCount) && Objects.equals(currentRadiationCount, that.currentRadiationCount) && Objects.equals(currentDeathCount, that.currentDeathCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(region, noticeDate, ageGroup, currentHospitalizedCount, currentIntensiveCareCount, currentRadiationCount, currentDeathCount);
+    }
+
+    @Override
+    public String toString() {
+        return "RegionalHospitalisation{" +
+                "region=" + region +
+                ", noticeDate=" + noticeDate +
+                ", ageGroup=" + ageGroup +
+                ", currentHospitalizedCount=" + currentHospitalizedCount +
+                ", currentIntensiveCareCount=" + currentIntensiveCareCount +
+                ", currentRadiationCount=" + currentRadiationCount +
+                ", currentDeathCount=" + currentDeathCount +
+                '}';
     }
 }

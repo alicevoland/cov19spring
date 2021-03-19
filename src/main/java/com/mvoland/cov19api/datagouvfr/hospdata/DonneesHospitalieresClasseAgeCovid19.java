@@ -1,10 +1,15 @@
 package com.mvoland.cov19api.datagouvfr.hospdata;
 
+import com.mvoland.cov19api.data.entity.AgeGroup;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
 public class DonneesHospitalieresClasseAgeCovid19 {
 
-    private String reg;
-    private String cl_age90;
-    private String jour;
+    private Integer reg;
+    private AgeGroup cl_age90;
+    private LocalDate jour;
     private Integer hosp;
     private Integer rea;
     private Integer rad;
@@ -13,7 +18,7 @@ public class DonneesHospitalieresClasseAgeCovid19 {
     public DonneesHospitalieresClasseAgeCovid19() {
     }
 
-    public DonneesHospitalieresClasseAgeCovid19(String reg, String cl_age90, String jour, Integer hosp, Integer rea, Integer rad, Integer dc) {
+    public DonneesHospitalieresClasseAgeCovid19(Integer reg, AgeGroup cl_age90, LocalDate jour, Integer hosp, Integer rea, Integer rad, Integer dc) {
         this.reg = reg;
         this.cl_age90 = cl_age90;
         this.jour = jour;
@@ -23,27 +28,27 @@ public class DonneesHospitalieresClasseAgeCovid19 {
         this.dc = dc;
     }
 
-    public String getReg() {
+    public Integer getReg() {
         return reg;
     }
 
-    public void setReg(String reg) {
+    public void setReg(Integer reg) {
         this.reg = reg;
     }
 
-    public String getCl_age90() {
+    public AgeGroup getCl_age90() {
         return cl_age90;
     }
 
-    public void setCl_age90(String cl_age90) {
+    public void setCl_age90(AgeGroup cl_age90) {
         this.cl_age90 = cl_age90;
     }
 
-    public String getJour() {
+    public LocalDate getJour() {
         return jour;
     }
 
-    public void setJour(String jour) {
+    public void setJour(LocalDate jour) {
         this.jour = jour;
     }
 
@@ -80,11 +85,24 @@ public class DonneesHospitalieresClasseAgeCovid19 {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DonneesHospitalieresClasseAgeCovid19 that = (DonneesHospitalieresClasseAgeCovid19) o;
+        return Objects.equals(reg, that.reg) && cl_age90 == that.cl_age90 && Objects.equals(jour, that.jour) && Objects.equals(hosp, that.hosp) && Objects.equals(rea, that.rea) && Objects.equals(rad, that.rad) && Objects.equals(dc, that.dc);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reg, cl_age90, jour, hosp, rea, rad, dc);
+    }
+
+    @Override
     public String toString() {
         return "DonneesHospitalieresClasseAgeCovid19{" +
-                "reg='" + reg + '\'' +
-                ", cl_age90='" + cl_age90 + '\'' +
-                ", jour='" + jour + '\'' +
+                "reg=" + reg +
+                ", cl_age90=" + cl_age90 +
+                ", jour=" + jour +
                 ", hosp=" + hosp +
                 ", rea=" + rea +
                 ", rad=" + rad +
