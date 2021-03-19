@@ -1,11 +1,14 @@
 package com.mvoland.cov19api.web;
 
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.mvoland.cov19api.business.service.RegionalHospDataService;
 import com.mvoland.cov19api.data.entity.Region;
-import com.mvoland.cov19api.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.datagouvfr.updateservice.HospDataDatabaseUpdateService;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,10 +17,14 @@ import java.util.List;
 @RequestMapping("api/v1/hospdata")
 public class HospDataController {
 
+    private final HospDataDatabaseUpdateService updateService;
     private final RegionalHospDataService regionalHospDataService;
 
     @Autowired
-    public HospDataController(RegionalHospDataService regionalHospDataService) {
+    public HospDataController(
+            HospDataDatabaseUpdateService updateService,
+            RegionalHospDataService regionalHospDataService) {
+        this.updateService = updateService;
         this.regionalHospDataService = regionalHospDataService;
 
     }
@@ -25,6 +32,18 @@ public class HospDataController {
     @GetMapping("regions")
     public List<Region> getAllRegions() {
         return regionalHospDataService.getAllRegions();
+    }
+
+    @GetMapping("region")
+    public Region getRegionByNumber(@RequestParam(value = "regionNumber") Integer regionNumber) {
+        return regionalHospDataService
+                .findRegionByNumber(regionNumber)
+                .orElseThrow(() -> new RegionNotFoundException(regionNumber));
+    }
+
+    @GetMapping("requestUpdate")
+    public void requestUpdate() {
+        updateService.update(false);
     }
 
 //    @GetMapping("icAdmissions")

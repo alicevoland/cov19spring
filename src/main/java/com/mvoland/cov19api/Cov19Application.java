@@ -25,8 +25,6 @@ public class Cov19Application {
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
             LOGGER.info("** START CLR **");
-            HospDataDatabaseUpdateService hospDataDatabaseUpdateService = ctx.getBean(HospDataDatabaseUpdateService.class);
-            hospDataDatabaseUpdateService.update(false);
 
             LOGGER.info("** END   CLR **");
         };
