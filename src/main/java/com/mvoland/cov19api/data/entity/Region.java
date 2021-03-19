@@ -29,6 +29,10 @@ public class Region {
         this.setRegionName(regionName);
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Integer getRegionNumber() {
         return regionNumber;
     }
@@ -48,7 +52,8 @@ public class Region {
     @Override
     public String toString() {
         return "Region{" +
-                "regionNumber=" + regionNumber +
+                "id=" + id +
+                ", regionNumber=" + regionNumber +
                 ", regionName='" + regionName + '\'' +
                 '}';
     }

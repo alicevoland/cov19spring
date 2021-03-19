@@ -1,6 +1,4 @@
-package com.mvoland.cov19api.data.entity;
-
-import javax.persistence.Embeddable;
+package com.mvoland.cov19api.data.types;
 
 public enum AgeGroup {
     ALL,

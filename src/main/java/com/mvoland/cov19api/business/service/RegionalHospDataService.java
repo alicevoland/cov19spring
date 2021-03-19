@@ -6,11 +6,13 @@ import com.mvoland.cov19api.data.entity.RegionalIntensiveCareAdmission;
 import com.mvoland.cov19api.data.repository.RegionRepository;
 import com.mvoland.cov19api.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.data.repository.RegionalIntensiveCareAdmissionRepository;
+import com.mvoland.cov19api.datagouvfr.hospdata.DonneesHospitalieresClasseAgeCovid19;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,100 +34,80 @@ public class RegionalHospDataService {
         this.regionalHospitalisationRepository = regionalHospitalisationRepository;
     }
 
+    public Optional<Region> findRegionByNumber(Integer regionNumber) {
+        return regionRepository.findByRegionNumber(regionNumber);
+    }
 
-    private synchronized Region getOrInsert(Region region, boolean update) {
-        Optional<Region> existingRegion = regionRepository.findByRegionNumber(region.getRegionNumber());
-        if (existingRegion.isPresent()) {
-            if (!update || existingRegion.get().getRegionName().equals(region.getRegionName())) {
-                return existingRegion.get();
-            } else {
-                LOGGER.warn("Change region {} to {}", existingRegion, region);
-                return regionRepository.save(region);
-            }
-        } else {
-            return regionRepository.save(region);
+    @Transactional
+    public Region updateRegion(Region region) {
+        return regionRepository.findByRegionNumber(region.getRegionNumber())
+                .map(existingRegion -> {
+                    if (!existingRegion.equals(region)) {
+                        existingRegion.setRegionName(region.getRegionName());
+                    }
+                    return regionRepository.save(existingRegion);
+                })
+                .orElseGet(() -> regionRepository.save(region)
+                );
+    }
+
+    public Optional<Region> safeUpdateRegion(Region region) {
+        try {
+            return Optional.of(updateRegion(region));
+        } catch (Exception e) {
+            LOGGER.warn("Could not update region {}", region);
+            return Optional.empty();
         }
     }
 
+    @Transactional
+    public RegionalIntensiveCareAdmission updateRegionalIntensiveCareAdmission(RegionalIntensiveCareAdmission admission) {
+        return regionalAdmissionsRepository.findByRegionAndNoticeDate(admission.getRegion(), admission.getNoticeDate())
+                .map(existingAdmission -> {
+                    if (existingAdmission.equals(admission)) {
+                        return existingAdmission;
+                    } else {
+                        existingAdmission.setIntensiveCareAdmissionCount(admission.getIntensiveCareAdmissionCount());
+                        return regionalAdmissionsRepository.save(existingAdmission);
+                    }
+                })
+                .orElseGet(() -> regionalAdmissionsRepository.save(admission)
+                );
+    }
 
-    private synchronized RegionalIntensiveCareAdmission getOrInsert(RegionalIntensiveCareAdmission regionalAdmission, boolean update) {
-        Optional<RegionalIntensiveCareAdmission> existingRegionalAdmission =
-                regionalAdmissionsRepository.findByRegionAndNoticeDate(regionalAdmission.getRegion(), regionalAdmission.getNoticeDate());
-        if (existingRegionalAdmission.isPresent()) {
-            if (!update || existingRegionalAdmission.get().equals(regionalAdmission)) {
-                return existingRegionalAdmission.get();
-            } else {
-                LOGGER.warn("Change from {} to {}", existingRegionalAdmission.get(), regionalAdmission);
-                return regionalAdmissionsRepository.save(regionalAdmission);
-            }
-        } else {
-            return regionalAdmissionsRepository.save(regionalAdmission);
+    public Optional<RegionalIntensiveCareAdmission> safeUpdateRegionalIntensiveCareAdmission(RegionalIntensiveCareAdmission admission) {
+        try {
+            return Optional.of(updateRegionalIntensiveCareAdmission(admission));
+        } catch (Exception e) {
+            LOGGER.warn("Could not update {}", admission);
+            return Optional.empty();
         }
     }
 
-    private synchronized RegionalHospitalisation getOrInsert(RegionalHospitalisation regionalHospitalisation, boolean update) {
-        Optional<RegionalHospitalisation> existingRegionalHospitalisation =
-                regionalHospitalisationRepository.findByRegionAndNoticeDateAndAgeGroup(
-                        regionalHospitalisation.getRegion(), regionalHospitalisation.getNoticeDate(), regionalHospitalisation.getAgeGroup());
-        if (existingRegionalHospitalisation.isPresent()) {
-            if (!update || existingRegionalHospitalisation.get().equals(regionalHospitalisation)) {
-                return existingRegionalHospitalisation.get();
-            } else {
-                LOGGER.warn("Change from {} to {}", existingRegionalHospitalisation.get(), regionalHospitalisation);
-                return regionalHospitalisationRepository.save(regionalHospitalisation);
-            }
-        } else {
-            return regionalHospitalisationRepository.save(regionalHospitalisation);
-        }
+    @Transactional
+    public RegionalHospitalisation updateRegionalHospitalisation(RegionalHospitalisation hospitalisation) {
+        return regionalHospitalisationRepository.findByRegionAndNoticeDateAndAgeGroup(hospitalisation.getRegion(), hospitalisation.getNoticeDate(), hospitalisation.getAgeGroup())
+                .map(existingHospitalisation -> {
+                    if (existingHospitalisation.equals(hospitalisation)) {
+                        return existingHospitalisation;
+                    } else {
+                        existingHospitalisation.setCurrentHospitalizedCount(hospitalisation.getCurrentHospitalizedCount());
+                        existingHospitalisation.setCurrentIntensiveCareCount((hospitalisation.getCurrentIntensiveCareCount()));
+                        existingHospitalisation.setCurrentRadiationCount(hospitalisation.getCurrentRadiationCount());
+                        existingHospitalisation.setCurrentDeathCount(hospitalisation.getCurrentDeathCount());
+                        return regionalHospitalisationRepository.save(existingHospitalisation);
+                    }
+                })
+                .orElseGet(() -> regionalHospitalisationRepository.save(hospitalisation)
+                );
     }
 
-
-    /**
-     * Find a Region by regionNumber, or put an unknown region in database.
-     *
-     * @param regionNumber
-     * @return Existing Region in database, or newly created 'Region(regionNumber, "Unknown")
-     */
-    public Region safeFindRegionByNumber(Integer regionNumber) {
-        return regionRepository
-                .findByRegionNumber(regionNumber)
-                .orElseGet(() -> getOrInsert(new Region(regionNumber, "Unknown"), false));
-    }
-
-    public Region updateIfDifferent(Region region) {
-        Optional<Region> existingRegion = regionRepository.findByRegionNumber(region.getRegionNumber());
-
-        if (existingRegion.isEmpty() || !existingRegion.get().equals(region)) {
-            return getOrInsert(region, true);
-
-        } else {
-            return existingRegion.get();
-        }
-    }
-
-
-    public RegionalIntensiveCareAdmission updateIfDifferent(RegionalIntensiveCareAdmission regionalAdmission) {
-        Optional<RegionalIntensiveCareAdmission> existingAdmission =
-                regionalAdmissionsRepository.findByRegionAndNoticeDate(regionalAdmission.getRegion(), regionalAdmission.getNoticeDate());
-
-        if (existingAdmission.isEmpty() || !existingAdmission.get().equals(regionalAdmission)) {
-            return getOrInsert(regionalAdmission, true);
-
-        } else {
-            return existingAdmission.get();
-        }
-    }
-
-    public RegionalHospitalisation updateIfDifferent(RegionalHospitalisation regionalHospitalisation) {
-        Optional<RegionalHospitalisation> existingHospitalisation =
-                regionalHospitalisationRepository.findByRegionAndNoticeDateAndAgeGroup(
-                        regionalHospitalisation.getRegion(), regionalHospitalisation.getNoticeDate(), regionalHospitalisation.getAgeGroup());
-
-        if (existingHospitalisation.isEmpty() || !existingHospitalisation.get().equals(regionalHospitalisation)) {
-            return getOrInsert(regionalHospitalisation, true);
-
-        } else {
-            return existingHospitalisation.get();
+    public Optional<RegionalHospitalisation> safeUdateRegionalHospitalisation(RegionalHospitalisation hospitalisation) {
+        try {
+            return Optional.of(updateRegionalHospitalisation(hospitalisation));
+        } catch (Exception e) {
+            LOGGER.warn("Could not update {}", hospitalisation);
+            return Optional.empty();
         }
     }
 
@@ -134,7 +116,7 @@ public class RegionalHospDataService {
     }
 
 
-    public List<RegionalIntensiveCareAdmission> getAllAdmissions() {
+    public List<RegionalIntensiveCareAdmission> getAllRegionalICAdmissions() {
         return regionalAdmissionsRepository.findAll();
     }
 

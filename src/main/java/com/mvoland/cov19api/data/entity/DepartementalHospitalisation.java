@@ -1,5 +1,7 @@
 package com.mvoland.cov19api.data.entity;
 
+import com.mvoland.cov19api.data.types.Sex;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -12,6 +14,8 @@ public class DepartementalHospitalisation {
     @ManyToOne
     private Departement departement;
     private LocalDate noticeDate;
+
+    @Column
     @Enumerated(EnumType.STRING)
     private Sex sex;
     private Integer currentHospitalizedCount;

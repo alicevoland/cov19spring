@@ -1,5 +1,6 @@
-package com.mvoland.cov19api.business.service;
+package com.mvoland.cov19api.datagouvfr.updateservice;
 
+import com.mvoland.cov19api.business.service.RegionalHospDataService;
 import com.mvoland.cov19api.data.entity.Region;
 import com.mvoland.cov19api.data.entity.RegionalHospitalisation;
 import com.mvoland.cov19api.data.entity.RegionalIntensiveCareAdmission;
@@ -16,15 +17,15 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
-public class HospDataDatabaseUpdaterService {
+public class HospDataDatabaseUpdateService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HospDataDatabaseUpdaterService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HospDataDatabaseUpdateService.class);
 
     private final HospDataProvider hospDataProvider;
     private final RegionalHospDataService regionalHospDataService;
 
     @Autowired
-    public HospDataDatabaseUpdaterService(
+    public HospDataDatabaseUpdateService(
             HospDataProvider hospDataProvider,
             RegionalHospDataService regionalHospDataService
     ) {
@@ -33,36 +34,31 @@ public class HospDataDatabaseUpdaterService {
         this.regionalHospDataService = regionalHospDataService;
     }
 
-    @Transactional
     public void processCovidHospitIncidReg(CovidHospitIncidReg covidHospitIncidReg) {
-
-        Region region = regionalHospDataService.updateIfDifferent(
-                new Region(
-                        covidHospitIncidReg.getNumReg(),
-                        covidHospitIncidReg.getNomReg()
-                )
-        );
-        regionalHospDataService.updateIfDifferent(
-                new RegionalIntensiveCareAdmission(
-                        region,
-                        covidHospitIncidReg.getJour(),
-                        covidHospitIncidReg.getIncid_rea()
-                )
-        );
+        regionalHospDataService.safeUpdateRegion(new Region(covidHospitIncidReg.getNumReg(), covidHospitIncidReg.getNomReg()));
+        regionalHospDataService
+                .findRegionByNumber(covidHospitIncidReg.getNumReg())
+                .ifPresent(region -> regionalHospDataService.safeUpdateRegionalIntensiveCareAdmission(
+                        new RegionalIntensiveCareAdmission(
+                                region,
+                                covidHospitIncidReg.getJour(),
+                                covidHospitIncidReg.getIncid_rea()
+                        ))
+                );
     }
 
-    @Transactional
     public void processCovidHospReg(DonneesHospitalieresClasseAgeCovid19 covidHospClAgeReg) {
-
-        regionalHospDataService.updateIfDifferent(
-                new RegionalHospitalisation(
-                        regionalHospDataService.safeFindRegionByNumber(covidHospClAgeReg.getReg()),
-                        covidHospClAgeReg.getJour(),
-                        covidHospClAgeReg.getCl_age90(),
-                        covidHospClAgeReg.getHosp(), covidHospClAgeReg.getRea(),
-                        covidHospClAgeReg.getRad(), covidHospClAgeReg.getDc()
-                )
-        );
+        regionalHospDataService
+                .findRegionByNumber(covidHospClAgeReg.getReg())
+                .ifPresent(region -> regionalHospDataService.safeUdateRegionalHospitalisation(
+                        new RegionalHospitalisation(
+                                region,
+                                covidHospClAgeReg.getJour(),
+                                covidHospClAgeReg.getCl_age90(),
+                                covidHospClAgeReg.getHosp(), covidHospClAgeReg.getRea(),
+                                covidHospClAgeReg.getRad(), covidHospClAgeReg.getDc()
+                        ))
+                );
     }
 
 
@@ -86,7 +82,7 @@ public class HospDataDatabaseUpdaterService {
         );
 
         List<DonneesHospitalieresClasseAgeCovid19> allCovidHospRegList = hospDataProvider.getAllDonneesHospitalieresClasseAgeCovid19s();
-        PercentCounter regHospCounter = new PercentCounter(allCovidHospRegList.size(), 20, (tick, size, percent) -> {
+        PercentCounter regHospCounter = new PercentCounter(allCovidHospRegList.size(), 100, (tick, size, percent) -> {
             LOGGER.info("DonneesHospitalieresClasseAgeCovid19: parsed {} / {}  | {} %", tick, size, percent);
         });
         allCovidHospRegList.stream().parallel().forEach(

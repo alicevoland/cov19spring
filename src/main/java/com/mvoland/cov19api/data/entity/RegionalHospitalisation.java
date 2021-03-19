@@ -1,5 +1,7 @@
 package com.mvoland.cov19api.data.entity;
 
+import com.mvoland.cov19api.data.types.AgeGroup;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;

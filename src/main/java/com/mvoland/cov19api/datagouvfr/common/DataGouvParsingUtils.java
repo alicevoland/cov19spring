@@ -1,6 +1,6 @@
 package com.mvoland.cov19api.datagouvfr.common;
 
-import com.mvoland.cov19api.data.entity.AgeGroup;
+import com.mvoland.cov19api.data.types.AgeGroup;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
