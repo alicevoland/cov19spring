@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.web;
+package com.mvoland.cov19api.web.update;
 
 import com.mvoland.cov19api.data.update.entity.UpdateRequest;
 import com.mvoland.cov19api.update.service.UpdateService;

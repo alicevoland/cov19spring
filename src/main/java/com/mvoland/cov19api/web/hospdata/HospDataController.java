@@ -1,5 +1,6 @@
-package com.mvoland.cov19api.web;
+package com.mvoland.cov19api.web.hospdata;
 
+import com.mvoland.cov19api.data.hospdata.entity.RegionalIntensiveCareAdmission;
 import com.mvoland.cov19api.hospdata.service.RegionalHospDataService;
 import com.mvoland.cov19api.data.hospdata.entity.Region;
 import com.mvoland.cov19api.datagouvfr.updateservice.HospDataDatabaseUpdateService;
@@ -37,6 +38,14 @@ public class HospDataController {
         return regionalHospDataService
                 .findRegionByNumber(regionNumber)
                 .orElseThrow(() -> new RegionNotFoundException(regionNumber));
+    }
+
+    @GetMapping("intensiveCareAdmissions")
+    public List<RegionalIntensiveCareAdmission> intensiveCareAdmissions(
+            @RequestParam(value = "regionNumber") Integer regionNumber,
+            @RequestParam(value = "days", defaultValue = "10", required = false) Integer days) {
+        return regionalHospDataService
+                .getByRegionNumberAndDays(regionNumber, days);
     }
 
     @GetMapping("requestUpdate")

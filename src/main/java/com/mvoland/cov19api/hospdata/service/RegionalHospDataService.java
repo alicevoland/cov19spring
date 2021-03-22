@@ -12,8 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class RegionalHospDataService {
@@ -121,6 +125,18 @@ public class RegionalHospDataService {
 
     public List<RegionalHospitalisation> getAllRegionalHospitalisations() {
         return regionalHospitalisationRepository.findAll();
+    }
+
+    public List<RegionalIntensiveCareAdmission> getByRegionNumberAndDays(
+            Integer regionNumber, Integer days
+    ) {
+        LocalDate date = LocalDate.now().minusDays(days);
+        return regionRepository
+                .findByRegionNumber(regionNumber)
+                .map(region -> regionalAdmissionsRepository
+                        .findByRegion(region).stream()
+                        .filter(admission -> admission.getNoticeDate().isAfter(date))
+                        .collect(Collectors.toList())).orElse(Collections.emptyList());
     }
 
 

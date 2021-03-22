@@ -14,4 +14,10 @@ public interface RegionalIntensiveCareAdmissionRepository extends CrudRepository
 
     @Override
     List<RegionalIntensiveCareAdmission> findAll();
+
+    List<RegionalIntensiveCareAdmission> findByNoticeDateAfter(LocalDate noticeDate);
+
+    List<RegionalIntensiveCareAdmission> findByRegion(Region region);
+
+    List<RegionalIntensiveCareAdmission> findByRegionAndNoticeDateAfter(Region region, LocalDate noticeDate);
 }

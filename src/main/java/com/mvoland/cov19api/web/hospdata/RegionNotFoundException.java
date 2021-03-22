@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.web;
+package com.mvoland.cov19api.web.hospdata;
 
 class RegionNotFoundException extends RuntimeException {
 
