@@ -22,47 +22,9 @@
         <a href="https://www.data.gouv.fr/fr/pages/donnees-coronavirus">www.data.gouv.fr/fr/pages/donnees-coronavirus</a>
     </p>
 
-    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regions</code>
-<samp>[
-    { "regionName": "Guadeloupe", "regionNumber": 1 },
-    { "regionName": "Martinique", "regionNumber": 2 },
-    ...
-]</samp></pre>
+    <h2>Documentation de l'API</h2>
 
-    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regionalIntensiveCareAdmissions</code>
-<samp>[
-    {
-        "regionName": "Nouvelle-Aquitaine",
-        "regionNumber": 75
-    },
-    {
-        "regionName": "Occitanie",
-        "regionNumber": 76
-    },
-    ...
-]</samp></pre>
-
-    <pre><code>GET https://cov19api.herokuapp.com/api/v1/hospitalisations/regionalHospitalisations</code><samp>[
-    {
-        "ageGroup": "ALL",
-        "currentDeathCount": 3,
-        "currentHospitalizedCount": 64,
-        "currentIntensiveCareCount": 18,
-        "currentRadiationCount": 20,
-        "noticeDate": "2020-03-31",
-        "regionNumber": 2
-    },
-    {
-        "ageGroup": "FROM_0_TO_9",
-        "currentDeathCount": 0,
-        "currentHospitalizedCount": 2,
-        "currentIntensiveCareCount": 1,
-        "currentRadiationCount": 0,
-        "noticeDate": "2020-03-31",
-        "regionNumber": 2
-    },
-    ...
-]</samp></pre>
+    <a th:href="@{/api-docs/index.html}">Documentation de l'API</a>
 
 </div>
 

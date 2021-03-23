@@ -86,7 +86,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- tag::asciidoc[] -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
@@ -105,13 +104,12 @@
                             <attributes>
                                 <snippets>${project.build.directory}/generated-snippets</snippets>
                             </attributes>
-                            <sourceDirectory>src/asciidoc</sourceDirectory>
-                            <outputDirectory>doc/generated-docs</outputDirectory>
+                            <sourceDirectory>src/main/asciidoc</sourceDirectory>
+                            <outputDirectory>src/main/resources/static/api-docs</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!-- end::asciidoc[] -->
 
         </plugins>
     </build>

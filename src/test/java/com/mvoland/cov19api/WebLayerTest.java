@@ -1,12 +1,8 @@
 package com.mvoland.cov19api;
 
-import com.mvoland.cov19api.web.hospdata.HospDataController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
@@ -24,8 +20,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith({RestDocumentationExtension.class, SpringExtension.class})
 @SpringBootTest
-//@WebMvcTest(HospDataController.class)
 public class WebLayerTest {
+
+    private MockMvc mockMvc;
 
     @BeforeEach
     public void setUp(WebApplicationContext webApplicationContext,
@@ -34,13 +31,12 @@ public class WebLayerTest {
                 .apply(documentationConfiguration(restDocumentation)).build();
     }
 
-//    @Autowired
-    private MockMvc mockMvc;
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/api/v1/hospdata/regions"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Occitanie"))).andDo(document("home"));
+                .andExpect(content().string(containsString("Occitanie")))
+                .andDo(document("home"));
     }
 }

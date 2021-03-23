@@ -1,0 +1,16 @@
+package com.mvoland.cov19api.covidstat.locality.service;
+
+import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class LocalityService {
+
+    @Autowired
+    private RegionRepository regionRepository;
+
+    
+
+}
