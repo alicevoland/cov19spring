@@ -21,12 +21,10 @@ public class Cov19Application {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
-            LOGGER.info("** START CLR **");
+            LOGGER.info("** START commandLineRunner **");
 
-            LOGGER.info("** END   CLR **");
+            LOGGER.info("** END   commandLineRunner **");
         };
     }
-
-
 
 }

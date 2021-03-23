@@ -2,7 +2,7 @@ package com.mvoland.cov19api;
 
 import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
-import com.mvoland.cov19api.tomove.hospdata.RegionalHospDataService;
+import com.mvoland.cov19api.covidstat.hospitalisation.service.RegionalHospDataService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

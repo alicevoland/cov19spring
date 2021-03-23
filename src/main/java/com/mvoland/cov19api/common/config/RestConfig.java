@@ -1,8 +1,8 @@
 package com.mvoland.cov19api.common.config;
 
 import com.mvoland.cov19api.covidstat.locality.data.Region;
-import com.mvoland.cov19api.tomove.data.hospdata.entity.RegionalHospitalisation;
-import com.mvoland.cov19api.tomove.data.hospdata.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
+import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
