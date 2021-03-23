@@ -1,7 +1,7 @@
-package com.mvoland.cov19api.update.web;
+package com.mvoland.cov19api.datagouvfr.hospdata.update.web;
 
-import com.mvoland.cov19api.update.data.UpdateRequest;
-import com.mvoland.cov19api.update.service.UpdateService;
+import com.mvoland.cov19api.datagouvfr.hospdata.update.data.UpdateRequest;
+import com.mvoland.cov19api.datagouvfr.hospdata.misc.UpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

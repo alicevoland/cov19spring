@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.update.data;
+package com.mvoland.cov19api.datagouvfr.hospdata.update.data;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

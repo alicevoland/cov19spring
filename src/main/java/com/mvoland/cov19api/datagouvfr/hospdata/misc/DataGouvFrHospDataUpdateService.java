@@ -1,10 +1,9 @@
-package com.mvoland.cov19api.datagouvfr.hospdata.service;
+package com.mvoland.cov19api.datagouvfr.hospdata.misc;
 
 import com.mvoland.cov19api.covidstat.hospitalisation.service.RegionalHospDataService;
 import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
-import com.mvoland.cov19api.datagouvfr.hospdata.data.HospDataProvider;
 import com.mvoland.cov19api.datagouvfr.hospdata.data.CovidHospitIncidReg;
 import com.mvoland.cov19api.datagouvfr.hospdata.data.DonneesHospitalieresClasseAgeCovid19;
 import com.mvoland.cov19api.common.util.PercentCounter;

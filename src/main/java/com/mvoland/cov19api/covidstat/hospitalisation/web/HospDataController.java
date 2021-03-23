@@ -3,7 +3,7 @@ package com.mvoland.cov19api.covidstat.hospitalisation.web;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
 import com.mvoland.cov19api.covidstat.hospitalisation.service.RegionalHospDataService;
 import com.mvoland.cov19api.covidstat.locality.data.Region;
-import com.mvoland.cov19api.datagouvfr.hospdata.service.DataGouvFrHospDataUpdateService;
+import com.mvoland.cov19api.datagouvfr.hospdata.misc.DataGouvFrHospDataUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

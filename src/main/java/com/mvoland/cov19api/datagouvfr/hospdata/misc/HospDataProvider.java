@@ -1,7 +1,10 @@
-package com.mvoland.cov19api.datagouvfr.hospdata.data;
+package com.mvoland.cov19api.datagouvfr.hospdata.misc;
 
-import com.mvoland.cov19api.datagouvfr.common.DataGouvCsvBackend;
-import com.mvoland.cov19api.datagouvfr.common.DataGouvParsingUtils;
+import com.mvoland.cov19api.datagouvfr.common.ParsingUtils;
+import com.mvoland.cov19api.datagouvfr.hospdata.data.CovidHospitIncidReg;
+import com.mvoland.cov19api.datagouvfr.hospdata.data.DonneesHospitalieresClasseAgeCovid19;
+import com.mvoland.cov19api.datagouvfr.hospdata.data.DonneesHospitalieresCovid19;
+import com.mvoland.cov19api.datagouvfr.hospdata.data.DonneesHospitalieresNouveauxCovid19;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,10 +20,10 @@ public class HospDataProvider {
         this.covidHospitIncidRegCsvBackend = new DataGouvCsvBackend<>(
                 rowValues -> {
                     CovidHospitIncidReg data = new CovidHospitIncidReg();
-                    data.setJour(DataGouvParsingUtils.parseDateOrThrow(rowValues[0]));
+                    data.setJour(ParsingUtils.parseDateOrThrow(rowValues[0]));
                     data.setNomReg(rowValues[1]);
-                    data.setNumReg(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[2], null));
-                    data.setIncid_rea(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[3], 0));
+                    data.setNumReg(ParsingUtils.parseIntegerOrDefault(rowValues[2], null));
+                    data.setIncid_rea(ParsingUtils.parseIntegerOrDefault(rowValues[3], 0));
                     return data;
                 },
                 "https://www.data.gouv.fr/fr/datasets/r/a1466f7f-4ece-4158-a373-f5d4db167eb0");
@@ -28,13 +31,13 @@ public class HospDataProvider {
         this.donneesHospitalieresClasseAgeCovid19CsvBackend = new DataGouvCsvBackend<>(
                 rowValues -> {
                     DonneesHospitalieresClasseAgeCovid19 data = new DonneesHospitalieresClasseAgeCovid19();
-                    data.setReg(DataGouvParsingUtils.parseIntegerOrThrow(rowValues[0]));
-                    data.setCl_age90(DataGouvParsingUtils.parseAgeGroupOrThrow(rowValues[1]));
-                    data.setJour(DataGouvParsingUtils.parseDateOrThrow(rowValues[2]));
-                    data.setHosp(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[3], 0));
-                    data.setRea(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[4], 0));
-                    data.setRad(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[5], 0));
-                    data.setDc(DataGouvParsingUtils.parseIntegerOrDefault(rowValues[6], 0));
+                    data.setReg(ParsingUtils.parseIntegerOrThrow(rowValues[0]));
+                    data.setCl_age90(ParsingUtils.parseAgeGroupOrThrow(rowValues[1]));
+                    data.setJour(ParsingUtils.parseDateOrThrow(rowValues[2]));
+                    data.setHosp(ParsingUtils.parseIntegerOrDefault(rowValues[3], 0));
+                    data.setRea(ParsingUtils.parseIntegerOrDefault(rowValues[4], 0));
+                    data.setRad(ParsingUtils.parseIntegerOrDefault(rowValues[5], 0));
+                    data.setDc(ParsingUtils.parseIntegerOrDefault(rowValues[6], 0));
                     return data;
                 },
                 "https://www.data.gouv.fr/fr/datasets/r/08c18e08-6780-452d-9b8c-ae244ad529b3");

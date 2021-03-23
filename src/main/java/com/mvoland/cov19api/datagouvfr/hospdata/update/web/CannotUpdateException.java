@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.update.web;
+package com.mvoland.cov19api.datagouvfr.hospdata.update.web;
 
 public class CannotUpdateException extends RuntimeException {
     public CannotUpdateException(String dataSource) {

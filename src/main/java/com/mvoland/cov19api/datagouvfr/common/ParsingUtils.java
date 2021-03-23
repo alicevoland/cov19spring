@@ -5,7 +5,7 @@ import com.mvoland.cov19api.common.type.AgeGroup;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DataGouvParsingUtils {
+public class ParsingUtils {
 
     public static Integer parseIntegerOrDefault(String value, Integer defaultInteger) {
         try {

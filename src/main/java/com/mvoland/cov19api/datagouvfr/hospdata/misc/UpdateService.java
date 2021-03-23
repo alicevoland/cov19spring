@@ -1,8 +1,7 @@
-package com.mvoland.cov19api.update.service;
+package com.mvoland.cov19api.datagouvfr.hospdata.misc;
 
-import com.mvoland.cov19api.update.data.UpdateRequest;
-import com.mvoland.cov19api.update.data.UpdateRepository;
-import com.mvoland.cov19api.datagouvfr.hospdata.service.DataGouvFrHospDataUpdateService;
+import com.mvoland.cov19api.datagouvfr.hospdata.update.data.UpdateRequest;
+import com.mvoland.cov19api.datagouvfr.hospdata.update.data.UpdateRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

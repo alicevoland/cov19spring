@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.update.web;
+package com.mvoland.cov19api.datagouvfr.hospdata.update.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

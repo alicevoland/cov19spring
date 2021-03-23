@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.update.data;
+package com.mvoland.cov19api.datagouvfr.hospdata.update.data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
