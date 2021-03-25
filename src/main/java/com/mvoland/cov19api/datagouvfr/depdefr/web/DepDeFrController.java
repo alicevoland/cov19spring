@@ -1,29 +1,37 @@
 package com.mvoland.cov19api.datagouvfr.depdefr.web;
 
+import com.mvoland.cov19api.datagouvfr.depdefr.data.DepartementDeFranceService;
 import com.mvoland.cov19api.datagouvfr.depdefr.service.DepDeFrUpdateService;
 import com.mvoland.cov19api.datagouvfr.hospdata.service.HospDataUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/depdefr")
+@RequestMapping("api/v1/update/depdefr")
 public class DepDeFrController {
 
-    private final DepDeFrUpdateService depDeFrUpdateService;
+
+    private final DepartementDeFranceService departementDeFranceService;
 
     @Autowired
     public DepDeFrController(
-            DepDeFrUpdateService depDeFrUpdateService
+            DepartementDeFranceService departementDeFranceService
     ) {
-        this.depDeFrUpdateService = depDeFrUpdateService;
+        this.departementDeFranceService = departementDeFranceService;
     }
 
-    @GetMapping("update")
-    public Boolean requestUpdate(
-            @RequestParam(required = false) Integer days) {
-        return depDeFrUpdateService.requestUpdateByDays("DepartementDeFrance", days);
+    @GetMapping("sources")
+    public List<String> getAllSourceNames() {
+        return Arrays.asList("DepartementDeFrance");
+    }
+
+
+    @GetMapping("DepartementDeFrance")
+    public Boolean requestUpdate() {
+        return departementDeFranceService.requestFullUpdate();
     }
 
 }

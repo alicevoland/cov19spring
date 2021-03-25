@@ -1,6 +1,8 @@
-= Getting Started With Spring REST Docs
+= Cov19 API
 
-This is an example output for a service running at http://localhost:8080:
+
+
+This is an example output for a service running at https://cov19api.herokuapp.com/api/v1/:
 
 .request
 include::{snippets}/home/http-request.adoc[]
@@ -8,4 +10,4 @@ include::{snippets}/home/http-request.adoc[]
 .response
 include::{snippets}/home/http-response.adoc[]
 
-As you can see the format is very simple, and in fact you always get the same message.
+

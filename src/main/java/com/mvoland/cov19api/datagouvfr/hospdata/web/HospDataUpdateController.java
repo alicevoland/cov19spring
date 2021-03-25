@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/hospdata")
+@RequestMapping("api/v1/update/hospdata")
 public class HospDataUpdateController {
 
     private final HospDataUpdateService hospDataUpdateService;
@@ -19,16 +19,17 @@ public class HospDataUpdateController {
         this.hospDataUpdateService = hospDataUpdateService;
     }
 
-    @GetMapping("update/{dataSourceName}")
+    @GetMapping("sources")
+    public List<String> getAllSourceNames() {
+        return hospDataUpdateService.getSourceNames();
+    }
+
+    @GetMapping("{dataSourceName}")
     public Boolean requestUpdate(
             @PathVariable String dataSourceName,
             @RequestParam(required = false) Integer days) {
         return hospDataUpdateService.requestUpdateByDays(dataSourceName, days);
     }
 
-    @GetMapping("sources")
-    public List<String> getAllSourceNames() {
-        return hospDataUpdateService.getSourceNames();
-    }
 
 }

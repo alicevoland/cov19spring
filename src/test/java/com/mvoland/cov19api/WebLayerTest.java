@@ -39,4 +39,11 @@ public class WebLayerTest {
                 .andExpect(content().string(containsString("Occitanie")))
                 .andDo(document("home"));
     }
+
+    @Test
+    public void testStat() throws  Exception {
+        this.mockMvc.perform(get("api/v1/locality/stats"))
+                .andExpect(status().isOk())
+                .andDo(document("locality-stats"));
+    }
 }
