@@ -6,6 +6,7 @@ import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +28,15 @@ public class LocalityController {
     @GetMapping("regions")
     public List<Region> getAllRegions() {
         return localityService.getAllRegions();
+    }
+
+    @GetMapping("region")
+    public Region getAllRegions(
+            @RequestParam String regionCode
+    ) {
+        return localityService
+                .findRegionByCode(regionCode)
+                .orElseThrow(() -> new RegionNotFoundException(regionCode));
     }
 
     @GetMapping("departments")

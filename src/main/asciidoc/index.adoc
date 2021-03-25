@@ -3,11 +3,28 @@
 
 
 This is an example output for a service running at https://cov19api.herokuapp.com/api/v1/:
+//
+//.request
+//include::{snippets}/home/http-request.adoc[]
+//
+//.response
+//include::{snippets}/home/http-response.adoc[]
+
+== Locality API
+
+=== Some stats
 
 .request
-include::{snippets}/home/http-request.adoc[]
+include::{snippets}/locality-stats/http-request.adoc[]
 
 .response
-include::{snippets}/home/http-response.adoc[]
+include::{snippets}/locality-stats/http-response.adoc[]
 
+=== Region by code
+
+.request
+include::{snippets}/locality-region/http-request.adoc[]
+
+.response
+include::{snippets}/locality-region/http-response.adoc[]
 

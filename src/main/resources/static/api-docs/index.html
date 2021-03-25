@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>Getting Started With Spring REST Docs</title>
+<title>Cov19 API</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -419,18 +419,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Getting Started With Spring REST Docs</h1>
+<h1>Cov19 API</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is an example output for a service running at <a href="http://localhost:8080" class="bare">http://localhost:8080</a>:</p>
+<p>This is an example output for a service running at <a href="https://cov19api.herokuapp.com/api/v1/" class="bare">https://cov19api.herokuapp.com/api/v1/</a>:</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_locality_api">Locality API</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_some_stats">Some stats</h3>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/hospdata/regions HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/locality/stats HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -439,20 +446,38 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 1016
+Content-Length: 41
 
-[{"id":3,"regionNumber":2,"regionName":"Martinique"},{"id":5,"regionNumber":32,"regionName":"Hauts-de-France"},{"id":10,"regionNumber":11,"regionName":"Ile-de-France"},{"id":12,"regionNumber":6,"regionName":"Mayotte"},{"id":15,"regionNumber":28,"regionName":"Normandie"},{"id":6,"regionNumber":44,"regionName":"Grand-Est"},{"id":7,"regionNumber":4,"regionName":"La Réunion"},{"id":2,"regionNumber":1,"regionName":"Guadeloupe"},{"id":11,"regionNumber":3,"regionName":"Guyane"},{"id":4,"regionNumber":75,"regionName":"Nouvelle-Aquitaine"},{"id":14,"regionNumber":76,"regionName":"Occitanie"},{"id":17,"regionNumber":52,"regionName":"Pays de la Loire"},{"id":18,"regionNumber":93,"regionName":"Provence-Alpes-Côte d'Azur"},{"id":8,"regionNumber":53,"regionName":"Bretagne"},{"id":13,"regionNumber":24,"regionName":"Centre-Val de Loire"},{"id":16,"regionNumber":94,"regionName":"Corse"},{"id":1,"regionNumber":84,"regionName":"Auvergne-Rhône-Alpes"},{"id":9,"regionNumber":27,"regionName":"Bourgogne-Franche-Comté"}]</code></pre>
+{"regionCount":18,"departementCount":101}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>As you can see the format is very simple, and in fact you always get the same message.</p>
+</div>
+<div class="sect2">
+<h3 id="_region_by_code">Region by code</h3>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/locality/region?regionCode=123ABC HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 68
+
+{"id":null,"regionCode":"123ABC","regionName":"ExistingRegion Name"}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-22 22:08:26 CET
+Last updated 2021-03-25 22:00:57 CET
 </div>
 </div>
 </body>
