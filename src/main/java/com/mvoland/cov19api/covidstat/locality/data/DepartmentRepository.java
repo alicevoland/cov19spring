@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface RegionRepository extends CrudRepository<Region, Long> {
+public interface DepartmentRepository extends CrudRepository<Department, Long> {
 
-    Optional<Region> findByRegionNumber(Integer regionNumber);
+    Optional<Department> findByDepartmentNumber(Integer departmentNumber);
 
     @Override
     @NonNull
-    List<Region> findAll();
+    List<Department> findAll();
 }
