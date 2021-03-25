@@ -1,16 +1,13 @@
 package com.mvoland.cov19api.datagouvfr.hospdata.web;
 
-import com.mvoland.cov19api.datagouvfr.hospdata.update.HospDataUpdateService;
+import com.mvoland.cov19api.datagouvfr.hospdata.service.HospDataUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/update")
+@RequestMapping("api/v1/hospdata")
 public class HospDataUpdateController {
 
     private final HospDataUpdateService hospDataUpdateService;
@@ -22,9 +19,11 @@ public class HospDataUpdateController {
         this.hospDataUpdateService = hospDataUpdateService;
     }
 
-    @GetMapping("request/{dataSourceName}")
-    public Boolean requestUpdate(@PathVariable String dataSourceName) {
-        return hospDataUpdateService.requestUpdate(dataSourceName);
+    @GetMapping("update/{dataSourceName}")
+    public Boolean requestUpdate(
+            @PathVariable String dataSourceName,
+            @RequestParam(required = false) Integer days) {
+        return hospDataUpdateService.requestUpdateByDays(dataSourceName, days);
     }
 
     @GetMapping("sources")

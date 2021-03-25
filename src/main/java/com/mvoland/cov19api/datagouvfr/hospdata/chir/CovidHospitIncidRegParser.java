@@ -11,7 +11,7 @@ public class CovidHospitIncidRegParser implements ValueParser<CovidHospitIncidRe
         CovidHospitIncidReg data = new CovidHospitIncidReg();
         data.setJour(ParsingUtils.parseDateOrThrow(rowValues[0]));
         data.setNomReg(rowValues[1]);
-        data.setNumReg(ParsingUtils.parseIntegerOrDefault(rowValues[2], null));
+        data.setNumReg(rowValues[2]);
         data.setIncid_rea(ParsingUtils.parseIntegerOrDefault(rowValues[3], 0));
         return data;
     }

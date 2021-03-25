@@ -1,5 +1,9 @@
 package com.mvoland.cov19api;
 
+import com.mvoland.cov19api.covidstat.locality.data.Department;
+import com.mvoland.cov19api.covidstat.locality.data.DepartmentRepository;
+import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
 import com.mvoland.cov19api.datagouvfr.common.SourceService;
 import org.aspectj.weaver.reflect.ReflectionShadow;
 import org.reflections.Reflections;

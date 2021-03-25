@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.datagouvfr.hospdata.update;
+package com.mvoland.cov19api.datagouvfr.hospdata.service;
 
 import com.mvoland.cov19api.datagouvfr.common.UpdateService;
 import com.mvoland.cov19api.datagouvfr.hospdata.chir.CovidHospitIncidRegService;

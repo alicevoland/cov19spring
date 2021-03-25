@@ -4,31 +4,35 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(indexes = @Index(columnList = "departmentNumber", unique = true))
+@Table(indexes = @Index(columnList = "departmentCode", unique = true))
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer departmentNumber;
+    private String departmentCode;
     private String departmentName;
+
+    @ManyToOne
+    private Region region;
 
     public Department() {
     }
 
 
-    public Department(Integer departmentNumber, String departmentName) {
-        this.departmentNumber = departmentNumber;
+    public Department(String departmentCode, String departmentName, Region region) {
+        this.departmentCode = departmentCode;
         this.departmentName = departmentName;
+        this.region = region;
     }
 
-    public Integer getDepartmentNumber() {
-        return departmentNumber;
+    public String getDepartmentCode() {
+        return departmentCode;
     }
 
-    public void setDepartmentNumber(Integer departementNumber) {
-        this.departmentNumber = departementNumber;
+    public void setDepartmentCode(String departementCode) {
+        this.departmentCode = departementCode;
     }
 
     public String getDepartmentName() {
@@ -39,12 +43,12 @@ public class Department {
         this.departmentName = departementName;
     }
 
-    @Override
-    public String toString() {
-        return "Departement{" +
-                "departementNumber=" + departmentNumber +
-                ", departementName='" + departmentName + '\'' +
-                '}';
+    public Region getRegion() {
+        return region;
+    }
+
+    public void setRegion(Region region) {
+        this.region = region;
     }
 
     @Override
@@ -52,11 +56,21 @@ public class Department {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Department that = (Department) o;
-        return Objects.equals(departmentNumber, that.departmentNumber) && Objects.equals(departmentName, that.departmentName);
+        return Objects.equals(departmentCode, that.departmentCode) && Objects.equals(departmentName, that.departmentName) && Objects.equals(region, that.region);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departmentNumber, departmentName);
+        return Objects.hash(departmentCode, departmentName, region);
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", departmentCode='" + departmentCode + '\'' +
+                ", departmentName='" + departmentName + '\'' +
+                ", region=" + region +
+                '}';
     }
 }

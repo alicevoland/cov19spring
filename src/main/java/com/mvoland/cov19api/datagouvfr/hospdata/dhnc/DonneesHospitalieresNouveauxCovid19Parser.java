@@ -1,5 +1,6 @@
 package com.mvoland.cov19api.datagouvfr.hospdata.dhnc;
 
+import com.mvoland.cov19api.datagouvfr.common.ParsingUtils;
 import com.mvoland.cov19api.datagouvfr.common.ValueParser;
 import org.springframework.stereotype.Component;
 
@@ -9,11 +10,11 @@ public class DonneesHospitalieresNouveauxCovid19Parser implements ValueParser<Do
     public DonneesHospitalieresNouveauxCovid19 parse(String[] rowValues) throws IllegalArgumentException {
         DonneesHospitalieresNouveauxCovid19 data = new DonneesHospitalieresNouveauxCovid19();
         data.setDep(rowValues[0]);
-        data.setJour(rowValues[1]);
-        data.setIncid_hosp(Integer.parseInt(rowValues[2]));
-        data.setIncid_rea(Integer.parseInt((rowValues[3])));
-        data.setIncid_dc(Integer.parseInt(rowValues[4]));
-        data.setIncid_rad(Integer.parseInt((rowValues[5])));
+        data.setJour(ParsingUtils.parseDateOrThrow(rowValues[1]));
+        data.setIncid_hosp(ParsingUtils.parseIntegerOrDefault(rowValues[2], 0));
+        data.setIncid_rea(ParsingUtils.parseIntegerOrDefault((rowValues[3]), 0));
+        data.setIncid_dc(ParsingUtils.parseIntegerOrDefault(rowValues[4], 0));
+        data.setIncid_rad(ParsingUtils.parseIntegerOrDefault(rowValues[5], 0));
         return data;
     }
 }

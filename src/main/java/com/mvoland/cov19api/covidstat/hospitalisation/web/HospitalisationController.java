@@ -27,10 +27,10 @@ public class HospitalisationController {
 
     @GetMapping("intensiveCareAdmissions")
     public List<RegionalIntensiveCareAdmission> intensiveCareAdmissions(
-            @RequestParam(value = "regionNumber") Integer regionNumber,
+            @RequestParam(value = "regionCode") String regionCode,
             @RequestParam(value = "days", defaultValue = "10", required = false) Integer days) {
         return hospitalisationService
-                .getByRegionNumberAndDays(regionNumber, days);
+                .getByRegionCodeAndDays(regionCode, days);
     }
 
 

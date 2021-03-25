@@ -1,27 +1,21 @@
 package com.mvoland.cov19api.datagouvfr.hospdata.dhc;
 
+import com.mvoland.cov19api.common.type.Sex;
+
+import java.time.LocalDate;
+
 public class DonneesHospitalieresCovid19 {
 
 
     private String dep;
-    private String sexe;
-    private String jour;
+    private Sex sexe;
+    private LocalDate jour;
     private Integer hosp;
     private Integer rea;
     private Integer rad;
     private Integer dc;
 
     public DonneesHospitalieresCovid19() {
-    }
-
-    public DonneesHospitalieresCovid19(String dep, String sexe, String jour, Integer hosp, Integer rea, Integer rad, Integer dc) {
-        this.dep = dep;
-        this.sexe = sexe;
-        this.jour = jour;
-        this.hosp = hosp;
-        this.rea = rea;
-        this.rad = rad;
-        this.dc = dc;
     }
 
     public String getDep() {
@@ -32,19 +26,19 @@ public class DonneesHospitalieresCovid19 {
         this.dep = dep;
     }
 
-    public String getSexe() {
+    public Sex getSexe() {
         return sexe;
     }
 
-    public void setSexe(String sexe) {
+    public void setSexe(Sex sexe) {
         this.sexe = sexe;
     }
 
-    public String getJour() {
+    public LocalDate getJour() {
         return jour;
     }
 
-    public void setJour(String jour) {
+    public void setJour(LocalDate jour) {
         this.jour = jour;
     }
 

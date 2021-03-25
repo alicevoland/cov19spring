@@ -1,6 +1,7 @@
 package com.mvoland.cov19api.datagouvfr.common;
 
 import com.mvoland.cov19api.common.type.AgeGroup;
+import com.mvoland.cov19api.common.type.Sex;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,4 +32,13 @@ public class ParsingUtils {
         }
         return ageGroup;
     }
+
+    public static Sex parseSexOrThrow(String value) {
+        Sex sex = Sex.fromValue(parseIntegerOrThrow(value));
+        if (sex.equals(Sex.UNKNOWN)) {
+            throw new IllegalArgumentException("Unknown sex: '" + value + "'");
+        }
+        return sex;
+    }
+
 }

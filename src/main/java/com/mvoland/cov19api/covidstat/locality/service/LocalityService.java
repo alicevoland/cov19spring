@@ -33,17 +33,17 @@ public class LocalityService {
         this.departmentRepository = departmentRepository;
     }
 
-    public Optional<Region> findRegionByNumber(Integer regionNumber) {
-        return regionRepository.findByRegionNumber(regionNumber);
+    public Optional<Region> findRegionByCode(String regionCode) {
+        return regionRepository.findByRegionCode(regionCode);
     }
 
-    public Optional<Department> findDepartmentByNumber(Integer departmentNumber) {
-        return departmentRepository.findByDepartmentNumber(departmentNumber);
+    public Optional<Department> findDepartmentByCode(String departmentCode) {
+        return departmentRepository.findByDepartmentCode(departmentCode);
     }
 
     @Transactional
     public Region updateRegion(Region region) {
-        return regionRepository.findByRegionNumber(region.getRegionNumber())
+        return regionRepository.findByRegionCode(region.getRegionCode())
                 .map(existingRegion -> {
                     if (!existingRegion.equals(region)) {
                         existingRegion.setRegionName(region.getRegionName());
@@ -56,10 +56,11 @@ public class LocalityService {
 
     @Transactional
     public Department updateDepartement(Department department) {
-        return departmentRepository.findByDepartmentNumber(department.getDepartmentNumber())
+        return departmentRepository.findByDepartmentCode(department.getDepartmentCode())
                 .map(existingDepartement -> {
                     if (!existingDepartement.equals(department)) {
                         existingDepartement.setDepartmentName(department.getDepartmentName());
+                        existingDepartement.setRegion(department.getRegion());
                     }
                     return departmentRepository.save(existingDepartement);
                 })

@@ -3,6 +3,7 @@ package com.mvoland.cov19api.datagouvfr.common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,18 +22,27 @@ public class UpdateService {
         }
     }
 
-    public boolean requestUpdate(String dataSourceName) {
-        LOGGER.info("Request update '{}'", dataSourceName);
+    public boolean requestUpdate(String dataSourceName, LocalDate sinceDate) {
+        LOGGER.info("Request update '{}' since {}", dataSourceName, sinceDate == null ? "ALL" : sinceDate.toString());
+
         if (sourceServiceMap.containsKey(dataSourceName.toLowerCase())) {
-            return sourceServiceMap.get(dataSourceName.toLowerCase()).requestUpdate();
+            return sourceServiceMap.get(dataSourceName.toLowerCase()).requestUpdateSinceEntryDate(sinceDate);
+
         } else if (dataSourceName.equalsIgnoreCase("all")) {
             return sourceServiceMap.values().stream()
-                    .map(SourceService::requestUpdate)
+                    .map(service -> service.requestUpdateSinceEntryDate(sinceDate))
                     .collect(Collectors.toList())
                     .stream().anyMatch(Boolean::booleanValue);
         }
         LOGGER.warn("Unknown data source {}", dataSourceName);
         return false;
+    }
+
+    public boolean requestUpdateByDays(String dataSourceName, Integer days) {
+        LocalDate date = days == null
+                ? null
+                : LocalDate.now().minusDays(days);
+        return requestUpdate(dataSourceName, date);
     }
 
     public List<String> getSourceNames() {

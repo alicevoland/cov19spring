@@ -3,22 +3,16 @@ package com.mvoland.cov19api.datagouvfr.hospdata.chir;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class CovidHospitIncidReg {
+public class CovidHospitIncidReg  {
 
     private LocalDate jour;
     private String nomReg;
-    private Integer numReg;
+    private String numReg;
     private Integer incid_rea;
 
     public CovidHospitIncidReg() {
     }
 
-    public CovidHospitIncidReg(LocalDate jour, String nomReg, Integer numReg, Integer incid_rea) {
-        this.jour = jour;
-        this.nomReg = nomReg;
-        this.numReg = numReg;
-        this.incid_rea = incid_rea;
-    }
 
     public LocalDate getJour() {
         return jour;
@@ -36,11 +30,11 @@ public class CovidHospitIncidReg {
         this.nomReg = nomReg;
     }
 
-    public Integer getNumReg() {
+    public String getNumReg() {
         return numReg;
     }
 
-    public void setNumReg(Integer numReg) {
+    public void setNumReg(String numReg) {
         this.numReg = numReg;
     }
 
@@ -74,4 +68,5 @@ public class CovidHospitIncidReg {
                 ", incid_rea=" + incid_rea +
                 '}';
     }
+
 }

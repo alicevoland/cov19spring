@@ -1,6 +1,6 @@
 package com.mvoland.cov19api.datagouvfr.hospdata.chir;
 
-import com.mvoland.cov19api.datagouvfr.common.SourceInfo;
+import com.mvoland.cov19api.datagouvfr.common.DataSourceConfig;
 import com.mvoland.cov19api.datagouvfr.common.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,19 @@ public class CovidHospitIncidRegService extends SourceService<CovidHospitIncidRe
     @Autowired
     public CovidHospitIncidRegService(
             CovidHospitIncidRegParser parser,
-            CovidHospitIncidRegProcessor processor
+            CovidHospitIncidRegProcessor processor,
+            CovidHospitIncidRegSelector selector
     ) {
-        super(new SourceInfo<>(
-                "CovidHospitIncidReg",
-                "https://www.data.gouv.fr/fr/datasets/r/a1466f7f-4ece-4158-a373-f5d4db167eb0",
-                Duration.ofHours(12),
+        super(
+                DataSourceConfig.forHospData(
+                        "CovidHospitIncidReg",
+                        "https://www.data.gouv.fr/fr/datasets/r/a1466f7f-4ece-4158-a373-f5d4db167eb0"
+                ),
                 parser,
-                processor
-        ));
+                processor,
+                selector
+        );
     }
+
+
 }

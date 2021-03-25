@@ -27,7 +27,7 @@ public enum Sex {
                 return Sex.ALL;
             case 1:
                 return Sex.MALE;
-            case 19:
+            case 2:
                 return Sex.FEMALE;
             default:
                 return Sex.UNKNOWN;

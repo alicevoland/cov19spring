@@ -115,12 +115,12 @@ public class HospitalisationService {
         return departmentalHospitalisationRepository.findAll();
     }
 
-    public List<RegionalIntensiveCareAdmission> getByRegionNumberAndDays(
-            Integer regionNumber, Integer days
+    public List<RegionalIntensiveCareAdmission> getByRegionCodeAndDays(
+            String regionCode, Integer days
     ) {
         LocalDate date = LocalDate.now().minusDays(days);
         return localityService
-                .findRegionByNumber(regionNumber)
+                .findRegionByCode(regionCode)
                 .map(region -> regionalAdmissionsRepository
                         .findByRegion(region).stream()
                         .filter(admission -> admission.getNoticeDate().isAfter(date))

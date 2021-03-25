@@ -9,7 +9,7 @@ public class DonneesHospitalieresClasseAgeCovid19Parser implements ValueParser<D
     @Override
     public DonneesHospitalieresClasseAgeCovid19 parse(String[] rowValues) {
         DonneesHospitalieresClasseAgeCovid19 data = new DonneesHospitalieresClasseAgeCovid19();
-        data.setReg(ParsingUtils.parseIntegerOrThrow(rowValues[0]));
+        data.setReg(rowValues[0]);
         data.setCl_age90(ParsingUtils.parseAgeGroupOrThrow(rowValues[1]));
         data.setJour(ParsingUtils.parseDateOrThrow(rowValues[2]));
         data.setHosp(ParsingUtils.parseIntegerOrDefault(rowValues[3], 0));

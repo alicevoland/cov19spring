@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class DonneesHospitalieresClasseAgeCovid19 {
 
-    private Integer reg;
+    private String reg;
     private AgeGroup cl_age90;
     private LocalDate jour;
     private Integer hosp;
@@ -18,21 +18,12 @@ public class DonneesHospitalieresClasseAgeCovid19 {
     public DonneesHospitalieresClasseAgeCovid19() {
     }
 
-    public DonneesHospitalieresClasseAgeCovid19(Integer reg, AgeGroup cl_age90, LocalDate jour, Integer hosp, Integer rea, Integer rad, Integer dc) {
-        this.reg = reg;
-        this.cl_age90 = cl_age90;
-        this.jour = jour;
-        this.hosp = hosp;
-        this.rea = rea;
-        this.rad = rad;
-        this.dc = dc;
-    }
 
-    public Integer getReg() {
+    public String getReg() {
         return reg;
     }
 
-    public void setReg(Integer reg) {
+    public void setReg(String reg) {
         this.reg = reg;
     }
 

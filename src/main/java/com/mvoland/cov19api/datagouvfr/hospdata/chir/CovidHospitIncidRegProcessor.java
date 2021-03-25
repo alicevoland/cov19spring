@@ -25,9 +25,9 @@ public class CovidHospitIncidRegProcessor implements ValueProcessor<CovidHospitI
 
     @Override
     public void process(CovidHospitIncidReg value) {
-        localityService.safeUpdateRegion(new Region(value.getNumReg(), value.getNomReg()));
+//        localityService.safeUpdateRegion(new Region(value.getNumReg(), value.getNomReg()));
         localityService
-                .findRegionByNumber(value.getNumReg())
+                .findRegionByCode(value.getNumReg())
                 .ifPresent(region -> hospitalisationService.safeUpdateRegionalIntensiveCareAdmission(new RegionalIntensiveCareAdmission(
                         region, value.getJour(), value.getIncid_rea())));
     }

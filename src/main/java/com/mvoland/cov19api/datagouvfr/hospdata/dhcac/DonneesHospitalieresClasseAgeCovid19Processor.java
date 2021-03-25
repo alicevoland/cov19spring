@@ -28,7 +28,7 @@ public class DonneesHospitalieresClasseAgeCovid19Processor implements ValueProce
     @Override
     public void process(DonneesHospitalieresClasseAgeCovid19 value) {
         localityService
-                .findRegionByNumber(value.getReg())
+                .findRegionByCode(value.getReg())
                 .ifPresent(region -> hospitalisationService.safeUdateRegionalHospitalisation(
                         new RegionalHospitalisation(
                                 region,

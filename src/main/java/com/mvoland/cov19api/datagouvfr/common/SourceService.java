@@ -1,34 +1,48 @@
 package com.mvoland.cov19api.datagouvfr.common;
 
 import java.time.Duration;
+import java.time.LocalDate;
 
 public class SourceService<ValueType> {
 
-    private SourceInfo<ValueType> sourceInfo;
+    private final ValueParser<ValueType> valueParser;
+    private final ValueSelector<ValueType> valueSelector;
+    private final ValueProcessor<ValueType> valueProcessor;
+    private final DataSourceConfig dataSourceConfig;
     private SourceCheckedUpdater<ValueType> sourceCheckedUpdater;
 
     public SourceService(
-            SourceInfo<ValueType> sourceInfo
+            DataSourceConfig dataSourceConfig,
+            ValueParser<ValueType> valueParser,
+            ValueProcessor<ValueType> valueProcessor,
+            ValueSelector<ValueType> valueSelector
     ) {
-        this.sourceInfo = sourceInfo;
+        this.dataSourceConfig = dataSourceConfig;
+        this.valueParser = valueParser;
+        this.valueSelector = valueSelector;
+        this.valueProcessor = valueProcessor;
+
 
         sourceCheckedUpdater = new SourceCheckedUpdater<>(
                 new SourceUpdater<>(
-                        new SourceFetcher<>(
-                                sourceInfo.getSourceName(), sourceInfo.getSourceUrl(), sourceInfo.getValueParser()
-                        ),
-                        sourceInfo.getValueProcessor()
+                        new SourceFetcher<>(dataSourceConfig, valueParser),
+                        valueProcessor,
+                        valueSelector
                 ),
                 Duration.ofHours(12)
         );
     }
 
     public String getSourceName() {
-        return sourceInfo.getSourceName();
+        return dataSourceConfig.getSourceName();
     }
 
-    public boolean requestUpdate() {
-        return sourceCheckedUpdater.requestUpdate();
+    public boolean requestFullUpdate() {
+        return sourceCheckedUpdater.requestFullUpdate();
+    }
+
+    public boolean requestUpdateSinceEntryDate(LocalDate date) {
+        return sourceCheckedUpdater.requestUpdateSinceEntryDate(date);
     }
 
 }

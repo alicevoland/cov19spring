@@ -4,27 +4,42 @@ import com.mvoland.cov19api.common.util.PercentCounter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public  class SourceUpdater<ValueType> {
+public class SourceUpdater<ValueType> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SourceUpdater.class);
 
     private final SourceFetcher<ValueType> sourceFetcher;
     private final ValueProcessor<ValueType> valueProcessor;
+    private final ValueSelector<ValueType> valueSelector;
 
     public SourceUpdater(
             SourceFetcher<ValueType> sourceFetcher,
-            ValueProcessor<ValueType> valueProcessor
+            ValueProcessor<ValueType> valueProcessor,
+            ValueSelector<ValueType> valueSelector
     ) {
         this.sourceFetcher = sourceFetcher;
         this.valueProcessor = valueProcessor;
+        this.valueSelector = valueSelector;
     }
 
-    public void update() {
+    public void fullUpdate() {
+        updateSinceEntryDate(null);
+    }
+
+    public void updateSinceEntryDate(LocalDate date) {
         LOGGER.info("Will update {}", sourceFetcher.getSourceName());
-        List<ValueType> values = sourceFetcher.fetchAll();
-        LOGGER.info("Got {} values", values.size());
+
+        List<ValueType> allValues = sourceFetcher.fetchAll();
+        LOGGER.info("Got {} values total", allValues.size());
+
+        List<ValueType> values = allValues.stream()
+                .filter(value -> valueSelector.selectByEntryDateAfter(value, date))
+                .collect(Collectors.toList());
+        LOGGER.info("Got {} values selected", values.size());
 
         PercentCounter counter = new PercentCounter(
                 values.size(), 10, (tick, size, percent) ->

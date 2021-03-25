@@ -16,26 +16,30 @@ public class SourceFetcher<ValueType> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SourceFetcher.class);
 
-    private final String sourceName;
-    private final String sourceUrl;
     private final ValueParser<ValueType> valueParser;
+    private final DataSourceConfig dataSourceConfig;
 
     public SourceFetcher(
-            String sourceName,
-            String sourceUrl,
+            DataSourceConfig dataSourceConfig,
             ValueParser<ValueType> valueParser
     ) {
-        this.sourceName = sourceName;
-        this.sourceUrl = sourceUrl;
+        this.dataSourceConfig = dataSourceConfig;
         this.valueParser = valueParser;
     }
+
 
     public List<ValueType> fetchAll() {
         List<ValueType> data = new ArrayList<>();
 
-        try (CSVReader csvReader = new CSVReaderBuilder(new InputStreamReader(new URL(sourceUrl).openStream(), StandardCharsets.ISO_8859_1))
-                .withCSVParser(new CSVParserBuilder().withSeparator(';').withQuoteChar('\"').build())
-                .withSkipLines(1)
+        try (CSVReader csvReader = new CSVReaderBuilder(
+                new InputStreamReader(
+                        new URL(dataSourceConfig.getSourceUrl()).openStream(), dataSourceConfig.getCsvCharset()
+                ))
+                .withCSVParser(new CSVParserBuilder()
+                        .withSeparator(dataSourceConfig.getCsvDelim())
+                        .withQuoteChar(dataSourceConfig.getCsvQuote())
+                        .build())
+                .withSkipLines(dataSourceConfig.getCsvSkipLine())
                 .build()) {
 
             csvReader.forEach(row -> {
@@ -43,18 +47,18 @@ public class SourceFetcher<ValueType> {
                     ValueType value = valueParser.parse(row);
                     data.add(value);
                 } catch (Exception e) {
-                    LOGGER.warn("{}: Could not parse values {} because {}", sourceName, row, e.getLocalizedMessage());
+                    LOGGER.warn("{}: Could not parse values {} because {}", dataSourceConfig.getSourceName(), row, e.getLocalizedMessage());
                 }
             });
 
         } catch (Exception e) {
-            LOGGER.warn("{}: Could not fetch {} because {} ", sourceName, sourceUrl, e.getLocalizedMessage());
+            LOGGER.warn("{}: Could not fetch {} because {} ", dataSourceConfig.getSourceName(), dataSourceConfig.getSourceUrl(), e.getLocalizedMessage());
         }
 
         return data;
     }
 
     public String getSourceName() {
-        return sourceName;
+        return dataSourceConfig.getSourceName();
     }
 }

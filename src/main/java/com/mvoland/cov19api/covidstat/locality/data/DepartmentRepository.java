@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department, Long> {
 
-    Optional<Department> findByDepartmentNumber(Integer departmentNumber);
+    Optional<Department> findByDepartmentCode(String departmentCode);
 
     @Override
     @NonNull
