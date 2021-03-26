@@ -430,6 +430,54 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
+<h2 id="_update_api">Update API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Request an update of the database. If an update is already running, the request will be rejected</p>
+</div>
+<div class="sect2">
+<h3 id="_full_update">Full update</h3>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/update/full HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 4
+
+true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_partial_update">Partial update</h3>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/update/since?days=3 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 4
+
+true</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_locality_api">Locality API</h2>
 <div class="sectionbody">
 <div class="sect2">
@@ -477,7 +525,7 @@ Content-Length: 68
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-25 22:00:57 CET
+Last updated 2021-03-26 11:24:10 CET
 </div>
 </div>
 </body>

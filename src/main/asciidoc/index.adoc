@@ -10,6 +10,27 @@ This is an example output for a service running at https://cov19api.herokuapp.co
 //.response
 //include::{snippets}/home/http-response.adoc[]
 
+== Update API
+
+Request an update of the database. If an update is already running, the request will be rejected
+
+=== Full update
+
+.request
+include::{snippets}/update-full/http-request.adoc[]
+
+.response
+include::{snippets}/update-full/http-response.adoc[]
+
+=== Partial update
+
+.request
+include::{snippets}/update-since/http-request.adoc[]
+
+.response
+include::{snippets}/update-since/http-response.adoc[]
+
+
 == Locality API
 
 === Some stats
