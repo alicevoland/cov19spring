@@ -24,9 +24,7 @@ public class Cov19Application {
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
             LOGGER.info("** START commandLineRunner **");
-            LocalityService localityService = ctx.getBean(LocalityService.class);
-            Region region = localityService.findRegionByCode("84").get();
-            System.out.println(region);
+
             LOGGER.info("** END   commandLineRunner **");
         };
     }
