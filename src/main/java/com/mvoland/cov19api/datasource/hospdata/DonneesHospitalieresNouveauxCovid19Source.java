@@ -1,5 +1,6 @@
 package com.mvoland.cov19api.datasource.hospdata;
 
+import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalNewHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.service.HospitalisationService;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import com.mvoland.cov19api.datasource.common.ParsingUtils;
@@ -52,7 +53,16 @@ public class DonneesHospitalieresNouveauxCovid19Source extends DataGouvFrCsvData
 
     @Override
     protected void process(DonneesHospitalieresNouveauxCovid19 value) {
-        //TODO: Not implemented yet
+        localityService
+                .findDepartmentByCode(value.getDep())
+                .ifPresent(department ->
+                        hospitalisationService.safeUpdateDepartmentalNewHospitalisation(
+                                new DepartmentalNewHospitalisation(
+                                        department, value.getJour(),
+                                        value.getIncid_hosp(), value.getIncid_rea(),
+                                        value.getIncid_rad(), value.getIncid_dc()
+                                )
+                        ));
     }
 
 }

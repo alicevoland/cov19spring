@@ -4,10 +4,8 @@ import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalHo
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalNewHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
-import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalIntensiveCareAdmissionRepository;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
@@ -98,6 +96,73 @@ public class HospitalisationService {
             return Optional.empty();
         }
     }
+
+
+    @Transactional
+    public DepartmentalNewHospitalisation updateDepartmentalNewHospitalisation(DepartmentalNewHospitalisation hospitalisation) {
+        return departmentalNewHospitalisationRepository
+                .findByDepartmentAndNoticeDate(
+                        hospitalisation.getDepartement(),
+                        hospitalisation.getNoticeDate()
+                )
+                .map(existingHospitalisation -> {
+                    if (existingHospitalisation.equals(hospitalisation)) {
+                        return existingHospitalisation;
+                    } else {
+                        existingHospitalisation.setNewHospitalizedCount(hospitalisation.getNewHospitalizedCount());
+                        existingHospitalisation.setNewIntensiveCareCount((hospitalisation.getNewIntensiveCareCount()));
+                        existingHospitalisation.setNewRadiationCount(hospitalisation.getNewRadiationCount());
+                        existingHospitalisation.setNewDeathCount(hospitalisation.getNewDeathCount());
+                        return departmentalNewHospitalisationRepository.save(existingHospitalisation);
+                    }
+                })
+                .orElseGet(() ->
+                        departmentalNewHospitalisationRepository.save(hospitalisation)
+                );
+    }
+
+    public Optional<DepartmentalNewHospitalisation> safeUpdateDepartmentalNewHospitalisation(DepartmentalNewHospitalisation hospitalisation) {
+        try {
+            return Optional.of(updateDepartmentalNewHospitalisation(hospitalisation));
+        } catch (Exception e) {
+            LOGGER.warn("Could not update {}", hospitalisation);
+            return Optional.empty();
+        }
+    }
+
+    @Transactional
+    public DepartmentalHospitalisation updateDepartmentalHospitalisation(DepartmentalHospitalisation hospitalisation) {
+        return departmentalHospitalisationRepository
+                .findByDepartmentAndNoticeDateAndSex(
+                        hospitalisation.getDepartement(),
+                        hospitalisation.getNoticeDate(),
+                        hospitalisation.getSex()
+                )
+                .map(existingHospitalisation -> {
+                    if (existingHospitalisation.equals(hospitalisation)) {
+                        return existingHospitalisation;
+                    } else {
+                        existingHospitalisation.setCurrentHospitalizedCount(hospitalisation.getCurrentHospitalizedCount());
+                        existingHospitalisation.setCurrentIntensiveCareCount((hospitalisation.getCurrentIntensiveCareCount()));
+                        existingHospitalisation.setCurrentRadiationCount(hospitalisation.getCurrentRadiationCount());
+                        existingHospitalisation.setCurrentDeathCount(hospitalisation.getCurrentDeathCount());
+                        return departmentalHospitalisationRepository.save(existingHospitalisation);
+                    }
+                })
+                .orElseGet(() ->
+                        departmentalHospitalisationRepository.save(hospitalisation)
+                );
+    }
+
+    public Optional<DepartmentalHospitalisation> safeUpdateDepartmentalHospitalisation(DepartmentalHospitalisation hospitalisation) {
+        try {
+            return Optional.of(updateDepartmentalHospitalisation(hospitalisation));
+        } catch (Exception e) {
+            LOGGER.warn("Could not update {}", hospitalisation);
+            return Optional.empty();
+        }
+    }
+
 
     public List<RegionalIntensiveCareAdmission> getAllRegionalICAdmissions() {
         return regionalAdmissionsRepository.findAll();

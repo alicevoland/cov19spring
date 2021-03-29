@@ -42,6 +42,11 @@ public class LocalityService {
     }
 
     @Transactional
+    public void updateDepartment(String regionCode, String regionName, String departmentCode, String departementName) {
+
+    }
+
+    @Transactional
     public Region updateRegion(Region region) {
         return regionRepository.findByRegionCode(region.getRegionCode())
                 .map(existingRegion -> {
