@@ -12,6 +12,8 @@ public interface RegionRepository extends CrudRepository<Region, Long> {
 
     Optional<Region> findByRegionCode(String regionCode);
 
+    List<Region> findAllByRegionNameContaining(String regionName);
+
     @Override
     @NonNull
     List<Region> findAll();

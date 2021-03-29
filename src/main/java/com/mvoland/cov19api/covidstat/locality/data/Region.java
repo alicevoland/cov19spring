@@ -4,8 +4,8 @@ package com.mvoland.cov19api.covidstat.locality.data;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(indexes = @Index(name = "index", columnList = "regionCode", unique = true))
@@ -21,6 +21,21 @@ public class Region {
 
     @Column
     private String regionName;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            mappedBy = "region"
+    )
+    private Set<Department> departments = new HashSet<>();
+
+    public Set<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Set<Department> departments) {
+        this.departments = departments;
+    }
 
     public Region(String regionCode, String regionName) {
         this.setRegionCode(regionCode);
@@ -69,7 +84,8 @@ public class Region {
         return "Region{" +
                 "id=" + id +
                 ", regionCode='" + regionCode + '\'' +
-                ", regionName='" + regionName +
+                ", regionName='" + regionName + '\'' +
+                ", departments=" + departments.stream().map(d -> d.getDepartmentCode()).collect(Collectors.joining(", ")) +
                 '}';
     }
 }

@@ -108,6 +108,9 @@
                             <doctype>book</doctype>
                             <attributes>
                                 <snippets>${project.build.directory}/generated-snippets</snippets>
+                                <stylesdir>css/</stylesdir>
+                                <stylesheet>spring.css</stylesheet>
+                                <linkcss>true</linkcss>
                             </attributes>
                             <sourceDirectory>src/main/asciidoc</sourceDirectory>
                             <outputDirectory>src/main/resources/static/api-docs</outputDirectory>

@@ -12,6 +12,8 @@ public interface DepartmentRepository extends CrudRepository<Department, Long> {
 
     Optional<Department> findByDepartmentCode(String departmentCode);
 
+    List<Department> findAllByDepartmentNameContaining(String departmentName);
+
     @Override
     @NonNull
     List<Department> findAll();

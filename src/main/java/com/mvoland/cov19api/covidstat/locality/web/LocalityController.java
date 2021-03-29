@@ -30,14 +30,14 @@ public class LocalityController {
         return localityService.getAllRegions();
     }
 
-    @GetMapping("region")
-    public Region getAllRegions(
-            @RequestParam String regionCode
-    ) {
-        return localityService
-                .findRegionByCode(regionCode)
-                .orElseThrow(() -> new RegionNotFoundException(regionCode));
-    }
+//    @GetMapping("region")
+//    public Region getAllRegions(
+//            @RequestParam String regionCode
+//    ) {
+//        return localityService
+//                .findRegionByCode(regionCode)
+//                .orElseThrow(() -> new RegionNotFoundException(regionCode));
+//    }
 
     @GetMapping("departments")
     public List<Department> getAllDepartments() {

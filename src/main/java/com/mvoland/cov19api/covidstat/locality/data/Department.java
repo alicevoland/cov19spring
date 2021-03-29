@@ -14,7 +14,13 @@ public class Department {
     private String departmentCode;
     private String departmentName;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "region_id",
+            nullable = false
+    )
     private Region region;
 
     public Department() {

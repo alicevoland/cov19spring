@@ -27,8 +27,10 @@ public class UpdateControllerTest {
     @BeforeEach
     public void setUp(WebApplicationContext webApplicationContext,
                       RestDocumentationContextProvider restDocumentation) {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation)).build();
+        this.mockMvc = MockMvcBuilders
+                .webAppContextSetup(webApplicationContext)
+                .apply(documentationConfiguration(restDocumentation).uris().withScheme("https"))
+                .build();
     }
 
     private MockMvc mockMvc;
