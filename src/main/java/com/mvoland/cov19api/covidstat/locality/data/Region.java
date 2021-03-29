@@ -1,6 +1,7 @@
 package com.mvoland.cov19api.covidstat.locality.data;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Region {
             fetch = FetchType.EAGER,
             mappedBy = "region"
     )
+    @JsonIgnore
     private Set<Department> departments = new HashSet<>();
 
     public Set<Department> getDepartments() {
