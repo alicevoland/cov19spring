@@ -26,23 +26,24 @@ public class LocalityController {
     }
 
     @GetMapping("regions")
-    public List<Region> getAllRegions() {
+    public List<Region> getRegionByCode() {
         return localityService.getAllRegions();
     }
-
-//    @GetMapping("region")
-//    public Region getAllRegions(
-//            @RequestParam String regionCode
-//    ) {
-//        return localityService
-//                .findRegionByCode(regionCode)
-//                .orElseThrow(() -> new RegionNotFoundException(regionCode));
-//    }
 
     @GetMapping("departments")
     public List<Department> getAllDepartments() {
         return localityService.getAllDepartments();
     }
+
+    @GetMapping("region")
+    public Region getRegionByCode(
+            @RequestParam(name = "code") String regionCode
+    ) {
+        return localityService
+                .findRegionByCode(regionCode)
+                .orElseThrow(() -> new RegionNotFoundException(regionCode));
+    }
+
 
     @GetMapping("stats")
     public Map<String, Integer> getStats() {

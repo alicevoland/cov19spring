@@ -1,6 +1,5 @@
 package com.mvoland.cov19api.covidstat.locality.service;
 
-import com.mvoland.cov19api.covidstat.hospitalisation.service.HospitalisationService;
 import com.mvoland.cov19api.covidstat.locality.data.Department;
 import com.mvoland.cov19api.covidstat.locality.data.DepartmentRepository;
 import com.mvoland.cov19api.covidstat.locality.data.Region;
@@ -19,7 +18,7 @@ import java.util.Optional;
 @Service
 public class LocalityService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HospitalisationService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LocalityService.class);
 
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;

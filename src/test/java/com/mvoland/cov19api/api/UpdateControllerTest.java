@@ -1,4 +1,4 @@
-package com.mvoland.cov19api;
+package com.mvoland.cov19api.api;
 
 import com.mvoland.cov19api.datasource.service.UpdateService;
 import com.mvoland.cov19api.datasource.web.UpdateController;
@@ -45,7 +45,7 @@ public class UpdateControllerTest {
 
         mockMvc.perform(get("/api/v1/update/full"))
                 .andExpect(status().isOk())
-                .andDo(document("update-full"));
+                .andDo(document("update/full"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class UpdateControllerTest {
 
         mockMvc.perform(get("/api/v1/update/since?days=3"))
                 .andExpect(status().isOk())
-                .andDo(document("update-since"));
+                .andDo(document("update/since"));
     }
 
 }

@@ -97,23 +97,23 @@
                 <version>1.5.3</version>
                 <executions>
                     <execution>
-                        <id>generate-docs</id>
-                        <phase>prepare-package</phase>
+                        <id>output-html</id>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <sourceDocumentName>index.adoc</sourceDocumentName>
-                            <backend>html</backend>
+                            <backend>html5</backend>
                             <doctype>book</doctype>
                             <attributes>
                                 <snippets>${project.build.directory}/generated-snippets</snippets>
-                                <stylesdir>css/</stylesdir>
-                                <stylesheet>spring.css</stylesheet>
-                                <linkcss>true</linkcss>
+                                <source-highlighter>coderay</source-highlighter>
+                                <toc>left</toc>
+                                <icons>font</icons>
                             </attributes>
                             <sourceDirectory>src/main/asciidoc</sourceDirectory>
-                            <outputDirectory>src/main/resources/static/api-docs</outputDirectory>
+                            <outputDirectory>src/main/resources/static/docs</outputDirectory>
+                            <preserveDirectories>true</preserveDirectories>
                         </configuration>
                     </execution>
                 </executions>

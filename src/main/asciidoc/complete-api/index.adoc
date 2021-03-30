@@ -1,0 +1,55 @@
+= Complete API documentation
+
+link:../index.html[Back to documentation home]
+
+== Update database
+
+Fetch data from data.gouv.fr
+
+=== Full update
+
+.request
+include::{snippets}/update/full/http-request.adoc[]
+
+.response
+include::{snippets}/update/full/http-response.adoc[]
+
+=== Partial update
+
+.request
+include::{snippets}/update/since/http-request.adoc[]
+
+.response
+include::{snippets}/update/since/http-response.adoc[]
+
+
+== Locality
+
+French departments and regions
+
+=== Some stats
+
+.request
+include::{snippets}/locality/stats/http-request.adoc[]
+
+.response
+include::{snippets}/locality/stats/http-response.adoc[]
+
+=== Region by code
+
+==== If the region exists
+
+.request
+include::{snippets}/locality/region-code-exists/http-request.adoc[]
+
+.response
+include::{snippets}/locality/region-code-exists/http-response.adoc[]
+
+==== If the region does not exists
+
+.request
+include::{snippets}/locality/region-code-does-not-exist/http-request.adoc[]
+
+.response
+include::{snippets}/locality/region-code-does-not-exist/http-response.adoc[]
+

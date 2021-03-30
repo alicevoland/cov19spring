@@ -1,51 +1,12 @@
 = Cov19 API
 
+API documentation for a service running at https://cov19api.herokuapp.com
 
+== Complete API documentation
 
-This is an example output for a service running at https://cov19api.herokuapp.com/api/v1/:
-//
-//.request
-//include::{snippets}/home/http-request.adoc[]
-//
-//.response
-//include::{snippets}/home/http-response.adoc[]
+The complete API can be found here: link:complete-api/index.html[Complete API documentation]
 
-== Update API
+== Data sources
 
-Request an update of the database. If an update is already running, the request will be rejected
-
-=== Full update
-
-.request
-include::{snippets}/update-full/http-request.adoc[]
-
-.response
-include::{snippets}/update-full/http-response.adoc[]
-
-=== Partial update
-
-.request
-include::{snippets}/update-since/http-request.adoc[]
-
-.response
-include::{snippets}/update-since/http-response.adoc[]
-
-
-== Locality API
-
-=== Some stats
-
-.request
-include::{snippets}/locality-stats/http-request.adoc[]
-
-.response
-include::{snippets}/locality-stats/http-response.adoc[]
-
-=== Region by code
-
-.request
-include::{snippets}/locality-region/http-request.adoc[]
-
-.response
-include::{snippets}/locality-region/http-response.adoc[]
+Complete documentation of data sources used here: link:data-sources/index.html[All data sources]
 

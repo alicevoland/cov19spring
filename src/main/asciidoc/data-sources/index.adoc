@@ -1,0 +1,23 @@
+= Data sources
+
+link:../index.html[Back to documentation home]
+
+== Departements de france
+
+link:https://www.data.gouv.fr/en/datasets/departements-de-france/
+
+=== departements-france.csv
+
+[cols="1,2,1,2"]
+|===
+|code_departement
+|nom_departement
+|code_region
+|nom_region
+
+|01
+|Ain
+|84
+|Auvergne-Rhône-Alpes
+|===
+
