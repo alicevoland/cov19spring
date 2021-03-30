@@ -1,7 +1,5 @@
 package com.mvoland.cov19api;
 
-import com.mvoland.cov19api.covidstat.locality.data.Region;
-import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

@@ -53,9 +53,9 @@ public class DepartementDeFranceSource extends DataGouvFrCsvDataSource<Departeme
         );
         localityService.findRegionByCode(value.getCodeRegion())
                 .ifPresent(region ->
-                localityService.safeUpdateDepartement(
-                        new Department(value.getCodeDepartement(), value.getNomDepartement(), region)
-                ));
+                        localityService.safeUpdateDepartement(
+                                new Department(value.getCodeDepartement(), value.getNomDepartement(), region)
+                        ));
 
     }
 }

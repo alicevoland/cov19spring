@@ -22,7 +22,6 @@ include::{snippets}/update/since/http-request.adoc[]
 .response
 include::{snippets}/update/since/http-response.adoc[]
 
-
 == Locality
 
 French departments and regions

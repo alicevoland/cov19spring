@@ -20,23 +20,23 @@ public class DepartmentalHospitalisation {
     @NonNull @JoinColumn
     private Department department;
 
-    @NonNull@Column
+    @NonNull @Column
     private LocalDate noticeDate;
 
     @Enumerated(EnumType.STRING)
-    @NonNull@Column
+    @NonNull @Column
     private Sex sex;
 
-    @NonNull@Column
+    @NonNull @Column
     private Integer currentHospitalizedCount;
 
-    @NonNull@Column
+    @NonNull @Column
     private Integer currentIntensiveCareCount;
 
-    @NonNull@Column
+    @NonNull @Column
     private Integer currentRadiationCount;
 
-    @NonNull@Column
+    @NonNull @Column
     private Integer currentDeathCount;
 
 }

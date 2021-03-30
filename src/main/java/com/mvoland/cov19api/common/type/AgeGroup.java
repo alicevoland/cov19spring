@@ -15,6 +15,35 @@ public enum AgeGroup {
     UNKNOWN;
 
 
+    public static AgeGroup fromValue(Integer ageValue) {
+        switch (ageValue) {
+            case 0:
+                return AgeGroup.ALL;
+            case 9:
+                return AgeGroup.FROM_0_TO_9;
+            case 19:
+                return AgeGroup.FROM_10_TO_19;
+            case 29:
+                return AgeGroup.FROM_20_TO_29;
+            case 39:
+                return AgeGroup.FROM_30_TO_39;
+            case 49:
+                return AgeGroup.FROM_40_TO_49;
+            case 59:
+                return AgeGroup.FROM_50_TO_59;
+            case 69:
+                return AgeGroup.FROM_60_TO_69;
+            case 79:
+                return AgeGroup.FROM_70_TO_79;
+            case 89:
+                return AgeGroup.FROM_80_TO_89;
+            case 90:
+                return AgeGroup.MORE_THAN_90;
+            default:
+                return AgeGroup.UNKNOWN;
+        }
+    }
+
     public Integer toValue() {
         switch (this) {
             case ALL:
@@ -43,34 +72,5 @@ public enum AgeGroup {
                 return -1;
         }
 
-    }
-
-    public static AgeGroup fromValue(Integer ageValue) {
-        switch (ageValue) {
-            case 0:
-                return AgeGroup.ALL;
-            case 9:
-                return AgeGroup.FROM_0_TO_9;
-            case 19:
-                return AgeGroup.FROM_10_TO_19;
-            case 29:
-                return AgeGroup.FROM_20_TO_29;
-            case 39:
-                return AgeGroup.FROM_30_TO_39;
-            case 49:
-                return AgeGroup.FROM_40_TO_49;
-            case 59:
-                return AgeGroup.FROM_50_TO_59;
-            case 69:
-                return AgeGroup.FROM_60_TO_69;
-            case 79:
-                return AgeGroup.FROM_70_TO_79;
-            case 89:
-                return AgeGroup.FROM_80_TO_89;
-            case 90:
-                return AgeGroup.MORE_THAN_90;
-            default:
-                return AgeGroup.UNKNOWN;
-        }
     }
 }

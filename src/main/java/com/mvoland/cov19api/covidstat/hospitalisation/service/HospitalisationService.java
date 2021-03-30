@@ -2,10 +2,10 @@ package com.mvoland.cov19api.covidstat.hospitalisation.service;
 
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalNewHospitalisation;
-import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalHospitalisationRepository;
-import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalHospitalisationRepository;
+import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalIntensiveCareAdmissionRepository;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;

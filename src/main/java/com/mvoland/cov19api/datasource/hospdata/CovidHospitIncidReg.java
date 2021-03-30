@@ -3,7 +3,7 @@ package com.mvoland.cov19api.datasource.hospdata;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class CovidHospitIncidReg  {
+public class CovidHospitIncidReg {
 
     private LocalDate jour;
     private String nomReg;

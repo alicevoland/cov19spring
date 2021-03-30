@@ -7,6 +7,19 @@ public enum Sex {
     MALE,
     UNKNOWN;
 
+    public static Sex fromValue(Integer ageValue) {
+        switch (ageValue) {
+            case 0:
+                return Sex.ALL;
+            case 1:
+                return Sex.MALE;
+            case 2:
+                return Sex.FEMALE;
+            default:
+                return Sex.UNKNOWN;
+        }
+    }
+
     public Integer toValue() {
         switch (this) {
             case ALL:
@@ -19,19 +32,6 @@ public enum Sex {
                 return -1;
         }
 
-    }
-
-    public static Sex fromValue(Integer ageValue) {
-        switch (ageValue) {
-            case 0:
-                return Sex.ALL;
-            case 1:
-                return Sex.MALE;
-            case 2:
-                return Sex.FEMALE;
-            default:
-                return Sex.UNKNOWN;
-        }
     }
 
 }

@@ -24,6 +24,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith({RestDocumentationExtension.class})
 public class UpdateControllerTest {
 
+    private MockMvc mockMvc;
+    @MockBean
+    private UpdateService updateService;
+
     @BeforeEach
     public void setUp(WebApplicationContext webApplicationContext,
                       RestDocumentationContextProvider restDocumentation) {
@@ -32,11 +36,6 @@ public class UpdateControllerTest {
                 .apply(documentationConfiguration(restDocumentation).uris().withScheme("https"))
                 .build();
     }
-
-    private MockMvc mockMvc;
-
-    @MockBean
-    private UpdateService updateService;
 
     @Test
     void testFullUpdate() throws Exception {

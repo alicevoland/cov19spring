@@ -1,7 +1,7 @@
 package com.mvoland.cov19api.covidstat.hospitalisation.data.repository;
 
-import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.covidstat.locality.data.Region;
 import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDate;

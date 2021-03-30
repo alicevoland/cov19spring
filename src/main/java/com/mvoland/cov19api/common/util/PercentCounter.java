@@ -8,9 +8,8 @@ public class PercentCounter {
     private final int size;
     private final int steps;
     private final PercentLogger logger;
-    private int ticks;
-
     Set<Integer> selectedTicks;
+    private int ticks;
 
     public PercentCounter(int size, int steps, PercentLogger logger) {
         this.size = size;
