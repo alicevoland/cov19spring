@@ -7,10 +7,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(indexes = @Index(name = "index", columnList = "regionCode", unique = true))
-
 @Data
 @NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
-
 public class Region {
 
     @Id
@@ -24,5 +22,5 @@ public class Region {
     @Column
     @NonNull
     private String regionName;
-    
+
 }
