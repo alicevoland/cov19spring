@@ -102,7 +102,7 @@
                 <executions>
                     <execution>
                         <id>output-html</id>
-                        <phase>generate-resources</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
