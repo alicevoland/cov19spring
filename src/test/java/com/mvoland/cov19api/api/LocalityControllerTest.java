@@ -45,7 +45,7 @@ public class LocalityControllerTest {
     @Test
     void testGetRegionByCodeWhenRegionExists() throws Exception {
         Mockito.when(localityService.findRegionByCode("123ABC"))
-                .thenReturn(Optional.of(new Region("123ABC", "ExistingRegion Name")));
+                .thenReturn(Optional.of(new Region(1L, "123ABC", "ExistingRegion Name")));
 
         mockMvc.perform(get("/api/v1/locality/region?code=123ABC"))
                 .andExpect(status().isOk())
