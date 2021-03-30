@@ -34,21 +34,39 @@ include::{snippets}/locality/stats/http-request.adoc[]
 .response
 include::{snippets}/locality/stats/http-response.adoc[]
 
-=== Region by code
+=== Department by code
 
-==== If the region exists
-
-.request
-include::{snippets}/locality/region-code-exists/http-request.adoc[]
-
-.response
-include::{snippets}/locality/region-code-exists/http-response.adoc[]
-
-==== If the region does not exists
+==== If the department exists
 
 .request
-include::{snippets}/locality/region-code-does-not-exist/http-request.adoc[]
+include::{snippets}/locality/department-code-exists/http-request.adoc[]
 
 .response
-include::{snippets}/locality/region-code-does-not-exist/http-response.adoc[]
+include::{snippets}/locality/department-code-exists/http-response.adoc[]
+
+==== If the department does not exists
+
+.request
+include::{snippets}/locality/department-code-does-not-exist/http-request.adoc[]
+
+.response
+include::{snippets}/locality/department-code-does-not-exist/http-response.adoc[]
+
+=== Department by code
+
+==== If the department exists
+
+.request
+include::{snippets}/locality/department-code-exists/http-request.adoc[]
+
+.response
+include::{snippets}/locality/department-code-exists/http-response.adoc[]
+
+==== If the department does not exists
+
+.request
+include::{snippets}/locality/department-code-does-not-exist/http-request.adoc[]
+
+.response
+include::{snippets}/locality/department-code-does-not-exist/http-response.adoc[]
 
