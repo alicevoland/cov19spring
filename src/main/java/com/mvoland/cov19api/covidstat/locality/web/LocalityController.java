@@ -22,14 +22,9 @@ public class LocalityController {
         this.localityService = localityService;
     }
 
-    @GetMapping("regions")
-    public List<Region> getRegionByCode() {
+    @GetMapping("regions/all")
+    public List<Region> getAllRegions() {
         return localityService.getAllRegions();
-    }
-
-    @GetMapping("departments")
-    public List<Department> getAllDepartments() {
-        return localityService.getAllDepartments();
     }
 
     @GetMapping("region/{code}")
@@ -41,6 +36,20 @@ public class LocalityController {
                 .orElseThrow(() -> new RegionNotFoundException(regionCode));
     }
 
+    @GetMapping("regions/search")
+    public List<Region> searchRegions(
+            @RequestParam(name = "codes", defaultValue = "") List<String> regionsCodes,
+            @RequestParam(name = "names", defaultValue = "") List<String> regionsNames
+    ) {
+        return localityService.searchRegions(regionsCodes, regionsNames);
+    }
+
+    @GetMapping("departments/all")
+    public List<Department> getAllDepartments() {
+        return localityService.getAllDepartments();
+    }
+
+
     @GetMapping("department/{code}")
     public Department getDepartmentByCode(
             @PathVariable(name = "code") String departmentCode
@@ -50,22 +59,12 @@ public class LocalityController {
                 .orElseThrow(() -> new RegionNotFoundException(departmentCode));
     }
 
-    @GetMapping("department/by")
-    public Department getDepartmentByName(
-            @RequestParam(name = "name") String departmentName
+    @GetMapping("departments/search")
+    public List<Department> searchDepartments(
+            @RequestParam(name = "codes", defaultValue = "") List<String> departmentCodes,
+            @RequestParam(name = "names", defaultValue = "") List<String> departmentNames
     ) {
-        return localityService
-                .findDepartmentByName(departmentName)
-                .orElseThrow(() -> new RegionNotFoundException(departmentName));
-    }
-
-    @GetMapping("region/by")
-    public Region getRegionByName(
-            @RequestParam(name = "name") String regionName
-    ) {
-        return localityService
-                .findRegionByName(regionName)
-                .orElseThrow(() -> new RegionNotFoundException(regionName));
+        return localityService.searchDepartments(departmentCodes, departmentNames);
     }
 
 

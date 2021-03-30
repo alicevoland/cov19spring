@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class LocalityService {
@@ -38,18 +39,6 @@ public class LocalityService {
 
     public Optional<Department> findDepartmentByCode(String departmentCode) {
         return departmentRepository.findByDepartmentCode(departmentCode);
-    }
-
-    public Optional<Region> findRegionByName(String regionName) {
-        List<Region> regions = regionRepository.findAllByRegionNameContaining(regionName);
-        return regions.size() == 1 ? Optional.of(regions.get(0))
-                                   : Optional.empty();
-    }
-
-    public Optional<Department> findDepartmentByName(String departmentName) {
-        List<Department> departments = departmentRepository.findAllByDepartmentNameContaining(departmentName);
-        return departments.size() == 1 ? Optional.of(departments.get(0))
-                                       : Optional.empty();
     }
 
     @Transactional
@@ -101,8 +90,25 @@ public class LocalityService {
         return regionRepository.findAll();
     }
 
+    public List<Region> searchRegions(List<String> regionCodes, List<String> regionNames) {
+        return getAllRegions().stream()
+                .filter(region -> (regionCodes.isEmpty() && regionNames.isEmpty())
+                        || regionCodes.contains(region.getRegionCode())
+                        || regionNames.contains(region.getRegionName()))
+                .collect(Collectors.toList());
+    }
+
     public List<Department> getAllDepartments() {
         return departmentRepository.findAll();
+    }
+
+
+    public List<Department> searchDepartments(List<String> departmentCodes, List<String> departmentNames) {
+        return getAllDepartments().stream()
+                .filter(department -> (departmentCodes.isEmpty() && departmentNames.isEmpty())
+                        || departmentCodes.contains(department.getDepartmentCode())
+                        || departmentNames.contains(department.getDepartmentName()))
+                .collect(Collectors.toList());
     }
 
     public Map<String, Integer> getStats() {
