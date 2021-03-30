@@ -2451,28 +2451,42 @@
             </div>
             <div class="sect2">
                 <h3 id="_full_update">Full update</h3>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">request</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/update/full/http-request.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/full HTTP/1.1
+Host: localhost:8080</code></pre>
+                    </div>
                 </div>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">response</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/update/full/http-response.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 4
+
+true</code></pre>
+                    </div>
                 </div>
             </div>
             <div class="sect2">
                 <h3 id="_partial_update">Partial update</h3>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">request</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/update/since/http-request.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/since?days=3 HTTP/1.1
+Host: localhost:8080</code></pre>
+                    </div>
                 </div>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">response</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/update/since/http-response.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 4
+
+true</code></pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2485,43 +2499,64 @@
             </div>
             <div class="sect2">
                 <h3 id="_some_stats">Some stats</h3>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">request</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/stats/http-request.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/stats HTTP/1.1
+Host: localhost:8080</code></pre>
+                    </div>
                 </div>
-                <div class="paragraph">
+                <div class="listingblock">
                     <div class="title">response</div>
-                    <p>Unresolved directive in index.adoc -
-                        include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/stats/http-response.adoc[]</p>
+                    <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 39
+
+{&quot;regionCount&quot;:3,&quot;departementCount&quot;:10}</code></pre>
+                    </div>
                 </div>
             </div>
             <div class="sect2">
                 <h3 id="_department_by_code">Department by code</h3>
                 <div class="sect3">
                     <h4 id="_if_the_department_exists">If the department exists</h4>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">request</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-exists/http-request.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/11 HTTP/1.1
+Host: localhost:8080</code></pre>
+                        </div>
                     </div>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">response</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-exists/http-response.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 134
+
+{&quot;id&quot;:1,&quot;departmentCode&quot;:&quot;11&quot;,&quot;departmentName&quot;:&quot;Test Department 1&quot;,&quot;region&quot;:{&quot;id&quot;:1,&quot;regionCode&quot;:&quot;1234&quot;,&quot;regionName&quot;:&quot;Test Region 1&quot;}}</code></pre>
+                        </div>
                     </div>
                 </div>
                 <div class="sect3">
                     <h4 id="_if_the_department_does_not_exists">If the department does not exists</h4>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">request</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-does-not-exist/http-request.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/34404 HTTP/1.1
+Host: localhost:8080</code></pre>
+                        </div>
                     </div>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">response</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-does-not-exist/http-response.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 404 Not Found
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 27
+
+Could not find region 34404</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2529,28 +2564,42 @@
                 <h3 id="_department_by_code_2">Department by code</h3>
                 <div class="sect3">
                     <h4 id="_if_the_department_exists_2">If the department exists</h4>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">request</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-exists/http-request.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/11 HTTP/1.1
+Host: localhost:8080</code></pre>
+                        </div>
                     </div>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">response</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-exists/http-response.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 134
+
+{&quot;id&quot;:1,&quot;departmentCode&quot;:&quot;11&quot;,&quot;departmentName&quot;:&quot;Test Department 1&quot;,&quot;region&quot;:{&quot;id&quot;:1,&quot;regionCode&quot;:&quot;1234&quot;,&quot;regionName&quot;:&quot;Test Region 1&quot;}}</code></pre>
+                        </div>
                     </div>
                 </div>
                 <div class="sect3">
                     <h4 id="_if_the_department_does_not_exists_2">If the department does not exists</h4>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">request</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-does-not-exist/http-request.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/34404 HTTP/1.1
+Host: localhost:8080</code></pre>
+                        </div>
                     </div>
-                    <div class="paragraph">
+                    <div class="listingblock">
                         <div class="title">response</div>
-                        <p>Unresolved directive in index.adoc -
-                            include::/home/mvoland/workspace/cov19api/cov19api/target/generated-snippets/locality/department-code-does-not-exist/http-response.adoc[]</p>
+                        <div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 404 Not Found
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 27
+
+Could not find region 34404</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
