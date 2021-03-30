@@ -40,9 +40,16 @@ public class LocalityService {
         return departmentRepository.findByDepartmentCode(departmentCode);
     }
 
-    @Transactional
-    public void updateDepartment(String regionCode, String regionName, String departmentCode, String departementName) {
+    public Optional<Region> findRegionByName(String regionName) {
+        List<Region> regions = regionRepository.findAllByRegionNameContaining(regionName);
+        return regions.size() == 1 ? Optional.of(regions.get(0))
+                                   : Optional.empty();
+    }
 
+    public Optional<Department> findDepartmentByName(String departmentName) {
+        List<Department> departments = departmentRepository.findAllByDepartmentNameContaining(departmentName);
+        return departments.size() == 1 ? Optional.of(departments.get(0))
+                                       : Optional.empty();
     }
 
     @Transactional
@@ -101,7 +108,7 @@ public class LocalityService {
     public Map<String, Integer> getStats() {
         Map<String, Integer> map = new HashMap<>();
         map.put("regionCount", getAllRegions().size());
-        map.put("departementCount", getAllDepartments().size());
+        map.put("departmentCount", getAllDepartments().size());
         return map;
     }
 }

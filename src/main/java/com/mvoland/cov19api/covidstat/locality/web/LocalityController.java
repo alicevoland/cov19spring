@@ -4,10 +4,7 @@ import com.mvoland.cov19api.covidstat.locality.data.Department;
 import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -35,13 +32,40 @@ public class LocalityController {
         return localityService.getAllDepartments();
     }
 
-    @GetMapping("region")
+    @GetMapping("region/{code}")
     public Region getRegionByCode(
-            @RequestParam(name = "code") String regionCode
+            @PathVariable(name = "code") String regionCode
     ) {
         return localityService
                 .findRegionByCode(regionCode)
                 .orElseThrow(() -> new RegionNotFoundException(regionCode));
+    }
+
+    @GetMapping("department/{code}")
+    public Department getDepartmentByCode(
+            @PathVariable(name = "code") String departmentCode
+    ) {
+        return localityService
+                .findDepartmentByCode(departmentCode)
+                .orElseThrow(() -> new RegionNotFoundException(departmentCode));
+    }
+
+    @GetMapping("department/by")
+    public Department getDepartmentByName(
+            @RequestParam(name = "name") String departmentName
+    ) {
+        return localityService
+                .findDepartmentByName(departmentName)
+                .orElseThrow(() -> new RegionNotFoundException(departmentName));
+    }
+
+    @GetMapping("region/by")
+    public Region getRegionByName(
+            @RequestParam(name = "name") String regionName
+    ) {
+        return localityService
+                .findRegionByName(regionName)
+                .orElseThrow(() -> new RegionNotFoundException(regionName));
     }
 
 

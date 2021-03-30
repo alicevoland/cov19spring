@@ -102,7 +102,7 @@ public class HospitalisationService {
     public DepartmentalNewHospitalisation updateDepartmentalNewHospitalisation(DepartmentalNewHospitalisation hospitalisation) {
         return departmentalNewHospitalisationRepository
                 .findByDepartmentAndNoticeDate(
-                        hospitalisation.getDepartement(),
+                        hospitalisation.getDepartment(),
                         hospitalisation.getNoticeDate()
                 )
                 .map(existingHospitalisation -> {
@@ -134,7 +134,7 @@ public class HospitalisationService {
     public DepartmentalHospitalisation updateDepartmentalHospitalisation(DepartmentalHospitalisation hospitalisation) {
         return departmentalHospitalisationRepository
                 .findByDepartmentAndNoticeDateAndSex(
-                        hospitalisation.getDepartement(),
+                        hospitalisation.getDepartment(),
                         hospitalisation.getNoticeDate(),
                         hospitalisation.getSex()
                 )
