@@ -46,7 +46,11 @@ public class LocalityControllerTest {
     public void setUp(WebApplicationContext webApplicationContext,
                       RestDocumentationContextProvider restDocumentation) {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation)).build();
+                .apply(documentationConfiguration(restDocumentation).uris()
+                        .withScheme("https")
+                        .withHost("cov19api.herokuapp.com")
+                        .withPort(80))
+                .build();
     }
 
     @Test
