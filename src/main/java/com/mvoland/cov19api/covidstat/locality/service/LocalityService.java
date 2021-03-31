@@ -86,12 +86,12 @@ public class LocalityService {
         }
     }
 
-    public List<Region> getAllRegions() {
+    public List<Region> findAllRegions() {
         return regionRepository.findAll();
     }
 
     public List<Region> searchRegions(List<String> regionCodes, List<String> regionNames) {
-        return getAllRegions().stream()
+        return findAllRegions().stream()
                 .filter(region -> (regionCodes.isEmpty() && regionNames.isEmpty())
                         || regionCodes.contains(region.getRegionCode())
                         || regionNames.contains(region.getRegionName()))
@@ -113,8 +113,12 @@ public class LocalityService {
 
     public Map<String, Integer> getStats() {
         Map<String, Integer> map = new HashMap<>();
-        map.put("regionCount", getAllRegions().size());
+        map.put("regionCount", findAllRegions().size());
         map.put("departmentCount", getAllDepartments().size());
         return map;
+    }
+
+    public Optional<Region> findRegionById(Long id) {
+        return regionRepository.findById(id);
     }
 }

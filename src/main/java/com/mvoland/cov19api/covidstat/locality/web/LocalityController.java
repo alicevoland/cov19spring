@@ -4,6 +4,8 @@ import com.mvoland.cov19api.covidstat.locality.data.Department;
 import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,27 +16,41 @@ import java.util.Map;
 public class LocalityController {
 
     private final LocalityService localityService;
+    private final RegionModelAssembler regionModelAssembler;
 
     @Autowired
     public LocalityController(
-            LocalityService localityService
+            LocalityService localityService,
+            RegionModelAssembler regionModelAssembler
     ) {
         this.localityService = localityService;
+        this.regionModelAssembler = regionModelAssembler;
     }
 
-    @GetMapping("regions/all")
-    public List<Region> getAllRegions() {
-        return localityService.getAllRegions();
+    @GetMapping("/regions/id/{id}")
+    public EntityModel<Region> oneRegionById(
+            @PathVariable Long id
+    ) {
+        Region region = localityService.findRegionById(id)
+                .orElseThrow(() -> new RegionNotFoundException(String.format("for id %d", id)));
+        return regionModelAssembler.toModel(region);
     }
 
-    @GetMapping("region/{code}")
-    public Region getRegionByCode(
+    @GetMapping("regions/code/{code}")
+    public EntityModel<Region> oneRegionByCode(
             @PathVariable(name = "code") String regionCode
     ) {
-        return localityService
-                .findRegionByCode(regionCode)
+        Region region = localityService.findRegionByCode(regionCode)
                 .orElseThrow(() -> new RegionNotFoundException(regionCode));
+        return regionModelAssembler.toModel(region);
     }
+
+    @GetMapping("/regions")
+    public CollectionModel<EntityModel<Region>> allRegions() {
+        List<Region> regions = localityService.findAllRegions();
+        return regionModelAssembler.toCollectionModel(regions);
+    }
+
 
     @GetMapping("regions/search")
     public List<Region> searchRegions(

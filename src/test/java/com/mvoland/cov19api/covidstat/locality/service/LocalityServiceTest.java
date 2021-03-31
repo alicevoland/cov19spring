@@ -74,7 +74,7 @@ public class LocalityServiceTest {
 
     @Test
     void getAllRegions() {
-        List<Region> regions = localityService.getAllRegions();
+        List<Region> regions = localityService.findAllRegions();
         then(regions.size()).isEqualTo(2);
     }
 

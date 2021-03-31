@@ -4,7 +4,7 @@ link:../index.html[Back to documentation home]
 
 == Departements de france
 
-link:https://www.data.gouv.fr/en/datasets/departements-de-france/
+link:https://www.data.gouv.fr/en/datasets/departements-de-france/[]
 
 === departements-france.csv
 
