@@ -98,13 +98,13 @@ public class LocalityService {
                 .collect(Collectors.toList());
     }
 
-    public List<Department> getAllDepartments() {
+    public List<Department> findAllDepartments() {
         return departmentRepository.findAll();
     }
 
 
     public List<Department> searchDepartments(List<String> departmentCodes, List<String> departmentNames) {
-        return getAllDepartments().stream()
+        return findAllDepartments().stream()
                 .filter(department -> (departmentCodes.isEmpty() && departmentNames.isEmpty())
                         || departmentCodes.contains(department.getDepartmentCode())
                         || departmentNames.contains(department.getDepartmentName()))
@@ -114,11 +114,15 @@ public class LocalityService {
     public Map<String, Integer> getStats() {
         Map<String, Integer> map = new HashMap<>();
         map.put("regionCount", findAllRegions().size());
-        map.put("departmentCount", getAllDepartments().size());
+        map.put("departmentCount", findAllDepartments().size());
         return map;
     }
 
     public Optional<Region> findRegionById(Long id) {
         return regionRepository.findById(id);
+    }
+
+    public Optional<Department> findDepartmentById(Long id) {
+        return departmentRepository.findById(id);
     }
 }

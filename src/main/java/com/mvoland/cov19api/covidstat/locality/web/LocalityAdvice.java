@@ -16,5 +16,12 @@ class LocalityAdvice {
         return ex.getMessage();
     }
 
+    @ResponseBody
+    @ExceptionHandler(DepartmentNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String departmentNotFoundHandler(DepartmentNotFoundException ex) {
+        return ex.getMessage();
+    }
+
 
 }

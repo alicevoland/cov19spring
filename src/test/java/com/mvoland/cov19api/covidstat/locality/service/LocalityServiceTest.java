@@ -112,7 +112,7 @@ public class LocalityServiceTest {
 
     @Test
     void getAllDepartments() {
-        List<Department> departments = localityService.getAllDepartments();
+        List<Department> departments = localityService.findAllDepartments();
         then(departments.size()).isEqualTo(3);
     }
 

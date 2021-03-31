@@ -18,38 +18,74 @@ operation::update/since[snippets='httpie-request,request-parameters,http-respons
 
 French departments and regions
 
-=== Some stats
+=== Regions
 
-operation::locality/stats[snippets='httpie-request,http-response']
+==== Region by ID
 
-=== Department by code
+operation::locality/region-id-exists[snippets='http-request,path-parameters,http-response,response-fields']
 
-If the department exists
+==== Region by code
 
-operation::locality/department-code-exists[snippets='httpie-request,http-response']
+operation::locality/region-code-exists[snippets='http-request,path-parameters,http-response,response-fields']
 
+==== All regions
 
-If the department does not exists
+operation::locality/regions-all[snippets='http-request,http-response,response-fields']
 
-operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']
+==== Search regions
 
-=== Region by code
+operation::locality/regions-search[snippets='http-request,request-parameters,http-response,response-fields']
 
-If the region exists
+=== Departments
 
-operation::locality/region-code-exists[snippets='httpie-request,http-response']
+==== Department by ID
 
-If the region does not exists
+operation::locality/department-id-exists[snippets='http-request,path-parameters,http-response,response-fields']
 
-operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']
+==== Department by code
 
-=== Serach regions and departments
+operation::locality/department-code-exists[snippets='http-request,path-parameters,http-response,response-fields']
 
-operation::locality/regions-all[snippets='httpie-request,http-response']
+==== All departments
 
-operation::locality/regions-search[snippets='httpie-request,http-response']
+operation::locality/departments-all[snippets='http-request,http-response,response-fields']
 
-operation::locality/departments-all[snippets='httpie-request,http-response']
+==== Search departments
 
-operation::locality/departments-search[snippets='httpie-request,http-response']
+operation::locality/departments-search[snippets='http-request,request-parameters,http-response,response-fields']
 
+//=== Some stats
+//
+//operation::locality/stats[snippets='httpie-request,http-response']
+//
+//=== Department by code
+//
+//If the department exists
+//
+//operation::locality/department-code-exists[snippets='httpie-request,http-response']
+//
+//
+//If the department does not exists
+//
+//operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']
+//
+//=== Region by code
+//
+//If the region exists
+//
+//operation::locality/region-code-exists[snippets='httpie-request,http-response']
+//
+//If the region does not exists
+//
+//operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']
+//
+//=== Serach regions and departments
+//
+//operation::locality/regions-all[snippets='httpie-request,http-response']
+//
+//operation::locality/regions-search[snippets='httpie-request,http-response']
+//
+//operation::locality/departments-all[snippets='httpie-request,http-response']
+//
+//operation::locality/departments-search[snippets='httpie-request,http-response']
+//

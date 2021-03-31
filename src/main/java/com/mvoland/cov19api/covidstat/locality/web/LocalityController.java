@@ -12,19 +12,22 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/locality")
+@RequestMapping(value = "api/v1/locality")
 public class LocalityController {
 
     private final LocalityService localityService;
     private final RegionModelAssembler regionModelAssembler;
+    private final DepartmentModelAssembler departmentModelAssembler;
 
     @Autowired
     public LocalityController(
             LocalityService localityService,
-            RegionModelAssembler regionModelAssembler
+            RegionModelAssembler regionModelAssembler,
+            DepartmentModelAssembler departmentModelAssembler
     ) {
         this.localityService = localityService;
         this.regionModelAssembler = regionModelAssembler;
+        this.departmentModelAssembler = departmentModelAssembler;
     }
 
     @GetMapping("/regions/id/{id}")
@@ -38,10 +41,10 @@ public class LocalityController {
 
     @GetMapping("regions/code/{code}")
     public EntityModel<Region> oneRegionByCode(
-            @PathVariable(name = "code") String regionCode
+            @PathVariable String code
     ) {
-        Region region = localityService.findRegionByCode(regionCode)
-                .orElseThrow(() -> new RegionNotFoundException(regionCode));
+        Region region = localityService.findRegionByCode(code)
+                .orElseThrow(() -> new RegionNotFoundException(code));
         return regionModelAssembler.toModel(region);
     }
 
@@ -52,41 +55,53 @@ public class LocalityController {
     }
 
 
-    @GetMapping("regions/search")
-    public List<Region> searchRegions(
-            @RequestParam(name = "codes", defaultValue = "") List<String> regionsCodes,
-            @RequestParam(name = "names", defaultValue = "") List<String> regionsNames
+    @GetMapping("/regions/search")
+    public CollectionModel<EntityModel<Region>> searchRegions(
+            @RequestParam(name = "codes", defaultValue = "") List<String> codes,
+            @RequestParam(name = "names", defaultValue = "") List<String> names
     ) {
-        return localityService.searchRegions(regionsCodes, regionsNames);
-    }
-
-    @GetMapping("departments/all")
-    public List<Department> getAllDepartments() {
-        return localityService.getAllDepartments();
+        List<Region> regions = localityService.searchRegions(codes, names);
+        return regionModelAssembler.toCollectionModel(regions);
     }
 
 
-    @GetMapping("department/{code}")
-    public Department getDepartmentByCode(
-            @PathVariable(name = "code") String departmentCode
+    @GetMapping("/departments/id/{id}")
+    public EntityModel<Department> oneDepartmentById(
+            @PathVariable Long id
     ) {
-        return localityService
-                .findDepartmentByCode(departmentCode)
-                .orElseThrow(() -> new RegionNotFoundException(departmentCode));
+        Department department = localityService.findDepartmentById(id)
+                .orElseThrow(() -> new DepartmentNotFoundException(String.format("for id %d", id)));
+        return departmentModelAssembler.toModel(department);
     }
 
-    @GetMapping("departments/search")
-    public List<Department> searchDepartments(
-            @RequestParam(name = "codes", defaultValue = "") List<String> departmentCodes,
-            @RequestParam(name = "names", defaultValue = "") List<String> departmentNames
+    @GetMapping("departments/code/{code}")
+    public EntityModel<Department> oneDepartmentByCode(
+            @PathVariable String code
     ) {
-        return localityService.searchDepartments(departmentCodes, departmentNames);
+        Department department = localityService.findDepartmentByCode(code)
+                .orElseThrow(() -> new DepartmentNotFoundException(code));
+        return departmentModelAssembler.toModel(department);
+    }
+
+    @GetMapping("/departments")
+    public CollectionModel<EntityModel<Department>> allDepartments() {
+        List<Department> departments = localityService.findAllDepartments();
+        return departmentModelAssembler.toCollectionModel(departments);
     }
 
 
-    @GetMapping("stats")
-    public Map<String, Integer> getStats() {
-        return localityService.getStats();
+    @GetMapping("/departments/search")
+    public CollectionModel<EntityModel<Department>> searchDepartments(
+            @RequestParam(name = "codes", defaultValue = "") List<String> codes,
+            @RequestParam(name = "names", defaultValue = "") List<String> names
+    ) {
+        List<Department> departments = localityService.searchDepartments(codes, names);
+        return departmentModelAssembler.toCollectionModel(departments);
+    }
+
+    @GetMapping("/stats")
+    public EntityModel<Map<String, Integer>> getStats() {
+        return EntityModel.of(localityService.getStats());
     }
 
 }

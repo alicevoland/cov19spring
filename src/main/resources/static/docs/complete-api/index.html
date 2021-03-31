@@ -2427,10 +2427,8 @@
             </li>
             <li><a href="#_locality">Locality</a>
                 <ul class="sectlevel2">
-                    <li><a href="#_some_stats">Some stats</a></li>
-                    <li><a href="#_department_by_code">Department by code</a></li>
-                    <li><a href="#_region_by_code">Region by code</a></li>
-                    <li><a href="#_serach_regions_and_departments">Serach regions and departments</a></li>
+                    <li><a href="#_regions">Regions</a></li>
+                    <li><a href="#_departments">Departments</a></li>
                 </ul>
             </li>
         </ul>
@@ -2459,7 +2457,7 @@
             <div class="sect2">
                 <h3 id="_partial_update">Partial update</h3>
                 <div class="paragraph">
-                    <p>operation::update/since[snippets='httpie-request,http-response']</p>
+                    <p>operation::update/since[snippets='httpie-request,request-parameters,http-response']</p>
                 </div>
             </div>
         </div>
@@ -2471,54 +2469,64 @@
                 <p>French departments and regions</p>
             </div>
             <div class="sect2">
-                <h3 id="_some_stats">Some stats</h3>
-                <div class="paragraph">
-                    <p>operation::locality/stats[snippets='httpie-request,http-response']</p>
+                <h3 id="_regions">Regions</h3>
+                <div class="sect3">
+                    <h4 id="_region_by_id">Region by ID</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/region-id-exists[snippets='http-request,path-parameters,http-response,response-fields']</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="_region_by_code">Region by code</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/region-code-exists[snippets='http-request,path-parameters,http-response,response-fields']</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="_all_regions">All regions</h4>
+                    <div class="paragraph">
+                        <p>operation::locality/regions-all[snippets='http-request,http-response,response-fields']</p>
+                    </div>
+                </div>
+                <div class="sect3">
+                    <h4 id="_search_regions">Search regions</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/regions-search[snippets='http-request,request-parameters,http-response,response-fields']</p>
+                    </div>
                 </div>
             </div>
             <div class="sect2">
-                <h3 id="_department_by_code">Department by code</h3>
-                <div class="paragraph">
-                    <p>If the department exists</p>
+                <h3 id="_departments">Departments</h3>
+                <div class="sect3">
+                    <h4 id="_department_by_id">Department by ID</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/department-id-exists[snippets='http-request,path-parameters,http-response,response-fields']</p>
+                    </div>
                 </div>
-                <div class="paragraph">
-                    <p>operation::locality/department-code-exists[snippets='httpie-request,http-response']</p>
+                <div class="sect3">
+                    <h4 id="_department_by_code">Department by code</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/department-code-exists[snippets='http-request,path-parameters,http-response,response-fields']</p>
+                    </div>
                 </div>
-                <div class="paragraph">
-                    <p>If the department does not exists</p>
+                <div class="sect3">
+                    <h4 id="_all_departments">All departments</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/departments-all[snippets='http-request,http-response,response-fields']</p>
+                    </div>
                 </div>
-                <div class="paragraph">
-                    <p>operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']</p>
-                </div>
-            </div>
-            <div class="sect2">
-                <h3 id="_region_by_code">Region by code</h3>
-                <div class="paragraph">
-                    <p>If the region exists</p>
-                </div>
-                <div class="paragraph">
-                    <p>operation::locality/region-code-exists[snippets='httpie-request,http-response']</p>
-                </div>
-                <div class="paragraph">
-                    <p>If the region does not exists</p>
-                </div>
-                <div class="paragraph">
-                    <p>operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']</p>
-                </div>
-            </div>
-            <div class="sect2">
-                <h3 id="_serach_regions_and_departments">Serach regions and departments</h3>
-                <div class="paragraph">
-                    <p>operation::locality/regions-all[snippets='httpie-request,http-response']</p>
-                </div>
-                <div class="paragraph">
-                    <p>operation::locality/regions-search[snippets='httpie-request,http-response']</p>
-                </div>
-                <div class="paragraph">
-                    <p>operation::locality/departments-all[snippets='httpie-request,http-response']</p>
-                </div>
-                <div class="paragraph">
-                    <p>operation::locality/departments-search[snippets='httpie-request,http-response']</p>
+                <div class="sect3">
+                    <h4 id="_search_departments">Search departments</h4>
+                    <div class="paragraph">
+                        <p>
+                            operation::locality/departments-search[snippets='http-request,request-parameters,http-response,response-fields']</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2526,7 +2534,7 @@
 </div>
 <div id="footer">
     <div id="footer-text">
-        Last updated 2021-03-31 19:05:55 CEST
+        Last updated 2021-03-31 23:56:09 CEST
     </div>
 </div>
 </body>
