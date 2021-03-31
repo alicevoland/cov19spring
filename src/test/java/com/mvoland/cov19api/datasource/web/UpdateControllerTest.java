@@ -1,42 +1,23 @@
 package com.mvoland.cov19api.datasource.web;
 
+import com.mvoland.cov19api.AbstractControllerTest;
 import com.mvoland.cov19api.datasource.service.UpdateService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.restdocs.RestDocumentationContextProvider;
-import org.springframework.restdocs.RestDocumentationExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = UpdateController.class)
-@ExtendWith({RestDocumentationExtension.class})
-class UpdateControllerTest {
-
-    private MockMvc mockMvc;
+class UpdateControllerTest extends AbstractControllerTest {
 
     @MockBean
     private UpdateService updateService;
-
-    @BeforeEach
-    public void setUp(WebApplicationContext webApplicationContext,
-                      RestDocumentationContextProvider restDocumentation) {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-                .apply(documentationConfiguration(restDocumentation).uris()
-                        .withScheme("https")
-                        .withHost("cov19api.herokuapp.com")
-                        .withPort(80))
-                .build();
-    }
 
     @Test
     void requestUpdateDays() throws Exception {
@@ -45,7 +26,9 @@ class UpdateControllerTest {
 
         mockMvc.perform(get("/api/v1/update/since?days=3"))
                 .andExpect(status().isOk())
-                .andDo(document("update/since"));
+                .andDo(document("update/since", requestParameters(
+                        parameterWithName("days").description("Fetch data <days> before today")
+                )));
     }
 
     @Test
