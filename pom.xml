@@ -106,7 +106,6 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -143,6 +142,13 @@
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.restdocs</groupId>
+                        <artifactId>spring-restdocs-asciidoctor</artifactId>
+                        <version>1.2.6.RELEASE</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
         </plugins>
