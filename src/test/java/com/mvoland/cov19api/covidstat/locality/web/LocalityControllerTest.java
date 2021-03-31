@@ -36,7 +36,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
 
     @Test
     void getAllRegions() throws Exception {
-        Mockito.when(localityService.getAllRegions())
+        Mockito.when(localityService.findAllRegions())
                 .thenReturn(List.of(region1, region2));
 
         mockMvc.perform(get("/api/v1/locality/regions/all")

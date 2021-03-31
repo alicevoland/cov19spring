@@ -8,19 +8,11 @@ Fetch data from data.gouv.fr
 
 === Full update
 
-.request
-include::{snippets}/update/full/http-request.adoc[]
-
-.response
-include::{snippets}/update/full/http-response.adoc[]
+operation::update/full[snippets='httpie-request,http-response']
 
 === Partial update
 
-.request
-include::{snippets}/update/since/http-request.adoc[]
-
-.response
-include::{snippets}/update/since/http-response.adoc[]
+operation::update/since[snippets='httpie-request,request-parameters,http-response']
 
 == Locality
 
@@ -28,45 +20,36 @@ French departments and regions
 
 === Some stats
 
-.request
-include::{snippets}/locality/stats/http-request.adoc[]
-
-.response
-include::{snippets}/locality/stats/http-response.adoc[]
+operation::locality/stats[snippets='httpie-request,http-response']
 
 === Department by code
 
-==== If the department exists
+If the department exists
 
-.request
-include::{snippets}/locality/department-code-exists/http-request.adoc[]
+operation::locality/department-code-exists[snippets='httpie-request,http-response']
 
-.response
-include::{snippets}/locality/department-code-exists/http-response.adoc[]
 
-==== If the department does not exists
+If the department does not exists
 
-.request
-include::{snippets}/locality/department-code-does-not-exist/http-request.adoc[]
+operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']
 
-.response
-include::{snippets}/locality/department-code-does-not-exist/http-response.adoc[]
+=== Region by code
 
-=== Department by code
+If the region exists
 
-==== If the department exists
+operation::locality/region-code-exists[snippets='httpie-request,http-response']
 
-.request
-include::{snippets}/locality/department-code-exists/http-request.adoc[]
+If the region does not exists
 
-.response
-include::{snippets}/locality/department-code-exists/http-response.adoc[]
+operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']
 
-==== If the department does not exists
+=== Serach regions and departments
 
-.request
-include::{snippets}/locality/department-code-does-not-exist/http-request.adoc[]
+operation::locality/regions-all[snippets='httpie-request,http-response']
 
-.response
-include::{snippets}/locality/department-code-does-not-exist/http-response.adoc[]
+operation::locality/regions-search[snippets='httpie-request,http-response']
+
+operation::locality/departments-all[snippets='httpie-request,http-response']
+
+operation::locality/departments-search[snippets='httpie-request,http-response']
 

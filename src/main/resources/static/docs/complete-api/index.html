@@ -2429,7 +2429,8 @@
                 <ul class="sectlevel2">
                     <li><a href="#_some_stats">Some stats</a></li>
                     <li><a href="#_department_by_code">Department by code</a></li>
-                    <li><a href="#_department_by_code_2">Department by code</a></li>
+                    <li><a href="#_region_by_code">Region by code</a></li>
+                    <li><a href="#_serach_regions_and_departments">Serach regions and departments</a></li>
                 </ul>
             </li>
         </ul>
@@ -2451,42 +2452,14 @@
             </div>
             <div class="sect2">
                 <h3 id="_full_update">Full update</h3>
-                <div class="listingblock">
-                    <div class="title">request</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/full HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                    </div>
-                </div>
-                <div class="listingblock">
-                    <div class="title">response</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 4
-
-true</code></pre>
-                    </div>
+                <div class="paragraph">
+                    <p>operation::update/full[snippets='httpie-request,http-response']</p>
                 </div>
             </div>
             <div class="sect2">
                 <h3 id="_partial_update">Partial update</h3>
-                <div class="listingblock">
-                    <div class="title">request</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/since?days=3 HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                    </div>
-                </div>
-                <div class="listingblock">
-                    <div class="title">response</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 4
-
-true</code></pre>
-                    </div>
+                <div class="paragraph">
+                    <p>operation::update/since[snippets='httpie-request,http-response']</p>
                 </div>
             </div>
         </div>
@@ -2499,108 +2472,53 @@ true</code></pre>
             </div>
             <div class="sect2">
                 <h3 id="_some_stats">Some stats</h3>
-                <div class="listingblock">
-                    <div class="title">request</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/stats HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                    </div>
-                </div>
-                <div class="listingblock">
-                    <div class="title">response</div>
-                    <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 39
-
-{&quot;regionCount&quot;:3,&quot;departementCount&quot;:10}</code></pre>
-                    </div>
+                <div class="paragraph">
+                    <p>operation::locality/stats[snippets='httpie-request,http-response']</p>
                 </div>
             </div>
             <div class="sect2">
                 <h3 id="_department_by_code">Department by code</h3>
-                <div class="sect3">
-                    <h4 id="_if_the_department_exists">If the department exists</h4>
-                    <div class="listingblock">
-                        <div class="title">request</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/11 HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                        </div>
-                    </div>
-                    <div class="listingblock">
-                        <div class="title">response</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 134
-
-{&quot;id&quot;:1,&quot;departmentCode&quot;:&quot;11&quot;,&quot;departmentName&quot;:&quot;Test Department 1&quot;,&quot;region&quot;:{&quot;id&quot;:1,&quot;regionCode&quot;:&quot;1234&quot;,&quot;regionName&quot;:&quot;Test Region 1&quot;}}</code></pre>
-                        </div>
-                    </div>
+                <div class="paragraph">
+                    <p>If the department exists</p>
                 </div>
-                <div class="sect3">
-                    <h4 id="_if_the_department_does_not_exists">If the department does not exists</h4>
-                    <div class="listingblock">
-                        <div class="title">request</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/34404 HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                        </div>
-                    </div>
-                    <div class="listingblock">
-                        <div class="title">response</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 404 Not Found
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 27
-
-Could not find region 34404</code></pre>
-                        </div>
-                    </div>
+                <div class="paragraph">
+                    <p>operation::locality/department-code-exists[snippets='httpie-request,http-response']</p>
+                </div>
+                <div class="paragraph">
+                    <p>If the department does not exists</p>
+                </div>
+                <div class="paragraph">
+                    <p>operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']</p>
                 </div>
             </div>
             <div class="sect2">
-                <h3 id="_department_by_code_2">Department by code</h3>
-                <div class="sect3">
-                    <h4 id="_if_the_department_exists_2">If the department exists</h4>
-                    <div class="listingblock">
-                        <div class="title">request</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/11 HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                        </div>
-                    </div>
-                    <div class="listingblock">
-                        <div class="title">response</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 134
-
-{&quot;id&quot;:1,&quot;departmentCode&quot;:&quot;11&quot;,&quot;departmentName&quot;:&quot;Test Department 1&quot;,&quot;region&quot;:{&quot;id&quot;:1,&quot;regionCode&quot;:&quot;1234&quot;,&quot;regionName&quot;:&quot;Test Region 1&quot;}}</code></pre>
-                        </div>
-                    </div>
+                <h3 id="_region_by_code">Region by code</h3>
+                <div class="paragraph">
+                    <p>If the region exists</p>
                 </div>
-                <div class="sect3">
-                    <h4 id="_if_the_department_does_not_exists_2">If the department does not exists</h4>
-                    <div class="listingblock">
-                        <div class="title">request</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/department/34404 HTTP/1.1
-Host: cov19api.herokuapp.com:80</code></pre>
-                        </div>
-                    </div>
-                    <div class="listingblock">
-                        <div class="title">response</div>
-                        <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 404 Not Found
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 27
-
-Could not find region 34404</code></pre>
-                        </div>
-                    </div>
+                <div class="paragraph">
+                    <p>operation::locality/region-code-exists[snippets='httpie-request,http-response']</p>
+                </div>
+                <div class="paragraph">
+                    <p>If the region does not exists</p>
+                </div>
+                <div class="paragraph">
+                    <p>operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']</p>
+                </div>
+            </div>
+            <div class="sect2">
+                <h3 id="_serach_regions_and_departments">Serach regions and departments</h3>
+                <div class="paragraph">
+                    <p>operation::locality/regions-all[snippets='httpie-request,http-response']</p>
+                </div>
+                <div class="paragraph">
+                    <p>operation::locality/regions-search[snippets='httpie-request,http-response']</p>
+                </div>
+                <div class="paragraph">
+                    <p>operation::locality/departments-all[snippets='httpie-request,http-response']</p>
+                </div>
+                <div class="paragraph">
+                    <p>operation::locality/departments-search[snippets='httpie-request,http-response']</p>
                 </div>
             </div>
         </div>
@@ -2608,7 +2526,7 @@ Could not find region 34404</code></pre>
 </div>
 <div id="footer">
     <div id="footer-text">
-        Last updated 2021-03-30 23:31:20 CEST
+        Last updated 2021-03-31 19:05:55 CEST
     </div>
 </div>
 </body>
