@@ -6,12 +6,8 @@ import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -21,45 +17,43 @@ import java.util.Optional;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@ExtendWith(MockitoExtension.class)
 @Transactional
 public class LocalityServiceTest {
 
-    @MockBean RegionRepository regionRepository;
 
-    @MockBean DepartmentRepository departmentRepository;
+    private final RegionRepository regionRepository;
+    private final DepartmentRepository departmentRepository;
+    private final LocalityService localityService;
+    private Region region1;
+    private Region region2;
+    private Department department1;
+    private Department department2;
+    private Department department3;
+    private String nonExistingCode;
+    private String nonExistingName;
 
-    @Autowired LocalityService localityService;
+    @Autowired
+    public LocalityServiceTest(
+            RegionRepository regionRepository,
+            DepartmentRepository departmentRepository,
+            LocalityService localityService
+    ) {
+        this.regionRepository = regionRepository;
+        this.departmentRepository = departmentRepository;
+        this.localityService = localityService;
 
-    Region region1 = new Region(1L, "1234", "Test Region 1");
-    Region region2 = new Region(2L, "1235", "Test Region 2");
-    Department department1 = new Department(1L, "11", "Test Department 1", region1);
-    Department department2 = new Department(2L, "12", "Test Department 2", region1);
-    Department department3 = new Department(3L, "13", "Test Department 3", region2);
-    String nonExistingCode = "34404";
-    String nonExistingName = "3RR0R";
-    List<Region> testRegions = List.of(region1, region2);
-    List<Department> testDepartments = List.of(department1, department2, department3);
-
-    @BeforeEach
-    void mockRepositories() {
-        testRegions.forEach(region ->
-                Mockito.when(regionRepository.findByRegionCode(region.getRegionCode()))
-                        .thenReturn(Optional.of(region)));
-        Mockito.when(regionRepository.findByRegionCode(nonExistingCode))
-                .thenReturn(Optional.empty());
-        Mockito.when(regionRepository.findAll())
-                .thenReturn(testRegions);
-
-        testDepartments.forEach(department ->
-                Mockito.when(departmentRepository.findByDepartmentCode(department.getDepartmentCode()))
-                        .thenReturn(Optional.of(department)));
-        Mockito.when(departmentRepository.findByDepartmentCode(nonExistingCode))
-                .thenReturn(Optional.empty());
-        Mockito.when(departmentRepository.findAll())
-                .thenReturn(testDepartments);
     }
 
+    @BeforeEach
+    void populateRepositories() {
+        this.region1 = regionRepository.save(new Region("1234", "Test Region 1"));
+        this.region2 = regionRepository.save(new Region("1235", "Test Region 2"));
+        this.department1 = departmentRepository.save(new Department("11", "Test Department 1", region1));
+        this.department2 = departmentRepository.save(new Department("12", "Test Department 2", region1));
+        this.department3 = departmentRepository.save(new Department("13", "Test Department 3", region2));
+        this.nonExistingCode = "34404";
+        this.nonExistingName = "3RR0R";
+    }
 
     @Test
     void findRegionByCode() {
@@ -81,73 +75,77 @@ public class LocalityServiceTest {
     @Test
     void getAllRegions() {
         List<Region> regions = localityService.getAllRegions();
-        then(regions).isEqualTo(testRegions);
+        then(regions.size()).isEqualTo(2);
     }
 
     @Test
     void searchRegions_all() {
         List<Region> regions = localityService.searchRegions(List.of(), List.of());
-        then(regions).isEqualTo(testRegions);
+        then(regions.size()).isEqualTo(2);
     }
 
     @Test
     void searchRegions_emptySearch() {
         List<Region> regions = localityService.searchRegions(List.of(nonExistingCode), List.of(nonExistingName));
-        then(regions).isEqualTo(List.of());
+        then(regions).isEmpty();
     }
 
     @Test
     void searchRegions_codes() {
         List<Region> regions = localityService.searchRegions(List.of(nonExistingCode, region2.getRegionCode()), List.of());
-        then(regions).isEqualTo(List.of(region2));
+        then(regions.size()).isEqualTo(1);
+        then(regions.get(0)).isEqualTo(region2);
     }
 
     @Test
     void searchRegions_names() {
         List<Region> regions = localityService.searchRegions(List.of(), List.of(nonExistingName, region2.getRegionName()));
-        then(regions).isEqualTo(List.of(region2));
+        then(regions.size()).isEqualTo(1);
+        then(regions.get(0)).isEqualTo(region2);
     }
 
     @Test
     void searchRegions_codesAndNames() {
         List<Region> regions = localityService.searchRegions(List.of(nonExistingCode, region1.getRegionCode()), List.of(nonExistingName, region2.getRegionName()));
-        then(regions).isEqualTo(List.of(region1, region2));
+        then(regions.size()).isEqualTo(2);
     }
 
     @Test
     void getAllDepartments() {
         List<Department> departments = localityService.getAllDepartments();
-        then(departments).isEqualTo(testDepartments);
+        then(departments.size()).isEqualTo(3);
     }
 
     @Test
     void searchDepartments_all() {
         List<Department> departments = localityService.searchDepartments(List.of(), List.of());
-        then(departments).isEqualTo(testDepartments);
+        then(departments.size()).isEqualTo(3);
     }
 
     @Test
     void searchDepartments_emptySearch() {
         List<Department> departments = localityService.searchDepartments(List.of(nonExistingCode), List.of(nonExistingName));
-        then(departments).isEqualTo(List.of());
+        then(departments).isEmpty();
     }
 
     @Test
     void searchDepartments_codes() {
         List<Department> departments = localityService.searchDepartments(List.of(nonExistingCode, department2.getDepartmentCode()), List.of());
-        then(departments).isEqualTo(List.of(department2));
+        then(departments.size()).isEqualTo(1);
+        then(departments.get(0)).isEqualTo(department2);
     }
 
     @Test
     void searchDepartments_names() {
         List<Department> departments = localityService.searchDepartments(List.of(), List.of(nonExistingName, department2.getDepartmentName()));
-        then(departments).isEqualTo(List.of(department2));
+        then(departments.size()).isEqualTo(1);
+        then(departments.get(0)).isEqualTo(department2);
     }
 
     @Test
     void searchDepartments_codesAndNames() {
         List<Department> departments = localityService.searchDepartments(List.of(nonExistingCode, department1.getDepartmentCode()), List.of(nonExistingName, department2.getDepartmentName()));
-        then(departments).isEqualTo(List.of(department1, department2));
+        then(departments.size()).isEqualTo(2);
     }
 
     @Test
