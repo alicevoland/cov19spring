@@ -191,7 +191,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <apiDocsUrl>https://cov19api.herokuapp.com/v3/api-docs</apiDocsUrl>
+                    <attachArtifact>true</attachArtifact>
+                    <apiDocsUrl>/v3/api-docs</apiDocsUrl>
                     <outputFileName>openapi.json</outputFileName>
                     <outputDir>src/main/resources/static/v3/api-docs</outputDir>
                     <skip>false</skip>
