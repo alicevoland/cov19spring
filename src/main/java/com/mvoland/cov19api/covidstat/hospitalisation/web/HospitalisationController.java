@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/hospitalisation")
+@RequestMapping("/api/hospitalisation")
 public class HospitalisationController {
 
     private final LocalityService localityService;

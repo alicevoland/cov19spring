@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "api/v1/locality")
+@RequestMapping(value = "/api/locality")
 public class LocalityController {
 
     private final LocalityService localityService;

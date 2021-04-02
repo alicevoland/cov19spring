@@ -64,7 +64,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
         Mockito.when(localityService.findRegionById(region.getId()))
                 .thenReturn(Optional.of(region));
 
-        mockMvc.perform(get("/api/v1/locality/regions/id/{id}", region.getId())
+        mockMvc.perform(get("/api/locality/regions/id/{id}", region.getId())
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -84,7 +84,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
         Mockito.when(localityService.findRegionByCode(region.getRegionCode()))
                 .thenReturn(Optional.of(region));
 
-        mockMvc.perform(get("/api/v1/locality/regions/code/{code}", region.getRegionCode())
+        mockMvc.perform(get("/api/locality/regions/code/{code}", region.getRegionCode())
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -107,7 +107,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
                 .thenReturn(List.of(region1, region2));
 
 
-        mockMvc.perform(get("/api/v1/locality/regions")
+        mockMvc.perform(get("/api/locality/regions")
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -131,7 +131,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
                 .thenReturn(List.of(region1, region2));
 
         mockMvc.perform(
-                get("/api/v1/locality/regions/search")
+                get("/api/locality/regions/search")
                         .param("codes", region1.getRegionCode())
                         .param("names", new String[]{region2.getRegionName()})
                         .accept(MediaType.APPLICATION_JSON))
@@ -160,7 +160,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
         Mockito.when(localityService.findDepartmentById(department.getId()))
                 .thenReturn(Optional.of(department));
 
-        mockMvc.perform(get("/api/v1/locality/departments/id/{id}", department.getId())
+        mockMvc.perform(get("/api/locality/departments/id/{id}", department.getId())
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -182,7 +182,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
         Mockito.when(localityService.findDepartmentByCode(department.getDepartmentCode()))
                 .thenReturn(Optional.of(department));
 
-        mockMvc.perform(get("/api/v1/locality/departments/code/{code}", department.getDepartmentCode())
+        mockMvc.perform(get("/api/locality/departments/code/{code}", department.getDepartmentCode())
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -207,7 +207,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
                 .thenReturn(List.of(department1, department2));
 
 
-        mockMvc.perform(get("/api/v1/locality/departments")
+        mockMvc.perform(get("/api/locality/departments")
                 .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(status().isOk())
@@ -233,7 +233,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
                 .thenReturn(List.of(department1, department2));
 
         mockMvc.perform(
-                get("/api/v1/locality/departments/search")
+                get("/api/locality/departments/search")
                         .param("codes", department1.getDepartmentCode())
                         .param("names", new String[]{department2.getDepartmentName()})
                         .accept(MediaType.APPLICATION_JSON))
@@ -265,7 +265,7 @@ public class LocalityControllerTest extends AbstractControllerTest {
 //        Mockito.when(localityService.getStats())
 //                .thenReturn(map);
 //
-//        mockMvc.perform(get("/api/v1/locality/stats"))
+//        mockMvc.perform(get("/api/locality/stats"))
 //                .andExpect(status().isOk())
 //                .andExpect(jsonPath("regionCount").value(3))
 //                .andExpect(jsonPath("departementCount").value(10))

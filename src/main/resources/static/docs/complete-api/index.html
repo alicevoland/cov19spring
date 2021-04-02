@@ -551,7 +551,7 @@ table.CodeRay td.code>pre{padding:0}
 <h4 id="_full_update_http_request">HTTP request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/full HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/full HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -567,7 +567,7 @@ Host: localhost:8080</code></pre>
 
 {
   "accepted" : true,
-  "acceptedStartTime" : "2021-04-02T19:56:00.280965"
+  "acceptedStartTime" : "2021-04-02T22:19:01.625628"
 }</code></pre>
 </div>
 </div>
@@ -645,7 +645,7 @@ Host: localhost:8080</code></pre>
 <h4 id="_partial_update_http_request">HTTP request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/days?days=3 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/days?days=3 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -679,7 +679,7 @@ Host: localhost:8080</code></pre>
 
 {
   "accepted" : true,
-  "acceptedStartTime" : "2021-04-02T19:56:00.331759"
+  "acceptedStartTime" : "2021-04-02T22:19:01.664734"
 }</code></pre>
 </div>
 </div>
@@ -720,7 +720,7 @@ Host: localhost:8080</code></pre>
 <h4 id="_automatic_update_http_request">HTTP request</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/update/auto?days=3 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/auto?days=3 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -739,7 +739,7 @@ Host: localhost:8080</code></pre>
 
 {
   "accepted" : true,
-  "acceptedStartTime" : "2021-04-02T19:56:00.307268"
+  "acceptedStartTime" : "2021-04-02T22:19:01.648"
 }</code></pre>
 </div>
 </div>
@@ -790,7 +790,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_region_by_id_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/regions/id/1 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/id/1 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -798,7 +798,7 @@ Host: localhost:8080</code></pre>
 <div class="sect4">
 <h5 id="_region_by_id_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. /api/v1/locality/regions/id/{id}</caption>
+<caption class="title">Table 1. /api/locality/regions/id/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -829,13 +829,13 @@ Host: localhost:8080</code></pre>
   "regionName" : "Test Region 1",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+      "href" : "http://localhost:8080/api/locality/regions/id/1"
     },
     "selfByCode" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+      "href" : "http://localhost:8080/api/locality/regions/code/1234"
     },
     "all" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions"
+      "href" : "http://localhost:8080/api/locality/regions"
     }
   }
 }</code></pre>
@@ -883,7 +883,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_region_by_code_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/regions/code/1234 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/code/1234 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -891,7 +891,7 @@ Host: localhost:8080</code></pre>
 <div class="sect4">
 <h5 id="_region_by_code_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. /api/v1/locality/regions/code/{code}</caption>
+<caption class="title">Table 1. /api/locality/regions/code/{code}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -922,13 +922,13 @@ Host: localhost:8080</code></pre>
   "regionName" : "Test Region 1",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+      "href" : "http://localhost:8080/api/locality/regions/id/1"
     },
     "selfByCode" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+      "href" : "http://localhost:8080/api/locality/regions/code/1234"
     },
     "all" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions"
+      "href" : "http://localhost:8080/api/locality/regions"
     }
   }
 }</code></pre>
@@ -976,7 +976,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_all_regions_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/regions HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -995,13 +995,13 @@ Host: localhost:8080</code></pre>
       "regionName" : "Test Region 1",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+          "href" : "http://localhost:8080/api/locality/regions/id/1"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+          "href" : "http://localhost:8080/api/locality/regions/code/1234"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     }, {
@@ -1010,13 +1010,13 @@ Host: localhost:8080</code></pre>
       "regionName" : "Test Region 2",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/2"
+          "href" : "http://localhost:8080/api/locality/regions/id/2"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1235"
+          "href" : "http://localhost:8080/api/locality/regions/code/1235"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     } ]
@@ -1071,7 +1071,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_search_regions_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/regions/search?codes=1234&amp;names=Test+Region+2 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/search?codes=1234&amp;names=Test+Region+2 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1115,13 +1115,13 @@ Host: localhost:8080</code></pre>
       "regionName" : "Test Region 1",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+          "href" : "http://localhost:8080/api/locality/regions/id/1"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+          "href" : "http://localhost:8080/api/locality/regions/code/1234"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     }, {
@@ -1130,13 +1130,13 @@ Host: localhost:8080</code></pre>
       "regionName" : "Test Region 2",
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/2"
+          "href" : "http://localhost:8080/api/locality/regions/id/2"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1235"
+          "href" : "http://localhost:8080/api/locality/regions/code/1235"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     } ]
@@ -1194,7 +1194,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_department_by_id_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/departments/id/1 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/id/1 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1202,7 +1202,7 @@ Host: localhost:8080</code></pre>
 <div class="sect4">
 <h5 id="_department_by_id_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. /api/v1/locality/departments/id/{id}</caption>
+<caption class="title">Table 1. /api/locality/departments/id/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1238,13 +1238,13 @@ Host: localhost:8080</code></pre>
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+      "href" : "http://localhost:8080/api/locality/regions/id/1"
     },
     "selfByCode" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+      "href" : "http://localhost:8080/api/locality/regions/code/1234"
     },
     "all" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions"
+      "href" : "http://localhost:8080/api/locality/regions"
     }
   }
 }</code></pre>
@@ -1307,7 +1307,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_department_by_code_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/departments/code/1234 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/code/1234 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1315,7 +1315,7 @@ Host: localhost:8080</code></pre>
 <div class="sect4">
 <h5 id="_department_by_code_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. /api/v1/locality/departments/code/{code}</caption>
+<caption class="title">Table 1. /api/locality/departments/code/{code}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1351,13 +1351,13 @@ Host: localhost:8080</code></pre>
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+      "href" : "http://localhost:8080/api/locality/regions/id/1"
     },
     "selfByCode" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+      "href" : "http://localhost:8080/api/locality/regions/code/1234"
     },
     "all" : {
-      "href" : "http://localhost:8080/api/v1/locality/regions"
+      "href" : "http://localhost:8080/api/locality/regions"
     }
   }
 }</code></pre>
@@ -1420,7 +1420,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_all_departments_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/departments HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1444,13 +1444,13 @@ Host: localhost:8080</code></pre>
       },
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+          "href" : "http://localhost:8080/api/locality/regions/id/1"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+          "href" : "http://localhost:8080/api/locality/regions/code/1234"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     }, {
@@ -1464,13 +1464,13 @@ Host: localhost:8080</code></pre>
       },
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/2"
+          "href" : "http://localhost:8080/api/locality/regions/id/2"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1235"
+          "href" : "http://localhost:8080/api/locality/regions/code/1235"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     } ]
@@ -1540,7 +1540,7 @@ Host: localhost:8080</code></pre>
 <h5 id="_search_departments_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/v1/locality/departments/search?codes=1234&amp;names=Test+Department+2 HTTP/1.1
+<pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/search?codes=1234&amp;names=Test+Department+2 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1589,13 +1589,13 @@ Host: localhost:8080</code></pre>
       },
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/1"
+          "href" : "http://localhost:8080/api/locality/regions/id/1"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1234"
+          "href" : "http://localhost:8080/api/locality/regions/code/1234"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     }, {
@@ -1609,13 +1609,13 @@ Host: localhost:8080</code></pre>
       },
       "_links" : {
         "self" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/id/2"
+          "href" : "http://localhost:8080/api/locality/regions/id/2"
         },
         "selfByCode" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions/code/1235"
+          "href" : "http://localhost:8080/api/locality/regions/code/1235"
         },
         "all" : {
-          "href" : "http://localhost:8080/api/v1/locality/regions"
+          "href" : "http://localhost:8080/api/locality/regions"
         }
       }
     } ]

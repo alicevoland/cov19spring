@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 
 @RestController
-@RequestMapping("api/v1/update")
+@RequestMapping("/api/update")
 public class UpdateController {
 
 

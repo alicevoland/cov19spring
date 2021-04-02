@@ -36,7 +36,7 @@ class UpdateControllerTest extends AbstractControllerTest {
         Mockito.when(updateService.requestUpdateSince(LocalDate.now().minusDays(3)))
                 .thenReturn(UpdateRequest.accepted());
 
-        mockMvc.perform(get("/api/v1/update/days")
+        mockMvc.perform(get("/api/update/days")
                 .param("days", "3")
         )
                 .andExpect(status().isOk())
@@ -54,7 +54,7 @@ class UpdateControllerTest extends AbstractControllerTest {
         Mockito.when(updateService.requestAutoUpdate())
                 .thenReturn(UpdateRequest.accepted());
 
-        mockMvc.perform(get("/api/v1/update/auto")
+        mockMvc.perform(get("/api/update/auto")
                 .param("days", "3")
         )
                 .andExpect(status().isOk())
@@ -70,7 +70,7 @@ class UpdateControllerTest extends AbstractControllerTest {
         Mockito.when(updateService.requestFullUpdate())
                 .thenReturn(UpdateRequest.rejected("Some reason"));
 
-        mockMvc.perform(get("/api/v1/update/full"))
+        mockMvc.perform(get("/api/update/full"))
                 .andExpect(status().isOk())
                 .andDo(document("update/full-rejected",
                         responseFields(
@@ -84,7 +84,7 @@ class UpdateControllerTest extends AbstractControllerTest {
         Mockito.when(updateService.requestFullUpdate())
                 .thenReturn(UpdateRequest.accepted());
 
-        mockMvc.perform(get("/api/v1/update/full"))
+        mockMvc.perform(get("/api/update/full"))
                 .andExpect(status().isOk())
                 .andDo(document("update/full-accepted",
                         responseFields(
