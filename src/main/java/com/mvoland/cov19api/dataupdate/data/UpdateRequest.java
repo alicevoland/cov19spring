@@ -35,7 +35,7 @@ public class UpdateRequest {
 
     public static UpdateRequest rejected(String reason) {
         return new UpdateRequest(
-                true,
+                false,
                 null,
                 null,
                 reason
