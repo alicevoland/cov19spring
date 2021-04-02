@@ -1,6 +1,7 @@
 package com.mvoland.cov19api.datasource.service;
 
 import com.mvoland.cov19api.datasource.common.DataSource;
+import com.mvoland.cov19api.datasource.common.UpdateRequest;
 import com.mvoland.cov19api.datasource.depdefr.DepartementDeFranceSource;
 import com.mvoland.cov19api.datasource.hospdata.CovidHospitIncidRegSource;
 import com.mvoland.cov19api.datasource.hospdata.DonneesHospitalieresClasseAgeCovid19Source;
@@ -48,10 +49,10 @@ public class UpdateService {
         updateThread = null;
     }
 
-    public synchronized boolean requestFullUpdate() {
+    public synchronized UpdateRequest requestFullUpdate() {
         if (updateThread != null) {
             LOGGER.info("Full update rejected");
-            return false;
+            return UpdateRequest.rejected("An other update running");
         } else {
             updateThread = new Thread(() -> {
                 LOGGER.info("Full update started");
@@ -60,15 +61,15 @@ public class UpdateService {
                 LOGGER.info("Full update done");
             });
             updateThread.start();
-            return true;
+            return UpdateRequest.accepted();
         }
     }
 
-    public synchronized boolean requestUpdateDays(int days) {
+    public synchronized UpdateRequest requestUpdateDays(int days) {
         LocalDate date = LocalDate.now().minusDays(days);
         if (updateThread != null) {
             LOGGER.info("Update since {} rejected", date);
-            return false;
+            return UpdateRequest.rejected("An other update running");
         } else {
             updateThread = new Thread(() -> {
                 LOGGER.info("Update since {} STARTED", date);
@@ -77,7 +78,7 @@ public class UpdateService {
                 LOGGER.info("Update since {} DONE", date);
             });
             updateThread.start();
-            return true;
+            return UpdateRequest.accepted();
         }
     }
 

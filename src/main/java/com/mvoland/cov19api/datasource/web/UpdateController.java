@@ -1,11 +1,14 @@
 package com.mvoland.cov19api.datasource.web;
 
+import com.mvoland.cov19api.datasource.common.UpdateRequest;
 import com.mvoland.cov19api.datasource.service.UpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("api/v1/update")
@@ -21,28 +24,19 @@ public class UpdateController {
         this.updateService = updateService;
     }
 
-    /**
-     * Request a partial update with recent data
-     *
-     * @param days Update with new data from the past days
-     * @return True if update request accepted
-     */
     @GetMapping("since")
-    public Boolean requestUpdateDays(
+    public EntityModel<UpdateRequest> requestUpdateDays(
             @RequestParam Integer days
     ) {
-        return updateService.requestUpdateDays(days);
+        UpdateRequest result = updateService.requestUpdateDays(days);
+        return EntityModel.of(result);
     }
 
-    /**
-     * Request a full update
-     *
-     * @return True if update request accepted
-     */
     @GetMapping("full")
-    public Boolean requestFullUpdate(
+    public EntityModel<UpdateRequest> requestFullUpdate(
     ) {
-        return updateService.requestFullUpdate();
+        UpdateRequest result = updateService.requestFullUpdate();
+        return EntityModel.of(result);
     }
 
 }

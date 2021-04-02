@@ -8,11 +8,19 @@ Fetch data from data.gouv.fr
 
 === Full update
 
-operation::update/full[snippets='httpie-request,http-response']
+operation::update/full-accepted[snippets='http-request']
+
+If the update is accepted:
+
+operation::update/full-accepted[snippets='http-response']
+
+operation::update/full-rejected[snippets='http-response']
+
+operation::update/full-rejected[snippets='response-fields']
 
 === Partial update
 
-operation::update/since[snippets='httpie-request,request-parameters,http-response']
+operation::update/since[snippets='http-request,request-parameters,http-response,response-fields']
 
 == Locality
 
