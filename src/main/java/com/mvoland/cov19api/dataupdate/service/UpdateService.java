@@ -1,12 +1,12 @@
-package com.mvoland.cov19api.datasource.service;
+package com.mvoland.cov19api.dataupdate.service;
 
 import com.mvoland.cov19api.datasource.common.DataSource;
-import com.mvoland.cov19api.datasource.common.UpdateRequest;
 import com.mvoland.cov19api.datasource.depdefr.DepartementDeFranceSource;
 import com.mvoland.cov19api.datasource.hospdata.CovidHospitIncidRegSource;
 import com.mvoland.cov19api.datasource.hospdata.DonneesHospitalieresClasseAgeCovid19Source;
 import com.mvoland.cov19api.datasource.hospdata.DonneesHospitalieresCovid19Source;
 import com.mvoland.cov19api.datasource.hospdata.DonneesHospitalieresNouveauxCovid19Source;
+import com.mvoland.cov19api.dataupdate.data.UpdateRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,8 @@ public class UpdateService {
     private final List<DataSource> dataSources;
 
     private Thread updateThread;
+
+    private LocalDate updatedUntil;
 
     @Autowired
     public UpdateService(
@@ -53,11 +55,15 @@ public class UpdateService {
         if (updateThread != null) {
             LOGGER.info("Full update rejected");
             return UpdateRequest.rejected("An other update running");
+        } else if (updatedUntil != null) {
+            LOGGER.info("Full update rejected");
+            return UpdateRequest.rejected("Full update already done");
         } else {
             updateThread = new Thread(() -> {
                 LOGGER.info("Full update started");
                 dataSources.forEach(DataSource::fullUpdate);
                 this.updateThread = null;
+                this.updatedUntil = LocalDate.now();
                 LOGGER.info("Full update done");
             });
             updateThread.start();
@@ -65,21 +71,32 @@ public class UpdateService {
         }
     }
 
-    public synchronized UpdateRequest requestUpdateDays(int days) {
-        LocalDate date = LocalDate.now().minusDays(days);
+    public synchronized UpdateRequest requestUpdateSince(LocalDate noticeDateBegin) {
         if (updateThread != null) {
-            LOGGER.info("Update since {} rejected", date);
+            LOGGER.info("Update since {} rejected", noticeDateBegin);
             return UpdateRequest.rejected("An other update running");
         } else {
             updateThread = new Thread(() -> {
-                LOGGER.info("Update since {} STARTED", date);
-                dataSources.forEach(dataSource -> dataSource.updateSince(date));
+                LOGGER.info("Update since {} STARTED", noticeDateBegin);
+                dataSources.forEach(dataSource -> dataSource.updateSince(noticeDateBegin));
                 this.updateThread = null;
-                LOGGER.info("Update since {} DONE", date);
+                if (noticeDateBegin.isBefore(updatedUntil)) {
+                    updatedUntil = LocalDate.now();
+                }
+                LOGGER.info("Update since {} DONE", noticeDateBegin);
             });
             updateThread.start();
             return UpdateRequest.accepted();
         }
     }
 
+    public synchronized UpdateRequest requestAutoUpdate() {
+        if (updatedUntil == null) {
+            return requestFullUpdate();
+        } else if (updatedUntil.isEqual(LocalDate.now())) {
+            return UpdateRequest.rejected("Already up to date");
+        } else {
+            return requestUpdateSince(updatedUntil.minusDays(2));
+        }
+    }
 }

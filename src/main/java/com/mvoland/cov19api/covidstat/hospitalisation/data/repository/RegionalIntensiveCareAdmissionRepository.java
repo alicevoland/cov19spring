@@ -19,5 +19,9 @@ public interface RegionalIntensiveCareAdmissionRepository extends CrudRepository
 
     List<RegionalIntensiveCareAdmission> findByRegion(Region region);
 
-    List<RegionalIntensiveCareAdmission> findByRegionAndNoticeDateAfter(Region region, LocalDate noticeDate);
+    List<RegionalIntensiveCareAdmission> findByRegionAndNoticeDateIsBetween(
+            Region region,
+            LocalDate noticeDateBegin,
+            LocalDate noticeDateEnd
+    );
 }

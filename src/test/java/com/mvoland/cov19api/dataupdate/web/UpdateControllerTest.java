@@ -1,10 +1,10 @@
-package com.mvoland.cov19api.datasource.web;
+package com.mvoland.cov19api.dataupdate.web;
 
 import com.mvoland.cov19api.AbstractControllerTest;
 import com.mvoland.cov19api.covidstat.locality.web.DepartmentModelAssembler;
 import com.mvoland.cov19api.covidstat.locality.web.RegionModelAssembler;
-import com.mvoland.cov19api.datasource.common.UpdateRequest;
-import com.mvoland.cov19api.datasource.service.UpdateService;
+import com.mvoland.cov19api.dataupdate.data.UpdateRequest;
+import com.mvoland.cov19api.dataupdate.service.UpdateService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -12,6 +12,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.restdocs.RestDocumentationExtension;
+
+import java.time.LocalDate;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
@@ -31,18 +33,36 @@ class UpdateControllerTest extends AbstractControllerTest {
 
     @Test
     void requestUpdateDays() throws Exception {
-        Mockito.when(updateService.requestUpdateDays(3))
+        Mockito.when(updateService.requestUpdateSince(LocalDate.now().minusDays(3)))
                 .thenReturn(UpdateRequest.accepted());
 
-        mockMvc.perform(get("/api/v1/update/since")
+        mockMvc.perform(get("/api/v1/update/days")
                 .param("days", "3")
         )
                 .andExpect(status().isOk())
-                .andDo(document("update/since",
+                .andDo(document("update/days",
                         requestParameters(
                                 parameterWithName("days").description("Fetch data <days> before today")),
                         responseFields(
-                                fieldWithPath("accepted").description("The update request was accepted / rejected"))));
+                                fieldWithPath("accepted").description("The update request was accepted"),
+                                fieldWithPath("acceptedStartTime").description("Start time of update")
+                        )));
+    }
+
+    @Test
+    void requestAutoUpdate() throws Exception {
+        Mockito.when(updateService.requestAutoUpdate())
+                .thenReturn(UpdateRequest.accepted());
+
+        mockMvc.perform(get("/api/v1/update/auto")
+                .param("days", "3")
+        )
+                .andExpect(status().isOk())
+                .andDo(document("update/auto",
+                        responseFields(
+                                fieldWithPath("accepted").description("The update request was accepted"),
+                                fieldWithPath("acceptedStartTime").description("Start time of update")
+                        )));
     }
 
     @Test
@@ -54,8 +74,9 @@ class UpdateControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(document("update/full-rejected",
                         responseFields(
-                                fieldWithPath("accepted").description("The update request was accepted / rejected"),
-                                fieldWithPath("info").description("Reason, if rejected"))));
+                                fieldWithPath("accepted").description("The update request was rejected"),
+                                fieldWithPath("rejectionCause").description("Reason, if rejected")
+                        )));
     }
 
     @Test
@@ -67,6 +88,8 @@ class UpdateControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(document("update/full-accepted",
                         responseFields(
-                                fieldWithPath("accepted").description("The update request was accepted / rejected"))));
+                                fieldWithPath("accepted").description("The update request was accepted"),
+                                fieldWithPath("acceptedStartTime").description("Start time of update")
+                        )));
     }
 }

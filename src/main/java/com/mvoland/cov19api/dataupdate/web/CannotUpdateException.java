@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.datasource.web;
+package com.mvoland.cov19api.dataupdate.web;
 
 class CannotUpdateException extends RuntimeException {
 

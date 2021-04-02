@@ -22,6 +22,12 @@ operation::update/full-rejected[snippets='response-fields']
 
 operation::update/since[snippets='http-request,request-parameters,http-response,response-fields']
 
+operation::update/days[snippets='http-request,request-parameters,http-response,response-fields']
+
+=== Automatic update
+
+operation::update/auto[snippets='http-request,request-parameters,http-response,response-fields']
+
 == Locality
 
 French departments and regions

@@ -1,10 +1,11 @@
-package com.mvoland.cov19api.datasource.common;
+package com.mvoland.cov19api.common;
 
 import com.mvoland.cov19api.common.type.AgeGroup;
 import com.mvoland.cov19api.common.type.Sex;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.function.Supplier;
 
 public class ParsingUtils {
 
@@ -23,6 +24,14 @@ public class ParsingUtils {
 
     public static LocalDate parseDateOrThrow(String value) {
         return LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE);
+    }
+
+    public static LocalDate parseDateOrThrow(String value, Supplier<RuntimeException> exceptionSupplier) {
+        try {
+            return LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE);
+        } catch (Exception e) {
+            throw exceptionSupplier.get();
+        }
     }
 
     public static AgeGroup parseAgeGroupOrThrow(String value) {

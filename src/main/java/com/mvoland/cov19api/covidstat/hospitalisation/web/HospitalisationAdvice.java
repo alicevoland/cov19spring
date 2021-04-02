@@ -1,5 +1,6 @@
-package com.mvoland.cov19api.datasource.web;
+package com.mvoland.cov19api.covidstat.hospitalisation.web;
 
+import com.mvoland.cov19api.covidstat.hospitalisation.web.exception.HospitalisationNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -7,14 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class UpdateAdvice {
+class HospitalisationAdvice {
 
     @ResponseBody
-    @ExceptionHandler(CannotUpdateException.class)
+    @ExceptionHandler(HospitalisationNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String regionNotFoundHandler(CannotUpdateException ex) {
+    String regionNotFoundHandler(HospitalisationNotFoundException ex) {
         return ex.getMessage();
     }
-
 
 }

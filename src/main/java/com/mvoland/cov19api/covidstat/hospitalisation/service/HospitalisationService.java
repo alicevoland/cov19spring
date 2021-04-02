@@ -8,6 +8,7 @@ import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.Department
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalIntensiveCareAdmissionRepository;
+import com.mvoland.cov19api.covidstat.locality.data.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -164,7 +165,7 @@ public class HospitalisationService {
     }
 
 
-    public List<RegionalIntensiveCareAdmission> getAllRegionalICAdmissions() {
+    public List<RegionalIntensiveCareAdmission> findAllRegionalIntensiveCareAdmission() {
         return regionalAdmissionsRepository.findAll();
     }
 
@@ -196,12 +197,23 @@ public class HospitalisationService {
 
     public Map<String, Integer> getStats() {
         Map<String, Integer> map = new HashMap<>();
-        map.put("RegionalIntensiveCareAdmissionCount", getAllRegionalICAdmissions().size());
+        map.put("RegionalIntensiveCareAdmissionCount", findAllRegionalIntensiveCareAdmission().size());
         map.put("RegionalHospitalisationCount", getAllRegionalHospitalisations().size());
         map.put("DepartmentalNewHospitalisationCount", getAllDepartmentalNewHospitalisations().size());
         map.put("DepartmentalHospitalisationCount", getAllDepartmentalHospitalisations().size());
         return map;
     }
 
+    public List<RegionalIntensiveCareAdmission> findRegionalIntensiveCareAdmissionByRegionAndDates(
+            Region region,
+            LocalDate noticeDateBegin,
+            LocalDate noticeDateEnd
+    ) {
+        return regionalAdmissionsRepository.findByRegionAndNoticeDateIsBetween(region, noticeDateBegin, noticeDateEnd);
+    }
 
+
+    public Optional<RegionalIntensiveCareAdmission> findRegionalIntensiveCareAdmissionById(Long id) {
+        return regionalAdmissionsRepository.findById(id);
+    }
 }
