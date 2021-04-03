@@ -17,9 +17,13 @@
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
+
         <spring-boot-version>2.3.4.RELEASE</spring-boot-version>
-        <asciidoctor-version>1.2.6.RELEASE</asciidoctor-version>
+
         <mockmvc-version>2.0.5.RELEASE</mockmvc-version>
+
+        <spring-restdocs-asciidoctor-version>2.0.5.RELEASE</spring-restdocs-asciidoctor-version>
+        <asciidoctor-maven-plugin-version>2.1.0</asciidoctor-maven-plugin-version>
     </properties>
 
     <dependencies>
@@ -111,7 +115,7 @@
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>1.5.3</version>
+                <version>${asciidoctor-maven-plugin-version}</version>
                 <executions>
                     <execution>
                         <id>output-html</id>
@@ -127,6 +131,10 @@
                                 <source-highlighter>coderay</source-highlighter>
                                 <toc>left</toc>
                                 <icons>font</icons>
+
+                                <stylesdir>${project.basedir}/src/main/resources/static/css</stylesdir>
+                                <stylesheet>spring.css</stylesheet>
+<!--                                <linkcss>true</linkcss>-->
                             </attributes>
                             <sourceDirectory>src/main/asciidoc</sourceDirectory>
                             <outputDirectory>src/main/resources/static/docs</outputDirectory>
@@ -138,7 +146,7 @@
                     <dependency>
                         <groupId>org.springframework.restdocs</groupId>
                         <artifactId>spring-restdocs-asciidoctor</artifactId>
-                        <version>${asciidoctor-version}</version>
+                        <version>${spring-restdocs-asciidoctor-version}</version>
                     </dependency>
                 </dependencies>
             </plugin>

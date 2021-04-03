@@ -6,8 +6,9 @@ link:../index.html[Back to documentation home]
 
 Fetch data from data.gouv.fr
 
-=== Full update
-
+==== Full update
+[%collapsible]
+======
 operation::update/full-accepted[snippets='http-request']
 
 If the update is accepted:
@@ -17,6 +18,7 @@ operation::update/full-accepted[snippets='http-response']
 operation::update/full-rejected[snippets='http-response']
 
 operation::update/full-rejected[snippets='response-fields']
+======
 
 === Partial update
 
