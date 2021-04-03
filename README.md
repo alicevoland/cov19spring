@@ -1,18 +1,14 @@
 # Covid 19 API
 
-L'objectif est de créer une petite API pour faire une interface à data.gouv.fr
+This project aims at providing a REST API for some covid statistics from the french gouvernment open data platform (<https://www.data.gouv.fr/en/pages/donnees-coronavirus>)
 
-<https://cov19api.herokuapp.com>
+More information and API documentation can be found here: <https://cov19api.herokuapp.com>
 
-## Documentation de l'API
+## Development
 
-<https://cov19api.herokuapp.com/docs/index.html>
-
-## Dev
-
-Exemple base de données Postgres via docker en développement :
+This project is using the spring boot framework, and a postgresql database.
 
 ```bash
-docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=dev -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql postgres
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=dev -d -p 5432:5432 -v pgdata:/var/lib/postgresql postgres
 ```
 
