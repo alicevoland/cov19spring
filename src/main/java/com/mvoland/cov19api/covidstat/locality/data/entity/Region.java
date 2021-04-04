@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.covidstat.locality.data;
+package com.mvoland.cov19api.covidstat.locality.data.entity;
 
 
 import lombok.*;

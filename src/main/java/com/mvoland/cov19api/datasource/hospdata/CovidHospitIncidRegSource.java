@@ -4,7 +4,7 @@ import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntens
 import com.mvoland.cov19api.covidstat.hospitalisation.service.HospitalisationService;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import com.mvoland.cov19api.datasource.common.DataGouvFrCsvDataSource;
-import com.mvoland.cov19api.common.ParsingUtils;
+import com.mvoland.cov19api.common.util.ParsingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

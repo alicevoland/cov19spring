@@ -1,8 +1,10 @@
-package com.mvoland.cov19api.covidstat.locality.web;
+package com.mvoland.cov19api.covidstat.locality.web.api;
 
 import com.mvoland.cov19api.AbstractControllerTest;
-import com.mvoland.cov19api.covidstat.locality.data.Department;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.DepartmentModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.RegionModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Department;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,10 +28,10 @@ import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = LocalityController.class)
+@WebMvcTest(controllers = LocalityApiController.class)
 @ExtendWith(value = {RestDocumentationExtension.class})
 @Import({RegionModelAssembler.class, DepartmentModelAssembler.class})
-public class LocalityControllerTest extends AbstractControllerTest {
+public class LocalityApiControllerTest extends AbstractControllerTest {
 
     private final Region region1 = new Region(1L, "1234", "Test Region 1");
     private final Region region2 = new Region(2L, "1235", "Test Region 2");

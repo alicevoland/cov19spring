@@ -7,11 +7,11 @@ link:../index.html[Back to documentation home]
 Fetch data from data.gouv.fr
 
 ==== Full update
+
+include::{snippets}/update/full-accepted/curl-request.adoc[]
 [%collapsible]
 ======
 operation::update/full-accepted[snippets='http-request']
-
-If the update is accepted:
 
 operation::update/full-accepted[snippets='http-response']
 
@@ -20,15 +20,21 @@ operation::update/full-rejected[snippets='http-response']
 operation::update/full-rejected[snippets='response-fields']
 ======
 
-=== Partial update
+==== Partial update
 
-operation::update/since[snippets='http-request,request-parameters,http-response,response-fields']
-
+include::{snippets}/update/days/curl-request.adoc[]
+[%collapsible]
+======
 operation::update/days[snippets='http-request,request-parameters,http-response,response-fields']
+======
 
-=== Automatic update
+==== Automatic update
 
-operation::update/auto[snippets='http-request,request-parameters,http-response,response-fields']
+include::{snippets}/update/auto/curl-request.adoc[]
+[%collapsible]
+======
+operation::update/auto[snippets='http-request,http-response,response-fields']
+======
 
 == Locality
 
@@ -37,71 +43,66 @@ French departments and regions
 === Regions
 
 ==== Region by ID
-
+include::{snippets}/locality/region-id-exists/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/region-id-exists[snippets='http-request,path-parameters,http-response,response-fields']
+======
 
 ==== Region by code
 
+include::{snippets}/locality/region-code-exists/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/region-code-exists[snippets='http-request,path-parameters,http-response,response-fields']
+======
 
 ==== All regions
 
+include::{snippets}/locality/regions-all/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/regions-all[snippets='http-request,http-response,response-fields']
+======
 
 ==== Search regions
 
+include::{snippets}/locality/regions-search/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/regions-search[snippets='http-request,request-parameters,http-response,response-fields']
+======
 
 === Departments
 
 ==== Department by ID
 
+include::{snippets}/locality/department-id-exists/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/department-id-exists[snippets='http-request,path-parameters,http-response,response-fields']
+======
 
 ==== Department by code
 
+include::{snippets}/locality/department-code-exists/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/department-code-exists[snippets='http-request,path-parameters,http-response,response-fields']
+======
 
 ==== All departments
 
+include::{snippets}/locality/departments-all/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/departments-all[snippets='http-request,http-response,response-fields']
+======
 
 ==== Search departments
 
+include::{snippets}/locality/departments-search/curl-request.adoc[]
+[%collapsible]
+======
 operation::locality/departments-search[snippets='http-request,request-parameters,http-response,response-fields']
-
-//=== Some stats
-//
-//operation::locality/stats[snippets='httpie-request,http-response']
-//
-//=== Department by code
-//
-//If the department exists
-//
-//operation::locality/department-code-exists[snippets='httpie-request,http-response']
-//
-//
-//If the department does not exists
-//
-//operation::locality/department-code-does-not-exist[snippets='httpie-request,http-response']
-//
-//=== Region by code
-//
-//If the region exists
-//
-//operation::locality/region-code-exists[snippets='httpie-request,http-response']
-//
-//If the region does not exists
-//
-//operation::locality/region-code-does-not-exist[snippets='httpie-request,http-response']
-//
-//=== Serach regions and departments
-//
-//operation::locality/regions-all[snippets='httpie-request,http-response']
-//
-//operation::locality/regions-search[snippets='httpie-request,http-response']
-//
-//operation::locality/departments-all[snippets='httpie-request,http-response']
-//
-//operation::locality/departments-search[snippets='httpie-request,http-response']
-//
+======

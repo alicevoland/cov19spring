@@ -1,11 +1,11 @@
-package com.mvoland.cov19api.covidstat.hospitalisation.web;
+package com.mvoland.cov19api.covidstat.hospitalisation.web.api;
 
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
 import com.mvoland.cov19api.covidstat.hospitalisation.service.HospitalisationService;
 import com.mvoland.cov19api.covidstat.hospitalisation.web.assembler.RegionalIntensiveCareAdmissionAssembler;
-import com.mvoland.cov19api.covidstat.hospitalisation.web.exception.HospitalisationNotFoundException;
+import com.mvoland.cov19api.covidstat.hospitalisation.exception.HospitalisationNotFoundException;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
-import com.mvoland.cov19api.common.ParsingUtils;
+import com.mvoland.cov19api.common.util.ParsingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -16,14 +16,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/hospitalisation")
-public class HospitalisationController {
+public class HospitalisationApiController {
 
     private final LocalityService localityService;
     private final HospitalisationService hospitalisationService;
     private final RegionalIntensiveCareAdmissionAssembler regionalIntensiveCareAdmissionAssembler;
 
     @Autowired
-    public HospitalisationController(
+    public HospitalisationApiController(
             LocalityService localityService,
             HospitalisationService hospitalisationService,
             RegionalIntensiveCareAdmissionAssembler regionalIntensiveCareAdmissionAssembler

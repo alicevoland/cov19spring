@@ -1,7 +1,8 @@
-package com.mvoland.cov19api.dataupdate.web;
+package com.mvoland.cov19api.dataupdate.web.api;
 
-import com.mvoland.cov19api.common.ParsingUtils;
+import com.mvoland.cov19api.common.util.ParsingUtils;
 import com.mvoland.cov19api.dataupdate.data.UpdateRequest;
+import com.mvoland.cov19api.dataupdate.exception.CannotUpdateException;
 import com.mvoland.cov19api.dataupdate.service.UpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
@@ -15,13 +16,13 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/update")
-public class UpdateController {
+public class UpdateApiController {
 
 
     private final UpdateService updateService;
 
     @Autowired
-    public UpdateController(
+    public UpdateApiController(
             UpdateService updateService
     ) {
         this.updateService = updateService;

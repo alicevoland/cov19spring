@@ -16,19 +16,22 @@
 
 <div class="container">
     <h1>Covid 19 API</h1>
-    <h2>Présentation</h2>
+
+    <h2>Summary</h2>
     <p>
-        Travail en cours, l'objectif est de proposer une API pour les données Covid proposées dans des fichiers CSV sur
-        <a href="https://www.data.gouv.fr/fr/pages/donnees-coronavirus">www.data.gouv.fr/fr/pages/donnees-coronavirus</a>
+        This project aims at providing a REST API for some covid statistics from the french gouvernment open data
+        platform (<a href="https://www.data.gouv.fr/fr/pages/donnees-coronavirus">www.data.gouv.fr/fr/pages/donnees-coronavirus</a>)
     </p>
 
-    <h2>Documentation de l'API avec Swagger UI</h2>
+    <h2>API documentation (RESTdocs / Asciidoctor)</h2>
+    <p>
+        API and data source documentation here: <a th:href="@{docs/index.html}">API documentation</a>
+    </p>
 
-    <a href="/swagger-ui/index.html?url=/v3/api-docs">Documentation de l'API</a>
-
-    <h2>Documentation de l'API avec RESTdocs</h2>
-
-    <a th:href="@{/docs/index.html}">Documentation de l'API</a>
+    <h2>Links</h2>
+    <ul>
+        <li><a th:href="@{locality/all}">All departments and regions</a> </li>
+    </ul>
 
 </div>
 

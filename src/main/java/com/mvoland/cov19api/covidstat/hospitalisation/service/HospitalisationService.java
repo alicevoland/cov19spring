@@ -8,7 +8,7 @@ import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.Department
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalIntensiveCareAdmissionRepository;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -476,6 +476,11 @@ h5 {
 </div>
 <div class="sect3">
 <h4 id="_full_update">Full update</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/full' -i -X GET</code></pre>
+</div>
+</div>
 <details>
 <summary class="title">Details</summary>
 <div class="content">
@@ -488,9 +493,6 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>If the update is accepted:</p>
-</div>
 <div class="sect4">
 <h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
@@ -499,7 +501,7 @@ Host: localhost:8080</code></pre>
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-03T17:59:16.037695&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-04T23:18:04.83471&quot;
 }</code></pre>
 </div>
 </div>
@@ -549,34 +551,18 @@ Host: localhost:8080</code></pre>
 </div>
 </details>
 </div>
-<div class="sect2">
-<h3 id="_partial_update">Partial update</h3>
 <div class="sect3">
-<h4 id="_partial_update_http_request">HTTP request</h4>
-<div class="paragraph">
-<p>Snippet http-request not found for operation::update/since</p>
+<h4 id="_partial_update">Partial update</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/days?days=3' -i -X GET</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_partial_update_request_parameters">Request parameters</h4>
-<div class="paragraph">
-<p>Snippet request-parameters not found for operation::update/since</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_partial_update_http_response">HTTP response</h4>
-<div class="paragraph">
-<p>Snippet http-response not found for operation::update/since</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_partial_update_response_fields">Response fields</h4>
-<div class="paragraph">
-<p>Snippet response-fields not found for operation::update/since</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_partial_update_http_request">HTTP request</h4>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="sect4">
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/days?days=3 HTTP/1.1
@@ -584,8 +570,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_partial_update_request_parameters">Request parameters</h4>
+<div class="sect4">
+<h5 id="_request_parameters">Request parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -605,21 +591,21 @@ Host: localhost:8080</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_partial_update_http_response">HTTP response</h4>
+<div class="sect4">
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-03T17:59:16.080519&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-04T23:18:04.872737&quot;
 }</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_partial_update_response_fields">Response fields</h4>
+<div class="sect4">
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -648,10 +634,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_automatic_update">Automatic update</h3>
+</details>
+</div>
 <div class="sect3">
-<h4 id="_automatic_update_http_request">HTTP request</h4>
+<h4 id="_automatic_update">Automatic update</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/auto?days=3' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="sect4">
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/auto?days=3 HTTP/1.1
@@ -659,27 +655,21 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_automatic_update_request_parameters">Request parameters</h4>
-<div class="paragraph">
-<p>Snippet request-parameters not found for operation::update/auto</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_automatic_update_http_response">HTTP response</h4>
+<div class="sect4">
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-03T17:59:16.061825&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-04T23:18:04.854059&quot;
 }</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_automatic_update_response_fields">Response fields</h4>
+<div class="sect4">
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -707,6 +697,8 @@ Host: localhost:8080</code></pre>
 </tbody>
 </table>
 </div>
+</div>
+</details>
 </div>
 </div>
 </div>
@@ -720,8 +712,16 @@ Host: localhost:8080</code></pre>
 <h3 id="_regions">Regions</h3>
 <div class="sect3">
 <h4 id="_region_by_id">Region by ID</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/id/1' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_region_by_id_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/id/1 HTTP/1.1
@@ -730,7 +730,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_region_by_id_path_parameters">Path parameters</h5>
+<h5 id="_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /api/locality/regions/id/{id}</caption>
 <colgroup>
@@ -752,7 +752,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_region_by_id_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -777,7 +777,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_region_by_id_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -811,10 +811,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_region_by_code">Region by code</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/code/1234' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_region_by_code_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/code/1234 HTTP/1.1
@@ -823,7 +833,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_region_by_code_path_parameters">Path parameters</h5>
+<h5 id="_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /api/locality/regions/code/{code}</caption>
 <colgroup>
@@ -845,7 +855,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_region_by_code_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -870,7 +880,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_region_by_code_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -904,10 +914,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_all_regions">All regions</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_all_regions_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions HTTP/1.1
@@ -916,7 +936,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_all_regions_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -960,7 +980,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_all_regions_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -999,10 +1019,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_search_regions">Search regions</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/search?codes=1234&amp;names=Test+Region+2' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_search_regions_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/search?codes=1234&amp;names=Test+Region+2 HTTP/1.1
@@ -1011,7 +1041,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_search_regions_request_parameters">Request parameters</h5>
+<h5 id="_request_parameters">Request parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1036,7 +1066,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_search_regions_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -1080,7 +1110,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_search_regions_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1119,13 +1149,23 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_departments">Departments</h3>
 <div class="sect3">
 <h4 id="_department_by_id">Department by ID</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/id/1' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_department_by_id_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/id/1 HTTP/1.1
@@ -1134,7 +1174,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_department_by_id_path_parameters">Path parameters</h5>
+<h5 id="_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /api/locality/departments/id/{id}</caption>
 <colgroup>
@@ -1156,7 +1196,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_department_by_id_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -1186,7 +1226,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_department_by_id_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1235,10 +1275,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_department_by_code">Department by code</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/code/1234' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_department_by_code_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/code/1234 HTTP/1.1
@@ -1247,7 +1297,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_department_by_code_path_parameters">Path parameters</h5>
+<h5 id="_path_parameters">Path parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /api/locality/departments/code/{code}</caption>
 <colgroup>
@@ -1269,7 +1319,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_department_by_code_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -1299,7 +1349,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_department_by_code_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1348,10 +1398,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_all_departments">All departments</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_all_departments_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments HTTP/1.1
@@ -1360,7 +1420,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_all_departments_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -1414,7 +1474,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_all_departments_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1468,10 +1528,20 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 <div class="sect3">
 <h4 id="_search_departments">Search departments</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/search?codes=1234&amp;names=Test+Department+2' -i -X GET</code></pre>
+</div>
+</div>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
 <div class="sect4">
-<h5 id="_search_departments_http_request">HTTP request</h5>
+<h5 id="_http_request">HTTP request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/search?codes=1234&amp;names=Test+Department+2 HTTP/1.1
@@ -1480,7 +1550,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_search_departments_request_parameters">Request parameters</h5>
+<h5 id="_request_parameters">Request parameters</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1505,7 +1575,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_search_departments_http_response">HTTP response</h5>
+<h5 id="_http_response">HTTP response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
@@ -1559,7 +1629,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_search_departments_response_fields">Response fields</h5>
+<h5 id="_response_fields">Response fields</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1613,13 +1683,15 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 </div>
+</details>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-03 17:31:18 +0200
+Last updated 2021-04-04 23:17:48 +0200
 </div>
 </div>
 <style>

@@ -1,5 +1,6 @@
-package com.mvoland.cov19api.covidstat.locality.data;
+package com.mvoland.cov19api.covidstat.locality.data.repository;
 
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;

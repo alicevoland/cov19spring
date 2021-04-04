@@ -1,7 +1,11 @@
-package com.mvoland.cov19api.covidstat.locality.web;
+package com.mvoland.cov19api.covidstat.locality.web.api;
 
-import com.mvoland.cov19api.covidstat.locality.data.Department;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.DepartmentModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.RegionModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.exception.DepartmentNotFoundException;
+import com.mvoland.cov19api.covidstat.locality.exception.RegionNotFoundException;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Department;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
@@ -13,14 +17,14 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/locality")
-public class LocalityController {
+public class LocalityApiController {
 
     private final LocalityService localityService;
     private final RegionModelAssembler regionModelAssembler;
     private final DepartmentModelAssembler departmentModelAssembler;
 
     @Autowired
-    public LocalityController(
+    public LocalityApiController(
             LocalityService localityService,
             RegionModelAssembler regionModelAssembler,
             DepartmentModelAssembler departmentModelAssembler

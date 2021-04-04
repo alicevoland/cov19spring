@@ -1,7 +1,7 @@
 package com.mvoland.cov19api.datasource.depdefr;
 
-import com.mvoland.cov19api.covidstat.locality.data.Department;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Department;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import com.mvoland.cov19api.datasource.common.DataGouvFrCsvDataSource;
 import org.springframework.beans.factory.annotation.Autowired;

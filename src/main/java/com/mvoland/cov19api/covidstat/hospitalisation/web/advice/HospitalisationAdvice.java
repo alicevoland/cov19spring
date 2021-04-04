@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.covidstat.hospitalisation.web;
+package com.mvoland.cov19api.covidstat.hospitalisation.web.advice;
 
-import com.mvoland.cov19api.covidstat.hospitalisation.web.exception.HospitalisationNotFoundException;
+import com.mvoland.cov19api.covidstat.hospitalisation.exception.HospitalisationNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

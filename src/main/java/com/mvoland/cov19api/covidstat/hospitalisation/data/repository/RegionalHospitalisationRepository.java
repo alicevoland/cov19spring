@@ -2,7 +2,7 @@ package com.mvoland.cov19api.covidstat.hospitalisation.data.repository;
 
 import com.mvoland.cov19api.common.type.AgeGroup;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.lang.NonNull;
 

@@ -1,8 +1,8 @@
-package com.mvoland.cov19api.dataupdate.web;
+package com.mvoland.cov19api.dataupdate.web.api;
 
 import com.mvoland.cov19api.AbstractControllerTest;
-import com.mvoland.cov19api.covidstat.locality.web.DepartmentModelAssembler;
-import com.mvoland.cov19api.covidstat.locality.web.RegionModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.DepartmentModelAssembler;
+import com.mvoland.cov19api.covidstat.locality.web.assembler.RegionModelAssembler;
 import com.mvoland.cov19api.dataupdate.data.UpdateRequest;
 import com.mvoland.cov19api.dataupdate.service.UpdateService;
 import org.junit.jupiter.api.Test;
@@ -23,10 +23,10 @@ import static org.springframework.restdocs.request.RequestDocumentation.paramete
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = UpdateController.class)
+@WebMvcTest(controllers = UpdateApiController.class)
 @ExtendWith(value = {RestDocumentationExtension.class})
 @Import({RegionModelAssembler.class, DepartmentModelAssembler.class})
-class UpdateControllerTest extends AbstractControllerTest {
+class UpdateApiControllerTest extends AbstractControllerTest {
 
     @MockBean
     private UpdateService updateService;

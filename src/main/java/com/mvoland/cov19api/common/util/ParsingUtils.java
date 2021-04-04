@@ -1,4 +1,4 @@
-package com.mvoland.cov19api.common;
+package com.mvoland.cov19api.common.util;
 
 import com.mvoland.cov19api.common.type.AgeGroup;
 import com.mvoland.cov19api.common.type.Sex;

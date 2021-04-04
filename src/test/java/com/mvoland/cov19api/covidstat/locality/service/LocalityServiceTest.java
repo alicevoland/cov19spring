@@ -1,9 +1,9 @@
 package com.mvoland.cov19api.covidstat.locality.service;
 
-import com.mvoland.cov19api.covidstat.locality.data.Department;
-import com.mvoland.cov19api.covidstat.locality.data.DepartmentRepository;
-import com.mvoland.cov19api.covidstat.locality.data.Region;
-import com.mvoland.cov19api.covidstat.locality.data.RegionRepository;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Department;
+import com.mvoland.cov19api.covidstat.locality.data.repository.DepartmentRepository;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
+import com.mvoland.cov19api.covidstat.locality.data.repository.RegionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

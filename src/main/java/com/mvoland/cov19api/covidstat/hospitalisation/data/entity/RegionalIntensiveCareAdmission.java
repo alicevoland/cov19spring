@@ -1,6 +1,6 @@
 package com.mvoland.cov19api.covidstat.hospitalisation.data.entity;
 
-import com.mvoland.cov19api.covidstat.locality.data.Region;
+import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import lombok.*;
 
 import javax.persistence.*;

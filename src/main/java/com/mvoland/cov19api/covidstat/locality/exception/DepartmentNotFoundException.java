@@ -1,6 +1,6 @@
-package com.mvoland.cov19api.covidstat.locality.web;
+package com.mvoland.cov19api.covidstat.locality.exception;
 
-class DepartmentNotFoundException extends RuntimeException {
+public class DepartmentNotFoundException extends RuntimeException {
 
     public DepartmentNotFoundException(String department) {
         super("Could not find department " + department);
