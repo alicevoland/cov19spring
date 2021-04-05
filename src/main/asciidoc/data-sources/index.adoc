@@ -2,7 +2,7 @@
 
 link:../index.html[Back to documentation home]
 
-== Departements de france
+== Départements de france
 
 link:https://www.data.gouv.fr/en/datasets/departements-de-france/[]
 
@@ -19,5 +19,42 @@ link:https://www.data.gouv.fr/en/datasets/departements-de-france/[]
 |Ain
 |84
 |Auvergne-Rhône-Alpes
+|===
+
+== Données Hospitalières
+
+link:https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19[]
+
+=== covid-hospit-incid-reg.csv
+
+|===
+|jour |nomReg |numReg |incid_rea
+
+|2020-03-19 |Auvergne-Rhône-Alpes |84 |44
+|===
+
+=== donnees-hospitalieres-covid19.csv
+
+
+|===
+|dep |sexe |jour |hosp |rea |rad |dc
+
+|01 |0 |2020-03-18 |2 |0 |1 |0
+|===
+
+=== donnees-hospitalieres-nouveaux-covid19.csv
+
+|===
+|dep |jour |incid_hosp |incid_rea |incid_dc |incid_rad
+
+|01 |2020-03-19 |1 |0 |0 |0
+|===
+
+=== donnees-hospitalieres-classe-age-covid19.csv
+
+|===
+|reg |cl_age90 |jour |hosp |rea |rad |dc
+
+|1 |0 |2020-03-18 |0 |0 |0 |0
 |===
 

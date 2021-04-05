@@ -1,12 +1,21 @@
 = Cov19 API
 
-API documentation for a service running at https://cov19api.herokuapp.com
+== Summary
 
-== Complete API documentation
+API documentation for a service running at https://cov19api.herokuapp.com/api
+
+This API is used by link:https://cov19ui.herokuapp.com[Covid 19 UI]
+
+=== Github projects
+
+* https://github.com/mvoland/cov19api (Spring backend)
+* https://github.com/mvoland/cov19ui (React frontend)
+
+=== Complete API documentation
 
 The complete API can be found here: link:complete-api/index.html[Complete API documentation]
 
-== Data sources
+=== Data sources
 
 Complete documentation of data sources used here: link:data-sources/index.html[All data sources]
 

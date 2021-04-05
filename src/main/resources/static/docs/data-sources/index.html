@@ -444,9 +444,17 @@ h5 {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_departements_de_france">Departements de france</a>
+<li><a href="#_départements_de_france">Départements de france</a>
 <ul class="sectlevel2">
 <li><a href="#_departements_france_csv">departements-france.csv</a></li>
+</ul>
+</li>
+<li><a href="#_données_hospitalières">Données Hospitalières</a>
+<ul class="sectlevel2">
+<li><a href="#_covid_hospit_incid_reg_csv">covid-hospit-incid-reg.csv</a></li>
+<li><a href="#_donnees_hospitalieres_covid19_csv">donnees-hospitalieres-covid19.csv</a></li>
+<li><a href="#_donnees_hospitalieres_nouveaux_covid19_csv">donnees-hospitalieres-nouveaux-covid19.csv</a></li>
+<li><a href="#_donnees_hospitalieres_classe_age_covid19_csv">donnees-hospitalieres-classe-age-covid19.csv</a></li>
 </ul>
 </li>
 </ul>
@@ -461,7 +469,7 @@ h5 {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_departements_de_france">Departements de france</h2>
+<h2 id="_départements_de_france">Départements de france</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="https://www.data.gouv.fr/en/datasets/departements-de-france/" class="bare">https://www.data.gouv.fr/en/datasets/departements-de-france/</a></p>
@@ -493,10 +501,150 @@ h5 {
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_données_hospitalières">Données Hospitalières</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19" class="bare">https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19</a></p>
+</div>
+<div class="sect2">
+<h3 id="_covid_hospit_incid_reg_csv">covid-hospit-incid-reg.csv</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">jour</th>
+<th class="tableblock halign-left valign-top">nomReg</th>
+<th class="tableblock halign-left valign-top">numReg</th>
+<th class="tableblock halign-left valign-top">incid_rea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-03-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auvergne-Rhône-Alpes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">84</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_donnees_hospitalieres_covid19_csv">donnees-hospitalieres-covid19.csv</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">dep</th>
+<th class="tableblock halign-left valign-top">sexe</th>
+<th class="tableblock halign-left valign-top">jour</th>
+<th class="tableblock halign-left valign-top">hosp</th>
+<th class="tableblock halign-left valign-top">rea</th>
+<th class="tableblock halign-left valign-top">rad</th>
+<th class="tableblock halign-left valign-top">dc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-03-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_donnees_hospitalieres_nouveaux_covid19_csv">donnees-hospitalieres-nouveaux-covid19.csv</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">dep</th>
+<th class="tableblock halign-left valign-top">jour</th>
+<th class="tableblock halign-left valign-top">incid_hosp</th>
+<th class="tableblock halign-left valign-top">incid_rea</th>
+<th class="tableblock halign-left valign-top">incid_dc</th>
+<th class="tableblock halign-left valign-top">incid_rad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-03-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_donnees_hospitalieres_classe_age_covid19_csv">donnees-hospitalieres-classe-age-covid19.csv</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2858%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">reg</th>
+<th class="tableblock halign-left valign-top">cl_age90</th>
+<th class="tableblock halign-left valign-top">jour</th>
+<th class="tableblock halign-left valign-top">hosp</th>
+<th class="tableblock halign-left valign-top">rea</th>
+<th class="tableblock halign-left valign-top">rad</th>
+<th class="tableblock halign-left valign-top">dc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020-03-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-01 00:03:44 +0200
+Last updated 2021-04-05 18:48:43 +0200
 </div>
 </div>
 </body>
