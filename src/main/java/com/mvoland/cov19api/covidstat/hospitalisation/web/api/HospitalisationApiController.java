@@ -1,11 +1,10 @@
 package com.mvoland.cov19api.covidstat.hospitalisation.web.api;
 
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalIntensiveCareAdmission;
+import com.mvoland.cov19api.covidstat.hospitalisation.exception.HospitalisationNotFoundException;
 import com.mvoland.cov19api.covidstat.hospitalisation.service.HospitalisationService;
 import com.mvoland.cov19api.covidstat.hospitalisation.web.assembler.RegionalIntensiveCareAdmissionAssembler;
-import com.mvoland.cov19api.covidstat.hospitalisation.exception.HospitalisationNotFoundException;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
-import com.mvoland.cov19api.common.util.ParsingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -18,17 +17,14 @@ import java.util.Map;
 @RequestMapping("/api/hospitalisation")
 public class HospitalisationApiController {
 
-    private final LocalityService localityService;
     private final HospitalisationService hospitalisationService;
     private final RegionalIntensiveCareAdmissionAssembler regionalIntensiveCareAdmissionAssembler;
 
     @Autowired
     public HospitalisationApiController(
-            LocalityService localityService,
             HospitalisationService hospitalisationService,
             RegionalIntensiveCareAdmissionAssembler regionalIntensiveCareAdmissionAssembler
     ) {
-        this.localityService = localityService;
         this.hospitalisationService = hospitalisationService;
         this.regionalIntensiveCareAdmissionAssembler = regionalIntensiveCareAdmissionAssembler;
     }
@@ -70,13 +66,7 @@ public class HospitalisationApiController {
             @RequestParam String noticeDateEnd
     ) {
         List<RegionalIntensiveCareAdmission> regionalIntensiveCareAdmissions = hospitalisationService.findRegionalIntensiveCareAdmissionByRegionAndDates(
-                localityService.findRegionByCode(regionCode)
-                        .orElseThrow(() -> new HospitalisationNotFoundException("Could not fin region")),
-                ParsingUtils.parseDateOrThrow(noticeDateBegin,
-                        () -> new HospitalisationNotFoundException("Could not parse noticeDateBegin")),
-                ParsingUtils.parseDateOrThrow(noticeDateEnd,
-                        () -> new HospitalisationNotFoundException("Could not parse noticeDateEnd"))
-        );
+                regionCode, noticeDateBegin, noticeDateEnd);
         return regionalIntensiveCareAdmissionAssembler.toCollectionModel(regionalIntensiveCareAdmissions);
     }
 

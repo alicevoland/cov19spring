@@ -106,3 +106,12 @@ include::{snippets}/locality/departments-search/curl-request.adoc[]
 ======
 operation::locality/departments-search[snippets='http-request,request-parameters,http-response,response-fields']
 ======
+
+== Hospitalisation stats
+
+include::{snippets}/hospitalisation/regionalIntensiveCareAdmissions-search/curl-request.adoc[]
+[%collapsible]
+======
+operation::hospitalisation/regionalIntensiveCareAdmissions-search[snippets='http-request,request-parameters,http-response,response-fields']
+======
+

@@ -1,5 +1,6 @@
 package com.mvoland.cov19api.covidstat.hospitalisation.service;
 
+import com.mvoland.cov19api.common.util.ParsingUtils;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.DepartmentalNewHospitalisation;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.entity.RegionalHospitalisation;
@@ -8,6 +9,7 @@ import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.Department
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.DepartmentalNewHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalHospitalisationRepository;
 import com.mvoland.cov19api.covidstat.hospitalisation.data.repository.RegionalIntensiveCareAdmissionRepository;
+import com.mvoland.cov19api.covidstat.hospitalisation.exception.HospitalisationNotFoundException;
 import com.mvoland.cov19api.covidstat.locality.data.entity.Region;
 import com.mvoland.cov19api.covidstat.locality.service.LocalityService;
 import org.slf4j.Logger;
@@ -204,6 +206,20 @@ public class HospitalisationService {
         return map;
     }
 
+    public List<RegionalIntensiveCareAdmission> findRegionalIntensiveCareAdmissionByRegionAndDates(
+            String regionCode,
+            String noticeDateBegin,
+            String noticeDateEnd
+    ) {
+        return findRegionalIntensiveCareAdmissionByRegionAndDates(
+        localityService.findRegionByCode(regionCode)
+                .orElseThrow(() -> new HospitalisationNotFoundException("Could not find region")),
+                ParsingUtils.parseDateOrThrow(noticeDateBegin,
+                        () -> new HospitalisationNotFoundException("Could not parse noticeDateBegin")),
+                ParsingUtils.parseDateOrThrow(noticeDateEnd,
+                        () -> new HospitalisationNotFoundException("Could not parse noticeDateEnd"))
+        );
+    }
     public List<RegionalIntensiveCareAdmission> findRegionalIntensiveCareAdmissionByRegionAndDates(
             Region region,
             LocalDate noticeDateBegin,
