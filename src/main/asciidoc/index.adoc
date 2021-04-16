@@ -2,14 +2,14 @@
 
 == Summary
 
-API documentation for a service running at https://cov19api.herokuapp.com/api
+API documentation for a service running at https://cov19spring.herokuapp.com/api
 
-This API is used by link:https://cov19ui.herokuapp.com[Covid 19 UI]
+This API is used by link:https://cov19react.herokuapp.com[Covid 19 UI]
 
 === Github projects
 
-* https://github.com/mvoland/cov19api (Spring backend)
-* https://github.com/mvoland/cov19ui (React frontend)
+* https://github.com/mvoland/cov19spring (Spring backend)
+* https://github.com/mvoland/cov19react (React frontend)
 
 === Complete API documentation
 
