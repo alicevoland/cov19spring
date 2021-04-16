@@ -20,7 +20,7 @@ public class AbstractControllerTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
                 .apply(documentationConfiguration(restDocumentation).uris()
                         .withScheme("https")
-                        .withHost("cov19spring.herokuapp.com")
+                        .withHost("https://cov19spring.herokuapp.com")
                         .withPort(80))
                 .apply(documentationConfiguration(restDocumentation).operationPreprocessors()
                         .withRequestDefaults(removeHeaders("Content-Length", "Content-Type", "Accept"), prettyPrint())

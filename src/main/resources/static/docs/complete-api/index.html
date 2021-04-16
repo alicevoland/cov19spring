@@ -479,7 +479,7 @@ h5 {
 <h4 id="_full_update">Full update</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/full' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/update/full' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -490,7 +490,7 @@ h5 {
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/full HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -505,7 +505,7 @@ Vary: Access-Control-Request-Headers
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:42:33.291243&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:44:18.689332&quot;
 }</code></pre>
 </div>
 </div>
@@ -562,7 +562,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_partial_update">Partial update</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/days?days=3' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/update/days?days=3' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -573,7 +573,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/days?days=3 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -609,7 +609,7 @@ Vary: Access-Control-Request-Headers
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:42:34.028744&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:44:18.732084&quot;
 }</code></pre>
 </div>
 </div>
@@ -650,7 +650,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_automatic_update">Automatic update</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/update/auto?days=3' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/update/auto?days=3' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -661,7 +661,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/update/auto?days=3 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -676,7 +676,7 @@ Vary: Access-Control-Request-Headers
 
 {
   &quot;accepted&quot; : true,
-  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:42:33.311709&quot;
+  &quot;acceptedStartTime&quot; : &quot;2021-04-16T12:44:18.710469&quot;
 }</code></pre>
 </div>
 </div>
@@ -727,7 +727,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_region_by_id">Region by ID</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/id/1' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/regions/id/1' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -738,7 +738,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/id/1 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -779,13 +779,13 @@ Vary: Access-Control-Request-Headers
   &quot;regionName&quot; : &quot;Test Region 1&quot;,
   &quot;_links&quot; : {
     &quot;self&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
     },
     &quot;selfByCode&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
     },
     &quot;all&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
     }
   }
 }</code></pre>
@@ -833,7 +833,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_region_by_code">Region by code</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/code/1234' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/regions/code/1234' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -844,7 +844,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/code/1234 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -885,13 +885,13 @@ Vary: Access-Control-Request-Headers
   &quot;regionName&quot; : &quot;Test Region 1&quot;,
   &quot;_links&quot; : {
     &quot;self&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
     },
     &quot;selfByCode&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
     },
     &quot;all&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
     }
   }
 }</code></pre>
@@ -939,7 +939,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_all_regions">All regions</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/regions' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -950,7 +950,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -971,13 +971,13 @@ Vary: Access-Control-Request-Headers
       &quot;regionName&quot; : &quot;Test Region 1&quot;,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     }, {
@@ -986,13 +986,13 @@ Vary: Access-Control-Request-Headers
       &quot;regionName&quot; : &quot;Test Region 2&quot;,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/2&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/2&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1235&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1235&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     } ]
@@ -1047,7 +1047,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_search_regions">Search regions</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/regions/search?codes=1234&amp;names=Test+Region+2' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/regions/search?codes=1234&amp;names=Test+Region+2' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1058,7 +1058,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/regions/search?codes=1234&amp;names=Test+Region+2 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1104,13 +1104,13 @@ Vary: Access-Control-Request-Headers
       &quot;regionName&quot; : &quot;Test Region 1&quot;,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     }, {
@@ -1119,13 +1119,13 @@ Vary: Access-Control-Request-Headers
       &quot;regionName&quot; : &quot;Test Region 2&quot;,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/2&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/2&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1235&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1235&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     } ]
@@ -1183,7 +1183,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_department_by_id">Department by ID</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/id/1' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/departments/id/1' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1194,7 +1194,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/id/1 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1240,13 +1240,13 @@ Vary: Access-Control-Request-Headers
   },
   &quot;_links&quot; : {
     &quot;self&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
     },
     &quot;selfByCode&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
     },
     &quot;all&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
     }
   }
 }</code></pre>
@@ -1309,7 +1309,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_department_by_code">Department by code</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/code/1234' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/departments/code/1234' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1320,7 +1320,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/code/1234 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1366,13 +1366,13 @@ Vary: Access-Control-Request-Headers
   },
   &quot;_links&quot; : {
     &quot;self&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
     },
     &quot;selfByCode&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
     },
     &quot;all&quot; : {
-      &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+      &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
     }
   }
 }</code></pre>
@@ -1435,7 +1435,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_all_departments">All departments</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/departments' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1446,7 +1446,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1472,13 +1472,13 @@ Vary: Access-Control-Request-Headers
       },
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     }, {
@@ -1492,13 +1492,13 @@ Vary: Access-Control-Request-Headers
       },
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/2&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/2&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1235&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1235&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     } ]
@@ -1568,7 +1568,7 @@ Vary: Access-Control-Request-Headers
 <h4 id="_search_departments">Search departments</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/locality/departments/search?codes=1234&amp;names=Test+Department+2' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/locality/departments/search?codes=1234&amp;names=Test+Department+2' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1579,7 +1579,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/locality/departments/search?codes=1234&amp;names=Test+Department+2 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1630,13 +1630,13 @@ Vary: Access-Control-Request-Headers
       },
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/1&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/1&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1234&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1234&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     }, {
@@ -1650,13 +1650,13 @@ Vary: Access-Control-Request-Headers
       },
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/id/2&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/id/2&quot;
         },
         &quot;selfByCode&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions/code/1235&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions/code/1235&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/locality/regions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/locality/regions&quot;
         }
       }
     } ]
@@ -1730,7 +1730,7 @@ Vary: Access-Control-Request-Headers
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions/search?regionCode=code&amp;noticeDateBegin=2021-04-16&amp;noticeDateEnd=2021-04-14' -i -X GET</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions/search?regionCode=code&amp;noticeDateBegin=2021-04-16&amp;noticeDateEnd=2021-04-14' -i -X GET</code></pre>
 </div>
 </div>
 <details>
@@ -1741,7 +1741,7 @@ Vary: Access-Control-Request-Headers
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="http">GET /api/hospitalisation/regionalIntensiveCareAdmissions/search?regionCode=code&amp;noticeDateBegin=2021-04-16&amp;noticeDateEnd=2021-04-14 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: cov19spring.herokuapp.com</code></pre>
 </div>
 </div>
 </div>
@@ -1796,10 +1796,10 @@ Vary: Access-Control-Request-Headers
       &quot;intensiveCareAdmissionCount&quot; : 4,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions/id/100&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions/id/100&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
         }
       }
     }, {
@@ -1813,10 +1813,10 @@ Vary: Access-Control-Request-Headers
       &quot;intensiveCareAdmissionCount&quot; : 2,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions/id/101&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions/id/101&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
         }
       }
     }, {
@@ -1830,10 +1830,10 @@ Vary: Access-Control-Request-Headers
       &quot;intensiveCareAdmissionCount&quot; : 3,
       &quot;_links&quot; : {
         &quot;self&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions/id/102&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions/id/102&quot;
         },
         &quot;all&quot; : {
-          &quot;href&quot; : &quot;http://localhost:8080/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
+          &quot;href&quot; : &quot;https://cov19spring.herokuapp.com/api/hospitalisation/regionalIntensiveCareAdmissions&quot;
         }
       }
     } ]
