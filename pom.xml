@@ -12,7 +12,7 @@
     <groupId>com.mvoland</groupId>
     <artifactId>cov19api</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <description>Covid 19 API</description>
+    <description>Covid 19 Spring Boot Backend</description>
     <properties>
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
